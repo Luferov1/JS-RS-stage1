@@ -17,8 +17,10 @@
 }
 
 header {
+    position: relative;
     display: flex;
     align-items: center;
+    gap: calc(63 / 1160 * 100%);
     width: 100%;
     height: 80px;
     padding: 0 calc(50% - 580px);
@@ -38,6 +40,7 @@ header {
 }
 
 h1 {
+    z-index: 2;
     font-weight: 400;
     font-size: 19.0145px;
     line-height: 120%;
@@ -47,13 +50,71 @@ h1 {
 }
 
 .bamboo {
+    z-index: 1;
     position: absolute;
-    width: 7.03px;
+    width: 11.03px;
     height: 20.98px;
-    left: 13.23px;
-    top: 24.64px;
-    /* background-image: url(../../assets/icons/bamboo.svg); */
+    left: 10.03px;
+    bottom: 6.49px;
+    background-image: url(../../assets/icons/bamboo.svg);
+    background-position: left;
+    background-size: 100% 100%;
     /* background: #FFFFFF; */
     /* border: 1.18841px solid #FFFFFF; */
-    transform: matrix(-0.9, 0.52, 0.4, 0.88, 0, 0);
+}
+
+.header-link {
+    position:absolute; 
+    width:100%;
+    height:100%;
+    top:0;
+    left: 0;
+    z-index: 3;
+    cursor: pointer;
+}
+
+nav {
+    width: calc(472 / 1160 * 100%);  /*472px*/
+}
+
+.nav-list, .nav-item {
+    margin:0;
+    padding: 0;
+    text-indent: 0;
+}
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-item {
+    list-style-type: none;
+}
+
+.nav-link, .designed-by {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: #FFFFFF;
+}
+
+.nav-link-active {
+    background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.designed-by {
+    display: block;
+    margin-left: auto;
+}
+
+.nav-link:active, .designed-by:active {
+    background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
