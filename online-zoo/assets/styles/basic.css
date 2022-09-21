@@ -42,6 +42,16 @@ button {
     line-height: 140%;
     text-transform: uppercase;
     color: #000000;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #E47209;
+}
+
+button:active {
+    background: #4B9200;
 }
 
 p {
