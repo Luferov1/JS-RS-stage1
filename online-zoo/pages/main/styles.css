@@ -51,7 +51,6 @@ h1 {
     line-height: 120%;
     text-align: center;
     color: #FFFFFF;
-    /* border: 1.18841px solid #FFFFFF; */
 }
 
 .bamboo {
@@ -64,8 +63,6 @@ h1 {
     background-image: url(../../assets/icons/bamboo.svg);
     background-position: left;
     background-size: 100% 100%;
-    /* background: #FFFFFF; */
-    /* border: 1.18841px solid #FFFFFF; */
 }
 
 .header-link {
@@ -454,10 +451,9 @@ nav {
 .widget-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     width: calc(764 / 1160 * 100%);
     height: 244px;
-    border: 1px solid black;
+    margin-bottom: 60px;
 }
 
 .widget {
@@ -470,6 +466,9 @@ nav {
 }
 
 .widget-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 168px;
     background: #FFFFFF;
@@ -484,6 +483,64 @@ nav {
 .widget-arrow {
     width: 69px;
     height: 35.08px;
-    background-image: url(../../assets/images/widget-arrow.jpg);
+    margin-top: 62px;
+}
+
+.section4-button {
+    width: 298px;
+    height: 54px;
+    background: #FE9013;
+    border-radius: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+/*section5*/
+
+.section5 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 919px;
+}
+
+.flower4 {
+    position: absolute;
+    width: 300.92px;
+    height: 295.45px;
+    bottom: 0%;
+    right: 0%;
+    background-image: url(../../assets/images/flower4.jpg);
     background-repeat: no-repeat;
+    background-position: right top;
+}
+
+.testimonials-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(1160 / 1600 * 100%);
+    height: 575px;
+    margin-top: 140px;
+    z-index: 2;
+}
+
+.testimonials-header {
+    margin-bottom: 47px;
+}
+
+.testimonials-item-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 391px;
+}
+
+.testimonials-item {
+    width: calc(267 / 1160 * 100%);
+    height: 391px;
+    border: 1px solid black;
 }
