@@ -655,7 +655,9 @@ h1, .logo-container-header {
 /*footer*/
 
 .footer {
+    position: relative;
     display: flex;
+    justify-content: space-between;
     align-items: flex-start;
     width: 100%;
     height: 443px;
@@ -727,4 +729,106 @@ h1, .logo-container-header {
 
 .social-text {
     color: #FFFFFF;
+}
+
+.footer-nav {
+    position: absolute;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    bottom: 40px;
+    width: calc(362 / 1600 * 100%);
+}
+
+.footer-nav-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.footer-nav-list, .nav-item {
+    margin:0;
+    padding: 0;
+    text-indent: 0;
+}
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer-design-info {
+    position: absolute;
+    bottom: 50px;
+    right: calc(220 / 1600 * 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 52px;
+}
+
+.design-text {
+    font-weight: 100;
+    font-size: 16px;
+    line-height: 130%;
+    color: #FFFFFF;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 367px;
+    height: 85px;
+}
+
+.form-header {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+    color: #FFFFFF;
+}
+
+.footer-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-form-input {
+    display: flex;
+    align-items: center;
+    width: 228px;
+    height: 42px;
+    border-color: #FE9013;
+    border-width: 0.7px;
+    border-style: solid;
+    background: #111115;
+    padding-left: 10px;
+    color: white;
+    transition: all 1s;
+}
+
+.footer-form-input::-webkit-input-placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #BDBDBD;
+}
+
+.footer-form-input::-moz-input-placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #BDBDBD;
+}
+
+.footer-form-input:focus {
+    border: 0.7px solid #4B9200;
+    outline: none;
+}
+
+.footer-form-input:invalid {
+    border: 0.7px solid #D31414;
+    /* outline: none; */
 }
