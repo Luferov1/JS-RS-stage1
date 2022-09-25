@@ -7,7 +7,6 @@
     /* max-width: 1600px; */
     width: 1600px;
     height: 4975px;
-    border: 1px solid black;
     margin: auto;
     background: #FFFFFF;
 }
@@ -877,7 +876,12 @@ h1, .logo-container-header {
     cursor: pointer;
 }
 
-.footer-form-button:active {
-    border: 1ox solid #4B9200;
+.footer-form-input:valid + .footer-form-button {
+    border: 1px solid #4B9200;
     color: #4B9200;
+}
+
+.footer-form-input:invalid + .footer-form-button {
+    border: 1px solid #D31414;
+    color: #D31414;
 }
