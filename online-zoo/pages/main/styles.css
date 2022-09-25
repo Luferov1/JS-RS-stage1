@@ -713,6 +713,22 @@ h1, .logo-container-header {
     text-decoration: none;
 }
 
+.social-link:hover .social-text {
+    color: #F9804B;
+}
+
+.social-link:hover .social-ellipse {
+    background: #F9804B;
+}
+
+.social-link:active .social-text {
+    color: #4B9200;
+}
+
+.social-link:active .social-ellipse {
+    background: #4B9200;
+}
+
 .social-item {
     list-style-type: none;
 }
@@ -765,6 +781,16 @@ h1, .logo-container-header {
     flex-direction: column;
     justify-content: space-between;
     height: 52px;
+    text-decoration: none;
+}
+
+.footer-design-info:hover .design-text {
+    text-decoration: underline;
+}
+
+.footer-design-info:active .design-text {
+    text-decoration: underline;
+    color: #4B9200;
 }
 
 .design-text {
@@ -792,7 +818,8 @@ h1, .logo-container-header {
 
 .footer-form {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
 }
 
 .footer-form-input {
@@ -823,6 +850,10 @@ h1, .logo-container-header {
     color: #BDBDBD;
 }
 
+.footer-form-input:invalid::placeholder {
+    color: #D31414;
+}
+
 .footer-form-input:focus {
     border: 0.7px solid #4B9200;
     outline: none;
@@ -831,4 +862,22 @@ h1, .logo-container-header {
 .footer-form-input:invalid {
     border: 0.7px solid #D31414;
     /* outline: none; */
+}
+
+.footer-form-button {
+    width: 129px;
+    height: 42px;
+    background: #F1F3F2;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #000000;
+    cursor: pointer;
+}
+
+.footer-form-button:active {
+    border: 1ox solid #4B9200;
+    color: #4B9200;
 }
