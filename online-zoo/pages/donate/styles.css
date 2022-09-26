@@ -168,6 +168,7 @@ h1, .logo-container-header {
 .feed-header {
     margin-right: calc(6.5 / 1160 * 100%);
     margin-bottom: 20px;
+    color: #FE9013;
 }
 
 .feed-subheader {
@@ -182,7 +183,7 @@ h1, .logo-container-header {
     justify-content: space-between;
     width: calc(532 / 975 * 100%);
     height: 246px;
-    margin-bottom: 48px;
+    margin-bottom: 53px;
 }
 
 .multiply {
@@ -458,6 +459,11 @@ input[type=number] {
     color: white;
     border: none;
     cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .feed-form-button:hover {
@@ -504,6 +510,11 @@ input[type=number] {
     color: white;
     margin-bottom: 44px;
     cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .footer-button:hover {
