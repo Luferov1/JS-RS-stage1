@@ -832,7 +832,6 @@ h1, .logo-container-header {
     background: #111115;
     padding-left: 10px;
     color: white;
-    transition: all 1s;
 }
 
 .footer-form-input::-webkit-input-placeholder {
@@ -853,14 +852,23 @@ h1, .logo-container-header {
     color: #D31414;
 }
 
-.footer-form-input:focus {
+.footer-form-input:focus::placeholder {
+    color: #FE9013;
+}
+
+.footer-form-input:valid {
     border: 0.7px solid #4B9200;
     outline: none;
 }
 
 .footer-form-input:invalid {
     border: 0.7px solid #D31414;
-    /* outline: none; */
+    outline: none;
+}
+
+.footer-form-input:focus {
+    border: 0.7px solid #FE9013;
+    outline: none;
 }
 
 .footer-form-button {
