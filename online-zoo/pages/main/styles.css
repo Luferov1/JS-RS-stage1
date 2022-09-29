@@ -1,14 +1,20 @@
-.content {
+
+/* .content {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    /* max-width: 1600px; */
+    max-width: 1600px;
     width: 1600px;
     height: 4975px;
     margin: auto;
     background: #FFFFFF;
+} */
+
+.wrapper {
+    max-width: 1160px;
+    margin: 0 auto;
 }
 
 /*section 1*/
@@ -17,19 +23,24 @@
     width: 100%;
     height: 780px;
     background-image: url(../../assets/images/panda-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /*header*/
 header {
+    width: 100%;
+    background: #000000;
+    backdrop-filter: blur(2px);
+}
+
+.wrapper__header {
     position: relative;
     display: flex;
     align-items: center;
-    gap: calc(63 / 1160 * 100%);
-    width: 100%;
     height: 80px;
-    padding: 0 calc(50% - 580px);
-    background: #000000;
-    backdrop-filter: blur(2px);
+    gap: calc(63 / 1160 * 100%);
 }
 
 .logo-container {
@@ -174,20 +185,24 @@ h1, .logo-container-header {
 
 .section2 {
     position: relative;
+    width: 100%;
+    padding: 140px 0 180px 0;
+    height: 723px;
+}
+
+.section2__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
     height: 723px;
-    padding: 140px 0 180px 0;
 }
 
 .flower1 {
     position: absolute;
-    width: 293px;
-    height: 605px;
-    left: 1400px;
+    max-width: 100%;
+    height: auto;
     top: 12px;
+    right: -40px;
     background: url(../../assets/images/flower1.jpg);
     background-repeat: no-repeat;
 }
@@ -195,7 +210,7 @@ h1, .logo-container-header {
 .backstage-container {
     display: flex;
     gap: calc(87 / 1161 * 100%);
-    width: calc(1161 / 1600 * 100%);
+    width: 100%;
     height: 403px;
 }
 
@@ -223,11 +238,15 @@ h1, .logo-container-header {
 
 .section3 {
     position: relative;
+    width: 100%;
+    height: 1106px;
+}
+
+.section3__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 80px;
-    width: 100%;
     height: 1106px;
 }
 
@@ -263,21 +282,22 @@ h1, .logo-container-header {
 }
 
 .slider-left-button {
-    left: calc(138 / 1600 * 100%);
-    bottom: 641px;
+    left: -82px;
+    bottom: 407px;
 }
 
 .slider-right-button {
-    right: 140px;
-    bottom: 641px;
+    right: -82px;
+    bottom: 407px;
 }
 
 .slider-container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-content: space-between;
     flex-wrap: wrap;
-    width: calc(1158 / 1600 * 100%);
+    width: 100%;
     height: 872px;
     z-index: 1;
 }
@@ -392,7 +412,7 @@ h1, .logo-container-header {
     z-index: 2;
     width: 100%;
     height: 1004px;
-    padding: 69px 13.75% 100px 13.75%;
+    padding: 69px 100px;
     background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
 }
 
@@ -513,10 +533,14 @@ h1, .logo-container-header {
 
 .section5 {
     position: relative;
+    width: 100%;
+    height: 919px;
+}
+
+.section5__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
     height: 919px;
 }
 
@@ -524,18 +548,19 @@ h1, .logo-container-header {
     position: absolute;
     width: 300.92px;
     height: 295.45px;
-    bottom: -2%;
-    right: 0%;
+    bottom: -2.2%;
+    right: -2.7%;
     background-image: url(../../assets/images/flower4.jpg);
     background-repeat: no-repeat;
     background-position: right top;
 }
 
 .testimonials-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: calc(1160 / 1600 * 100%);
+    width: 100%;
     height: 575px;
     margin-top: 140px;
     z-index: 2;
@@ -645,8 +670,8 @@ h1, .logo-container-header {
 
 .section5-button {
     position: absolute;
-    bottom: 180px;
-    left: calc(220 / 1600 * 100%);
+    bottom: -24px;
+    left: 0px;
     width: 298px;
     height: 54px;
     background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
@@ -658,13 +683,19 @@ h1, .logo-container-header {
 
 .footer {
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     width: 100%;
     height: 443px;
     background: #111115;
-    padding: 40px calc(220 / 1600 * 100%) 50px calc(220 / 1600 * 100%);
+    padding: 40px 0 50px 0;
+    z-index: 1;
+}
+
+.wrapper__footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 353px;
 }
 
 .footer-info {
@@ -758,8 +789,8 @@ h1, .logo-container-header {
     position: absolute;
     left: 50%; 
     transform: translate(-50%, -50%);
-    bottom: 40px;
-    width: calc(362 / 1600 * 100%);
+    bottom: -10px;
+    width: 362px;
 }
 
 .footer-nav-list {
@@ -782,8 +813,8 @@ h1, .logo-container-header {
 
 .footer-design-info {
     position: absolute;
-    bottom: 50px;
-    right: calc(220 / 1600 * 100%);
+    bottom: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

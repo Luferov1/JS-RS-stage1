@@ -1,36 +1,38 @@
-.content {
+/* .content {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    /* max-width: 1600px; */
+    max-width: 1600px;
     width: 1600px;
     height: 2391px;
     margin: auto;
     background: #FFFFFF;
-    background: 
-    url(../../assets/images/panda-bg2.jpg) center 76px / 100% 390px no-repeat;
+} */
+
+.wrapper {
+    max-width: 1160px;
+    margin: 0 auto;
 }
 
 /*section 1*/
 
-.section1 {
-    width: 100%;
-    height: 466px;
-}
-
 /*header*/
 header {
     position: relative;
+    width: 100%;
+    height: 80px;
+    background: #000000;
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
+
+.header__wrapper {
     display: flex;
     align-items: center;
     gap: calc(63 / 1160 * 100%);
-    width: 100%;
     height: 80px;
-    padding: 0 calc(50% - 580px);
-    background: #000000;
-    backdrop-filter: blur(2px);
 }
 
 .logo-container {
@@ -126,6 +128,20 @@ h1, .logo-container-header {
     background-clip: text;
 }
 
+.section1 {
+    position: relative;
+    width: 100%;
+    height: 466px;
+}
+
+.panda-bg {
+    position: absolute;
+    top: 76px;
+    width: 100%;
+    height: 390px;
+    background: url(../../assets/images/panda-bg2.jpg) center / cover no-repeat;
+}
+
 /*main*/
 
 .main {
@@ -135,7 +151,7 @@ h1, .logo-container-header {
     width: 100%;
     height: 1482px;
     background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
-    padding: 40px calc(220 / 1600 * 100%) 180px calc(220 / 1600 * 100%);
+    padding: 40px 0 180px 0;
 }
 
 .main-header {
@@ -145,7 +161,7 @@ h1, .logo-container-header {
 
 .main-p {
     color: #FFFFFF;
-    margin-bottom: 40px;
+    margin-bottom: 42px;
 }
 
 .donate-header {
@@ -484,13 +500,18 @@ input[type=number] {
 
 .footer {
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     width: 100%;
     height: 443px;
     background: #111115;
-    padding: 40px calc(220 / 1600 * 100%) 50px calc(220 / 1600 * 100%);
+    padding: 40px 0 50px 0;
+}
+
+.footer__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 353px;
 }
 
 .footer-info {
@@ -584,8 +605,8 @@ input[type=number] {
     position: absolute;
     left: 50%; 
     transform: translate(-50%, -50%);
-    bottom: 40px;
-    width: calc(362 / 1600 * 100%);
+    bottom: -10px;
+    width: 362px;
 }
 
 .footer-nav-list {
@@ -608,8 +629,8 @@ input[type=number] {
 
 .footer-design-info {
     position: absolute;
-    bottom: 50px;
-    right: calc(220 / 1600 * 100%);
+    bottom: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
