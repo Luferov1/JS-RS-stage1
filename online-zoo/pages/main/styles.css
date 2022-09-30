@@ -1,17 +1,3 @@
-
-/* .content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    max-width: 1600px;
-    width: 1600px;
-    height: 4975px;
-    margin: auto;
-    background: #FFFFFF;
-} */
-
 .wrapper {
     max-width: 1160px;
     margin: 0 auto;
@@ -30,9 +16,11 @@
 
 /*header*/
 header {
+    position: relative;
     width: 100%;
     background: #000000;
     backdrop-filter: blur(2px);
+    z-index: 1;
 }
 
 .wrapper__header {
@@ -40,7 +28,7 @@ header {
     display: flex;
     align-items: center;
     height: 80px;
-    gap: calc(63 / 1160 * 100%);
+    gap: 63px;
 }
 
 .logo-container {
@@ -218,6 +206,8 @@ h1, .logo-container-header {
     width: calc(609 / 1161 * 100%);
     height: 403px;
     background-image: url(../../assets/images/bamboo-cap.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 .backstage-text-container {
@@ -931,4 +921,64 @@ h1, .logo-container-header {
 .footer-form-input:invalid + .footer-form-button {
     border: 1px solid #D31414;
     color: #D31414;
+}
+
+@media screen and (max-width: 1000px) {
+        
+    .wrapper {
+        max-width: 940px;
+    }
+
+    /* section1 */
+
+    .section1 {
+        height: 584px;
+    }
+
+    .section1-header {
+        width: 400.25px;
+        height: 320px;
+        left: calc(514 / 1000  * 100%);
+        top: 122.8px;
+        font-weight: 700;
+        font-size: 85px;
+        line-height: 75%;
+    }
+
+    .section1-ellipse {
+        top: 69px;
+        left: calc(50% - 367px/2 + 139.5px);
+        width: 367px;
+        height: 367px;
+    }
+
+    .header-nav{
+        width: calc(431 / 940 * 100%);  /*472px*/
+    }
+
+    .section1-button {
+        left: calc(50% - 298px/2 + 214px);
+        top: 483px;
+    }
+
+    /* section2 */
+
+    .flower1 {
+        display: none;
+    }
+
+    .section2 {
+        padding-top: 100px;
+    }
+
+    .backstage-container {
+        height: 427px;
+        align-items: center;
+    }
+
+    .backstage-img {
+        width: calc(405 / 940 * 100%);
+        height: 408px;
+    }
+
 }
