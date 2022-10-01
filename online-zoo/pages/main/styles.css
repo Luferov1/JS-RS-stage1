@@ -125,11 +125,12 @@ h1, .logo-container-header {
 }
 
 .burger-menu-open-button {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 18px;
     height: 10px;
+    cursor: pointer;
 }
 
 .burger-menu-open-button span {
@@ -494,11 +495,26 @@ h1, .logo-container-header {
 }
 
 .widget-container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     width: calc(764 / 1160 * 100%);
     height: 244px;
     margin-bottom: 60px;
+}
+
+.widget-tablet-arrow {
+    display: none;
+    position: absolute;
+    left: 137px;
+    top: -16px;
+}
+
+.widget-tablet-second-arrow {
+    display: none;
+    position: absolute;
+    left: 345px;
+    top: -16px;
 }
 
 .widget {
@@ -1174,7 +1190,6 @@ h1, .logo-container-header {
     /* footer */
 
     .wrapper__footer {
-        margin-left: 43px;
         justify-content: flex-start;
         gap: calc(164 / 940 * 100%);
     }
@@ -1191,6 +1206,7 @@ h1, .logo-container-header {
 @media screen and (max-width: 640px) {
     .wrapper {
         max-width: 600px;
+        overflow: hidden;
     }
 
     /* section1 */
@@ -1206,6 +1222,10 @@ h1, .logo-container-header {
         z-index: 1;
     }
 
+    .burger-menu-open-button {
+        display: flex;
+    }
+
     .header-nav {
         display: none;
     }
@@ -1214,19 +1234,19 @@ h1, .logo-container-header {
         display: none;
     }
 
-    .logo-container {
+    header .logo-container {
         border: none;
         width: 48px;
         height: 29.03px;
     }
 
-    .logo-container h1 {
+     .logo-container h1 {
         font-weight: 400;
         font-size: 12.2899px;
         line-height: 120%;
     }
 
-    .bamboo {
+    header .bamboo {
         width: 10px;
         height: 13.56px;
         top: 12px;
@@ -1391,14 +1411,18 @@ h1, .logo-container-header {
     .section4__wrapper {
         margin: 0;
         width: 640px;
+        height: 761px;
     }
 
     .section4 {
         padding-top: 20px;
+        padding-bottom: 0px;
+        height: 781px;
     }
 
     .section4-container {
         width: 100%;
+        height: 741px;
         padding: 10px 20px 0 20px;
     }
 
@@ -1421,4 +1445,128 @@ h1, .logo-container-header {
         font-size: 16px;
         margin-bottom: 30px;
     }
+
+    .section4 h4 {
+        margin-bottom: 20px;
+    }
+
+    .widget-arrow {
+        display: none;
+    }
+
+    .widget-container {
+        width: 100%;
+        justify-content: start;
+        gap: calc(42 / 600 * 100%);
+        margin-bottom: 40px;
+    }
+
+    .widget-tablet-arrow, .widget-tablet-second-arrow {
+        display: block;
+    }
+
+    /* section5 */
+
+    .section5 {
+        height: 668px;
+    }
+
+    .section5__wrapper {
+        height: 668px;
+    }
+
+    .testimonials-container {
+        margin-top: 60px;
+    }
+
+    .testimonials-item-container {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 357px;
+    }
+
+    .testimotials-item-border {
+        width: 100%;
+        height: 109px;
+    }
+
+    .testimonials-item {
+        justify-content: flex-start;
+        height: 101.5px;
+        padding: 15px 10px 12px 12px;
+        overflow: hidden;
+    }
+
+    .section5-input {
+        display: none;
+    }
+
+    .section5-button {
+        top: 474px;
+        left: 50%;
+        bottom: none;
+        transform: translateX(-50%); 
+        width: 240px;
+    }
+
+    .flower4 {
+        height: 147.15px;
+        width: 120px;
+        bottom: -12px;
+        right: -5px;
+    }
+
+    /* footer */
+
+    .footer {
+        padding: 12px 0;
+        height: 282px;
+    }
+
+    .wrapper__footer {
+        height: 258px;
+    }
+
+    .form-container {
+        display: none;
+    }
+
+    .footer-info {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .social-list {
+        justify-content: space-between;
+        width: 26px;
+        height: 164px;
+    }
+    .social-item {
+        width: 100%;
+    }
+
+    .social-link {
+        width: 100%;
+    }
+
+    .social-text {
+        display: none;
+    }
+
+    .footer-info form {
+        position: absolute;
+        top: 85px;
+        height: 54px;
+    }
+
+    .footer-button {
+        margin: 0;
+    }
+
+    .footer-nav {
+        width: 298px;
+        left: 0;
+    }
+
 }
