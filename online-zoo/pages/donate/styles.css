@@ -856,7 +856,16 @@ input[type=number] {
         transform: none;
         bottom: 0;
     }
+}
 
+@media screen and (max-width: 810px) {
+    .wrapper__footer {
+        gap: 0px;
+    }
+
+    .footer-nav {
+        margin-left: -60px;
+    }
 }
 
 @media screen and (max-width: 640px) {
@@ -922,6 +931,7 @@ input[type=number] {
 
     .main {
         padding-top: 30px;
+        width: 100%;
     }
 
     .main-header {
@@ -1057,6 +1067,70 @@ input[type=number] {
     .footer-nav {
         width: 298px;
         left: 0;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    
+    .chosen-animal-container {
+        margin-bottom: 10px;
+        height: 150px;
+    }
+
+    .chosen-animal {
+        width: 160.15px;
+        height: 138.72px;
+    }
+
+    .amount-container {
+        margin-top: 50px;
+    }
+
+    .multiply {
+        top: 80px;
+        left: 45%;
+    }
+
+    .input-amount-head-container {
+        height: 40px;
+        margin-bottom: 25px;
+        width: 100%;
+    }
+
+    .input-amount-container {
+        width: 95%;
+        height: 14px;
+        padding: 0 2px;
+    }
+
+    .input-amount-bar {
+        left: 20px;
+        top: 6px;
+        height: 1px;
+    }
+
+    .dollar-value {
+        font-size: 13px;
+        top: 20px;
+    }
+
+    .feed-header {
+        font-size: 38px;
+    }
+
+    .feed-subheader {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    .footer-design-info {
+        right: 30%;
+        bottom: 20%;
+    }
+
+    .footer-nav {
+        margin: 0;
     }
 }
 
@@ -1113,7 +1187,7 @@ input[type=number] {
 
     .chosen-animal-container {
         width: 100%;
-        margin: 0;
+        margin: 0 0 70px 0;
     }
 
     .amount-container {
@@ -1146,11 +1220,13 @@ input[type=number] {
     .input-amount-head-container {
         height: 40px;
         margin-bottom: 25px;
+        width: 100%;
     }
 
     .input-amount-container {
         height: 14px;
         padding: 0 8px;
+        width: 100%;
     }
 
     .input-amount-bar {
@@ -1213,6 +1289,11 @@ input[type=number] {
         align-items: center;
         gap: 30px;
         height: 294px;
+    }
+
+    .footer-design-info {
+        bottom: 0;
+        right: 0;
     }
 
     footer .logo-container {
