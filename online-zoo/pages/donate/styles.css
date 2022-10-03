@@ -1053,6 +1053,10 @@ input[type=number] {
         height: 100%;
     }
     
+    .number-input{
+        padding-left: 6px;
+    }
+
     .dollar-symbol {
         top: 11px;
     }
