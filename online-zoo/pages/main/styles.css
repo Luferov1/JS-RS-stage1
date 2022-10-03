@@ -187,6 +187,50 @@ h1, .logo-container-header {
     color: #FFFFFF;
 }
 
+/* burger-menu */
+
+.burger-menu {
+    position: absolute;
+    top: -330px;
+    display: flex;
+    flex-direction: column;
+    gap: 30.4px;
+    width: 100%;
+    height: 329px;
+    background-color: #FFFFFF;
+    z-index: 3;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.burger-menu .logo-container {
+    border: 0.8px solid #FE9013;
+    width: 65.6px;
+    height: 41.6px;
+}
+
+.burger-menu .logo-container-header {
+    color: #FE9013;
+    font-size: 15.2116px;
+}
+
+.orange-bamboo {
+    position: absolute;
+    left: 7.5px;
+    bottom: 6px;
+}
+
+.burger-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.burger-menu-list .nav-link {
+    font-size: 16px;
+    color: #333B41;
+}
+
 /*section 2*/
 
 .section2 {
