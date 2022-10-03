@@ -13,9 +13,24 @@
     <title>Donate</title>
 </head>
 <body>
-    <div class="content">
-        <section class="section1">
-            <header>
+    <section class="section1">
+        <div class="burger-menu">
+            <div class="logo-container">
+                <div class="logo-container-header">PetStory online</div>
+                <img src="../../assets/icons/orange-bamboo.svg" alt="orange-bamboo" class="orange-bamboo">
+                <a href="../main/index.html"><span class="header-link"></span></a>  
+            </div>
+            <ul class="burger-menu-list">
+                <li class="nav-item"><a href="../main/index.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="" class="nav-link">Map</a></li>
+                <li class="nav-item"><a href="" class="nav-link">Zoos</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link">Donate</a></li>
+                <li class="nav-item"><a href="" class="nav-link">Contact us</a></li>
+                <li class="nav-item"><a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" class="nav-link">Designed by ©</a></li>
+            </ul>
+        </div>
+        <header>
+            <div class="wrapper header__wrapper">
                 <div class="logo-container">
                     <h1>PetStory online</h1>
                     <div class="bamboo"></div>
@@ -31,9 +46,13 @@
                     </ul>
                 </nav>
                 <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" class="designed-by" target="_blank">Designed by ©</a>
-            </header>
-        </section>
-        <main class="main">
+                <div class="burger-menu-open-button"><span></span><span></span><span></span></div>
+            </div>
+        </header>
+        <div class="panda-bg"></div>
+    </section>
+    <main class="main">
+        <div class="wrapper">
             <h4 class="main-header">THE ZOO HAS OFFICIALLY REOPENED BUT WE STILL NEED YOUR HELP!</h4>
             <p class="main-p">Even though the Zoo has been able to reopen, we are at a greatly reduced capacity with educational programs and public and private events cancelled or postponed for additional months. We need you now more than ever to help ensure that we overcome these challenges. We have been actively raising funds in the community, and we are grateful for the generosity. But much more support is still needed, and we need your help! Please consider a gift today – no matter what size – to help us sustain our mission.</p>
             <h4 class="donate-header">Donation Information</h4>
@@ -53,17 +72,17 @@
                     <div class="input-amount-head-container">
                         <div class="input-amount-container">
                             <input type="radio" name="amount-value" id="d5000" class="input-amount-radio">
-                            <label for="d5000" class="input-amount-item">
+                            <label for="d5000" class="input-amount-item small-desktop-hide">
                                 <span class="input-amount-rectangle"></span>
                                 <span class="dollar-value">$5000</span>
                             </label>
                             <input type="radio" name="amount-value" id="d2000" class="input-amount-radio">
-                            <label for="d2000" class="input-amount-item">
+                            <label for="d2000" class="input-amount-item tablet-hide">
                                 <span class="input-amount-rectangle"></span>
                                 <span class="dollar-value">$2000</span>
                             </label>
                             <input type="radio" name="amount-value" id="d1000" class="input-amount-radio">
-                            <label for="d1000" class="input-amount-item">
+                            <label for="d1000" class="input-amount-item tablet-hide">
                                 <span class="input-amount-rectangle"></span>
                                 <span class="dollar-value">$1000</span>
                             </label>
@@ -119,8 +138,10 @@
                     <p class="share-p">Share with your friends on social networks</p>
                 </form>
             </div>
-        </main>
-        <footer class="footer">
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="wrapper wrapper__footer">
             <div class="footer-info">
                 <div class="logo-container">
                     <div class="logo-container-header">PetStory online</div>
@@ -128,7 +149,7 @@
                     <a href="../main/index.html"><span class="header-link"></span></a>  
                 </div>
                 <form action="../donate/index.html">
-                    <input class="footer-button" type="submit" value="donate for volunteers" />
+                    <input class="footer-button" type="submit" value="donate for volunteers">
                 </form>
                 <ul class="social-list">
                     <li class="social-item">
@@ -184,8 +205,7 @@
                 <div class="design-text">Designed by Alisa Samborskaya</div>
                 <div class="design-text">©RSSchool & ©Yem Digital 2021</div>
             </a>
-        </footer>
-    </div>
-    
+        </div>
+    </footer>
 </body>
 </html>

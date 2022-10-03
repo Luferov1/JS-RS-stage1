@@ -1,5 +1,10 @@
 /* fonts */
-
+html, body {
+    overflow-x: hidden;
+  }
+  body {
+    position: relative;
+  }
 
 * {
     font-family: 'Roboto', sans-serif;
