@@ -1,7 +1,12 @@
-/* fonts */
-html, body {
+
+body {
     overflow-x: hidden;
-  }
+}
+
+html {
+    height: 100%;
+}
+
   body {
     position: relative;
   }
@@ -93,3 +98,4 @@ time, mark, audio, video {
 	/* font: inherit; */
 	/* vertical-align: baseline; */
 }
+
