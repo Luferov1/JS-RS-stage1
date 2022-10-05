@@ -23,6 +23,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    overflow-X: hidden;
 }
 
 /*header*/
@@ -40,6 +41,7 @@ header {
     align-items: center;
     height: 80px;
     gap: 63px;
+    width: 100%;
 }
 
 .logo-container {
@@ -293,6 +295,7 @@ h1, .logo-container-header {
     flex-direction: column;
     align-items: center;
     height: 723px;
+    overflow-x: hidden;
 }
 
 .flower1 {
@@ -354,6 +357,7 @@ h1, .logo-container-header {
     align-items: center;
     gap: 80px;
     height: 1106px;
+    overflow: hidden;
 }
 
 .flower2 {
@@ -388,6 +392,18 @@ h1, .logo-container-header {
     z-index: 3;
 }
 
+.slider-button_disabled {
+    background: #767474;
+}
+
+.slider-button_disabled:hover {
+    background: #767474;
+}
+
+.slider-button_disabled:active {
+    background: #767474;
+}
+
 .slider-left-button {
     left: 138px;
     top: 405px;
@@ -398,15 +414,53 @@ h1, .logo-container-header {
     top: 405px;
 }
 
-.slider-container {
+.main-slider-container {
     position: relative;
+    width: calc(300% + 40px);
+    height: 801px;
+    /* margin: 0 auto; */
+    transition: all 1s;
+}
+
+.slider-container {
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-content: space-between;
     flex-wrap: wrap;
-    width: 100%;
+    width: calc( (100% - 40px) / 3);
     height: 872px;
     z-index: 1;
+}
+
+.slider-container_animation {
+    transition: all 1s;
+}
+
+.slider-container_right {
+    right: 0px;
+    border: 1px solid green;
+    transition: all 1s;
+}
+
+.slider-container_left {
+    left: 0px;
+    border: 1px solid red;
+    transition: all 1s;
+}
+
+.move-left {
+    transform: translateX(calc( ( (100%  + 20px) * -1 ) ) );
+}
+
+.move-right {
+    transform: translateX(calc( (100% + 20px) ) );
+}
+
+.slider-container_center {
+    left: 50%;
+    transform: translate(-50%);
+    border: 1px solid black;
 }
 
 .slider-item {
@@ -689,6 +743,7 @@ h1, .logo-container-header {
     position: relative;
     width: 100%;
     height: 919px;
+    overflow-x: hidden;
 }
 
 .section5__wrapper {
@@ -1106,6 +1161,14 @@ h1, .logo-container-header {
         /* width: 160px; */
         right: -140px;
     }
+
+    .section1-ellipse {
+        left: 42%;
+    }
+
+    .section1-header {
+        left: 49%;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -1212,12 +1275,12 @@ h1, .logo-container-header {
 
     .slider-left-button {
         top: 369px;
-        left: 323px;
+        left: 353px;
     }
 
     .slider-right-button {
         top: 369px;
-        right: 323px;
+        right: 353px;
     }
 
     .slider-item:hover .slider-img {
@@ -1338,13 +1401,31 @@ h1, .logo-container-header {
 
 }
 
+@media screen and (max-width: 940px) {
+    .backstage-text-container h3 {
+        font-size: 40px;
+    }
+}
+
 @media screen and (max-width: 810px) {
     .section1-ellipse {
-        left: 33%;
+        left: 32%;
     }
 
     .section1-header {
-        left: 40%;
+        left: 39%;
+    }
+
+    .section1-button {
+        left: 330px;
+    }
+
+    .backstage-text-container h3 {
+        font-size: 28px;
+    }
+
+    .backstage-small-p {
+        margin-bottom: 20px;
     }
 
     .section2 {
@@ -1521,6 +1602,10 @@ h1, .logo-container-header {
         display: none
     }
 
+    .main-slider-container {
+        height: 756px;
+    }
+
     .slider-container {
         height: 756px;
     }
@@ -1645,6 +1730,11 @@ h1, .logo-container-header {
         justify-content: start;
         gap: calc(42 / 600 * 100%);
         margin-bottom: 40px;
+    }
+
+    .widget-img img {
+        width: 100%;
+        height: 100%;
     }
 
     .widget-tablet-arrow, .widget-tablet-second-arrow {
@@ -1938,6 +2028,10 @@ h1, .logo-container-header {
         gap: 20px;
     }
 
+    .main-slider-container {
+        height: 1388px;
+    }
+
     .slider-container {
         width: 100%;
         flex-direction: column;
@@ -2023,6 +2117,11 @@ h1, .logo-container-header {
     .widget {
         height: max-content;
         gap: 10px;
+    }
+
+    .widget-img img {
+        width: auto;
+        height: auto;
     }
 
     .widget:has(img[alt='zoo']) {
