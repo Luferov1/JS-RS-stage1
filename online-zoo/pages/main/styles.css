@@ -349,6 +349,7 @@ h1, .logo-container-header {
     position: relative;
     width: 100%;
     height: 1106px;
+    overflow: hidden;
 }
 
 .section3__wrapper {
@@ -418,7 +419,7 @@ h1, .logo-container-header {
     position: relative;
     width: calc(300% + 40px);
     height: 801px;
-    /* margin: 0 auto; */
+    margin-bottom: 70px;
     transition: all 1s;
 }
 
@@ -460,7 +461,7 @@ h1, .logo-container-header {
 .slider-container_center {
     left: 50%;
     transform: translate(-50%);
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .slider-item {
@@ -743,7 +744,7 @@ h1, .logo-container-header {
     position: relative;
     width: 100%;
     height: 919px;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .section5__wrapper {
@@ -1259,6 +1260,10 @@ h1, .logo-container-header {
         height: 1075px;
     }
 
+    .main-slider-container {
+        margin-bottom: 0px;
+    }
+
     .slider-container {
         height: 801px;
     }
@@ -1564,6 +1569,7 @@ h1, .logo-container-header {
 
     .backstage-text-container h3 {
         height: 116px;
+        font-size: 48px;
     }
 
     .backstage-small-p {
@@ -1697,6 +1703,11 @@ h1, .logo-container-header {
         padding: 10px 20px 0 20px;
     }
 
+    .widget-img img {
+        width: auto;
+        height: auto;
+    }
+
     .section4-header {
         margin: 0 0 20px 0;
         font-size: 42px;
@@ -1730,11 +1741,6 @@ h1, .logo-container-header {
         justify-content: start;
         gap: calc(42 / 600 * 100%);
         margin-bottom: 40px;
-    }
-
-    .widget-img img {
-        width: 100%;
-        height: 100%;
     }
 
     .widget-tablet-arrow, .widget-tablet-second-arrow {
@@ -1958,6 +1964,7 @@ h1, .logo-container-header {
         height: 221px;
         background-position: center bottom;
         background-size: 384px 187px;
+        overflow: visible;
     }
 
     .section1-ellipse {
@@ -2030,6 +2037,10 @@ h1, .logo-container-header {
 
     .main-slider-container {
         height: 1388px;
+    }
+
+    .main-slider-container {
+        width: 100%;
     }
 
     .slider-container {
