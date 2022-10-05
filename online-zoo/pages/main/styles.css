@@ -1,7 +1,7 @@
 .wrapper {
     max-width: 1160px;
     margin: 0 auto;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .no-scroll-background {
@@ -385,16 +385,17 @@ h1, .logo-container-header {
     height: 62px;
     background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
     border-radius: 50%;
+    z-index: 3;
 }
 
 .slider-left-button {
-    left: -82px;
-    bottom: 407px;
+    left: 138px;
+    top: 405px;
 }
 
 .slider-right-button {
-    right: -82px;
-    bottom: 407px;
+    right: 138px;
+    top: 405px;
 }
 
 .slider-container {
@@ -462,6 +463,18 @@ h1, .logo-container-header {
 
 .penguins {
     background-image: url(../../assets/images/penguins.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.gorillas2 {
+    background-image: url(../../assets/images/gorillas2.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.alligators {
+    background-image: url(../../assets/images/alligators.jpg);
     background-position: center;
     background-size: cover;
 }
@@ -1074,6 +1087,18 @@ h1, .logo-container-header {
 .footer-form-input:invalid + .footer-form-button {
     border: 1px solid #D31414;
     color: #D31414;
+}
+
+@media screen and (max-width: 1550px) {
+    .slider-left-button {
+        left: 50px;
+        top: 405px;
+    }
+    
+    .slider-right-button {
+        right: 50px;
+        top: 405px;
+    }
 }
 
 @media screen and (max-width: 1440px) {

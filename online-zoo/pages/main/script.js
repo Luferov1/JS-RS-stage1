@@ -1,3 +1,5 @@
+import { animalCards } from "../../assets/data/animal-cards.js";
+
 const burgerMenuOpenButton = document.querySelector('.burger-menu-open-button');
 const burgerMenuCloseButton = document.querySelector('.burger-menu-close-button');
 const noScrollBackground = document.querySelector('.no-scroll-background');
