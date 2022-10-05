@@ -1952,6 +1952,26 @@ h1, .logo-container-header {
     }
 }
 
+@media screen and (max-width: 470px) {
+    .section1-ellipse {
+        left: 15%;
+    }
+
+    .section1-header {
+        left: 20%;
+    }
+    
+    .widget-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .widget-img img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
 @media screen and (max-width: 320px) {
     
     .wrapper {
@@ -2128,6 +2148,10 @@ h1, .logo-container-header {
     .widget {
         height: max-content;
         gap: 10px;
+    }
+    .widget-img {
+        width: 168px;
+        height: 168px;
     }
 
     .widget-img img {
