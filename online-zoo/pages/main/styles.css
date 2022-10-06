@@ -1484,7 +1484,11 @@ h1, .logo-container-header {
     .section1 {
         position: relative;
         height: 373px;
-        z-index: 1;
+        z-index: 4;
+    }
+
+    header {
+        position: fixed;
     }
 
     .burger-menu-open-button {

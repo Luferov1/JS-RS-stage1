@@ -923,6 +923,7 @@ input[type=number] {
 
     header {
         height: 34px;
+        position: fixed;
     }
 
     .header__wrapper {
@@ -933,7 +934,7 @@ input[type=number] {
     .section1 {
         position: relative;
         height: 369px;
-        z-index: 1;
+        z-index: 4;
     }
 
     .burger-menu-open-button {
@@ -968,7 +969,7 @@ input[type=number] {
     }
 
     .panda-bg {
-        height: 335px;
+        height: 369px;
         background-position: -272px;
     }
 
@@ -1195,8 +1196,8 @@ input[type=number] {
     }
 
     .panda-bg {
-        height: 187px;
-        background-position: -148.71px;
+        height: 221px;
+        background-position: -188.71px;
     }
 
     /* main */
