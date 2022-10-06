@@ -7,7 +7,7 @@
 .no-scroll-background {
     position: absolute;
     display: block;
-    z-index: 4;
+    z-index: 5;
     width: 100%;
     height: 100%;
     background-color: #000000;
@@ -211,7 +211,7 @@ h1, .logo-container-header {
     width: 100%;
     height: 329px;
     background-color: #FFFFFF;
-    z-index: 5;
+    z-index: 10;
     padding-left: 10px;
     padding-top: 10px;
     transition: all 1s;
@@ -440,13 +440,11 @@ h1, .logo-container-header {
 
 .slider-container_right {
     right: 0px;
-    border: 1px solid green;
     transition: all 1s;
 }
 
 .slider-container_left {
     left: 0px;
-    border: 1px solid red;
     transition: all 1s;
 }
 
@@ -461,7 +459,6 @@ h1, .logo-container-header {
 .slider-container_center {
     left: 50%;
     transform: translate(-50%);
-    /* border: 1px solid black; */
 }
 
 .slider-item {
@@ -1604,12 +1601,12 @@ h1, .logo-container-header {
         height: 970px;
     }
 
-    .slider-item:has(.penguins) {
+    .slider-container .slider-item:nth-child(6) {
         display: none
     }
 
-    .slider-item:has(.cheetahs) {
-        display: none
+    .slider-container .slider-item:nth-child(5) {
+        display: none;
     }
 
     .main-slider-container {
