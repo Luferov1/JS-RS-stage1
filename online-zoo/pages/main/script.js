@@ -16,7 +16,6 @@ const section3 = document.querySelector('.section3');
 const testimonialsContainer = document.querySelector('.testimonials-item-container');
 const todler = document.querySelector('.section5-input');
 
-
 //let
 
 //functions

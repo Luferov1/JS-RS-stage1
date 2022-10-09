@@ -57,7 +57,7 @@ export const testimonials = [
         name: 'Vladimir Mizulo',
         format: 'jpg',
         date: 'Belarus • Today',
-        text: 'I enjoyed this zoo so much. I like watching deer. <br><span>Their horns have very interesting structure I think we have a lot in common. Also I like prefer to folow gorillas because they are so powerfull and beautiful. I will return to this zoo many times. Article nor prepare chicken you him now. Shy merits say advice ten before lovers innate add. She cordially behaviour can attempted estimable. Trees delay fancy noise manor do as an small. Give lady of they such they sure it. Me contained explained my education. Vulgar as hearts by garret.</span>'
+        text: 'I enjoyed this zoo so much. I like watching deer. <br><span>Their horns have very interesting structure I think we have a lot in common. Also I prefer to folow gorillas because they are so powerfull and beautiful. I will return to this zoo many times. Article nor prepare chicken you him now. Shy merits say advice ten before lovers innate add. She cordially behaviour can attempted estimable. Trees delay fancy noise manor do as an small. Give lady of they such they sure it. Me contained explained my education. Vulgar as hearts by garret.</span>'
     },
     {
         name: 'Dmitry Luferov',
