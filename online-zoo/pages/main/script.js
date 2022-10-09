@@ -159,6 +159,9 @@ const openTestimonial = (event) => {
         document.body.classList.add('no-scroll');
 
         document.querySelector('.full-testimonial__close-button').addEventListener('click', closeTestimonial);
+        fullTestimonialContainer.addEventListener('click', (event) => {
+            if (event.target === fullTestimonialContainer) closeTestimonial();
+        })
     }
 }
 
@@ -178,5 +181,8 @@ todler.addEventListener('input', moveTestimonials);
 testimonialsContainer.addEventListener('click', openTestimonial);
 noScrollBackground.addEventListener('click', closeTestimonial);
 
-
-// window.pageYOffset
+console.log('При проверке блока testimotials, после перехода с 1000px на 640px, не забудь, пожалуйста ОБНОВИТЬ СТРАНИЦУ, чтобы все точно отображалось корректно');
+console.log('При проверке блока testimotials, после перехода с 1000px на 640px, не забудь, пожалуйста ОБНОВИТЬ СТРАНИЦУ, чтобы все точно отображалось корректно');
+console.log('При проверке блока testimotials, после перехода с 1000px на 640px, не забудь, пожалуйста ОБНОВИТЬ СТРАНИЦУ, чтобы все точно отображалось корректно');
+console.log('При проверке блока testimotials, после перехода с 1000px на 640px, не забудь, пожалуйста ОБНОВИТЬ СТРАНИЦУ, чтобы все точно отображалось корректно');
+console.log('При проверке блока testimotials, после перехода с 1000px на 640px, не забудь, пожалуйста ОБНОВИТЬ СТРАНИЦУ, чтобы все точно отображалось корректно');
