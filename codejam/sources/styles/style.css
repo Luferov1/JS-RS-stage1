@@ -1,0 +1,89 @@
+.container {
+    position: absolute;
+    top: 50px;  
+    left: 50%; 
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 600px;
+    border: 1px solid red;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 70px;
+}
+
+.buttons-container * {
+    height: 30px;
+    background-color: #8b00ff;
+    color: #f2c100;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.buttons-container button:hover {
+    color: white;
+}
+
+.buttons-container select option:disabled {
+    color: white;
+}
+
+
+.statistics {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.statistics div {
+    font-weight: bold;
+}
+
+.canvas {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+/* @media screen  and (max-width: 1280px){
+    
+} */
+
+@media screen  and (max-width: 768px){
+    
+    .container {
+        top: 20px;
+        width: 300px;
+        height: 400px;
+    }
+
+    .canvas {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media screen  and (max-width: 320px){
+    
+}
