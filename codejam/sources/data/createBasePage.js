@@ -17,7 +17,7 @@ for (let i = 0; i < buttons.length; i++) {
     buttonsContainer.append(button);
 }
 
-const selectSize = document.createElement('select');
+export const selectSize = document.createElement('select');
 selectSize.classList.add('select-size');
 buttonsContainer.append(selectSize);
 for (let i = 2; i < 9; i++) {
@@ -39,7 +39,7 @@ for (let i = 2; i < 9; i++) {
 
 const statistics = document.createElement('div');
 statistics.classList.add('statistics');
-statistics.innerHTML = '<div class="moves">Moves: <span>228</span></div><div class="time">Time: <span>32:48</span></div>'
+statistics.innerHTML = '<div class="moves">Moves: <span>0</span></div><div class="time">Time: <span></span></div>';
 options.append(statistics);
 
 
