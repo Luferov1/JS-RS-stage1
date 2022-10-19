@@ -1,16 +1,28 @@
 // imports
 import { canvas, selectSize, buttonsContainer } from "./createBasePage.js";
-import { time } from './timer.js';
+import { time, timer, startTimer } from './timer.js';
 
 // consts
 const moves = document.querySelector('.moves span');
 const shuffleButton = buttonsContainer.firstElementChild;
+const stopButton = buttonsContainer.childNodes[1];
+const volumeButton = buttonsContainer.childNodes[4];
 const ctx = canvas.getContext('2d');
 
 // lets
 let frameSize = 4;
 let valuesArr = [];
 let movesCounter = 0;
+
+// options
+
+export const options = {
+    volume: true,
+    stopped: false,
+    minutes: 0,
+    seconds: 0
+}
+
 
 // functions
 const fillValuesArr = (size) => {
@@ -58,10 +70,35 @@ const changeMoves = () => {
     moves.innerHTML = movesCounter;
 }
 
+const stopGame = () => {
+    if (!options.stopped) {
+        options.stopped = !options.stopped;
+        stopButton.classList.add('stopped');
+        canvas.removeEventListener('click', moveSquare);
+    } else {
+        options.stopped = !options.stopped;
+        stopButton.classList.remove('stopped');
+        canvas.addEventListener('click', moveSquare);
+        startTimer();
+    }
+}
+
+const changeVolume = () => {
+    volumeButton.classList.toggle('volume_off');
+    options.volume = !options.volume;
+}
+
+
 const createBasicGame = () => {
     fillValuesArr(frameSize);
     time.seconds = 0;
     time.minutes = 0;
+    if (options.stopped) {
+        options.stopped = !options.stopped;
+        stopButton.classList.remove('stopped');
+        canvas.addEventListener('click', moveSquare);
+        startTimer();
+    }
     drawSquares(frameSize, valuesArr);
     movesCounter = 0;
     moves.innerHTML = movesCounter;
@@ -101,16 +138,24 @@ const moveSquare = (event) => {
     }
 
     if (availableArr.includes(targetIndex)) {
+        if (options.volume) {
+            const audio = new Audio('sources/sounds/click.wav');
+            audio.play();
+        }
         valuesArr[zeroIndex] = valuesArr[targetIndex];
         valuesArr[targetIndex] = 0;
         drawSquares(frameSize, valuesArr);
         changeMoves();
     }
+
 }
 
 createBasicGame();
+
 
 // listeners
 selectSize.addEventListener('change', changeFrameSize);
 canvas.addEventListener('click', moveSquare);
 shuffleButton.addEventListener('click', createBasicGame);
+stopButton.addEventListener('click', stopGame);
+volumeButton.addEventListener('click', changeVolume);

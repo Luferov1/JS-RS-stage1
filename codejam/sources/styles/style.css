@@ -64,6 +64,16 @@
     height: 500px;
 }
 
+.volume_off {
+    color: white;
+    background-color: red
+}
+
+.stopped {
+    color: white;
+    background-color: gray;
+}
+
 /* @media screen  and (max-width: 1280px){
     
 } */
