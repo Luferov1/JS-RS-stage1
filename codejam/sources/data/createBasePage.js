@@ -6,7 +6,7 @@ const options = document.createElement('div');
 options.classList.add('options')
 container.append(options);
 
-const buttonsContainer = document.createElement('div');
+export const buttonsContainer = document.createElement('div');
 buttonsContainer.classList.add('buttons-container');
 options.append(buttonsContainer);
 const buttons = ['Shuffle and start', 'Stop', 'Save', 'LeaderBords', 'Volume']; 
@@ -46,5 +46,7 @@ options.append(statistics);
 export const canvas = document.createElement('canvas');
 canvas.classList.add('canvas');
 container.append(canvas);
+canvas.width = 500;
+canvas.height = 500;
 
 
