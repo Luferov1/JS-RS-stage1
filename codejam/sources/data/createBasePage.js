@@ -43,7 +43,7 @@ statistics.innerHTML = '<div class="moves">Moves: <span>228</span></div><div cla
 options.append(statistics);
 
 
-const canvas = document.createElement('canvas');
+export const canvas = document.createElement('canvas');
 canvas.classList.add('canvas');
 container.append(canvas);
 

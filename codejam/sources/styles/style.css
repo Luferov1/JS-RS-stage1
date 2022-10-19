@@ -63,7 +63,6 @@
 .canvas {
     width: 500px;
     height: 500px;
-    border: 1px solid black;
 }
 
 /* @media screen  and (max-width: 1280px){
