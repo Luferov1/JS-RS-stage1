@@ -1,36 +1,50 @@
 // imports
-import { canvas, selectSize, buttonsContainer } from "./createBasePage.js";
+import { canvas, selectSize, buttonsContainer, stopWrapper } from "./createBasePage.js";
 import { time, timer, startTimer } from './timer.js';
 
 // consts
 const moves = document.querySelector('.moves span');
 const shuffleButton = buttonsContainer.firstElementChild;
 const stopButton = buttonsContainer.childNodes[1];
+const saveButton = buttonsContainer.childNodes[2];
 const volumeButton = buttonsContainer.childNodes[4];
+const audio = new Audio('sources/sounds/click.wav');
 const ctx = canvas.getContext('2d');
 
-// lets
-let frameSize = 4;
-let valuesArr = [];
-let movesCounter = 0;
-
 // options
+let options;
 
-export const options = {
+if (localStorage.getItem('options')) {
+    options = JSON.parse(localStorage.getItem('options'));
+    if (options.stopped) {
+        stopButton.classList.add('stopped');
+        stopWrapper.classList.add('stopWrapper');
+    }
+    if (!options.volume) {
+        volumeButton.classList.add('volume_off')
+    }
+    timer.innerHTML = `${String(options.minutes).padStart(2, '0')}:${String(options.seconds).padStart(2, '0')}`;
+    
+
+} else {
+    options = {
     volume: true,
     stopped: false,
     minutes: 0,
-    seconds: 0
+    seconds: 0,
+    frameSize: 4,
+    movesCounter: 0,
+    valuesArr: []
 }
-
+}
 
 // functions
 const fillValuesArr = (size) => {
-    valuesArr = [];
+    options.valuesArr = [];
     for (let i = 0; i < Math.pow(size, 2); i++) {
-        valuesArr.push(i);
+        options.valuesArr.push(i);
     }
-    valuesArr.sort(() => Math.random() - 0.5);
+    options.valuesArr.sort(() => Math.random() - 0.5);
 }
 
 const drawSquares = (size, arr) => {
@@ -66,18 +80,20 @@ const drawSquares = (size, arr) => {
 }
 
 const changeMoves = () => {
-    movesCounter++;
-    moves.innerHTML = movesCounter;
+    options.movesCounter++;
+    moves.innerHTML = options.movesCounter;
 }
 
 const stopGame = () => {
     if (!options.stopped) {
         options.stopped = !options.stopped;
         stopButton.classList.add('stopped');
+        stopWrapper.classList.add('stopWrapper');
         canvas.removeEventListener('click', moveSquare);
     } else {
         options.stopped = !options.stopped;
         stopButton.classList.remove('stopped');
+        stopWrapper.classList.remove('stopWrapper');
         canvas.addEventListener('click', moveSquare);
         startTimer();
     }
@@ -90,64 +106,87 @@ const changeVolume = () => {
 
 
 const createBasicGame = () => {
-    fillValuesArr(frameSize);
-    time.seconds = 0;
-    time.minutes = 0;
-    if (options.stopped) {
-        options.stopped = !options.stopped;
-        stopButton.classList.remove('stopped');
-        canvas.addEventListener('click', moveSquare);
-        startTimer();
+    if (localStorage.getItem('options')) {
+        time.seconds = options.seconds;
+        time.minutes = options.minutes;
+        moves.innerHTML = options.movesCounter;
+    } else {
+        fillValuesArr(options.frameSize);
+        time.seconds = 0;
+        time.minutes = 0;
+        options.movesCounter = 0;
+        moves.innerHTML = options.movesCounter;
+
+        if (options.stopped) {
+            options.stopped = !options.stopped;
+            stopButton.classList.remove('stopped');
+            canvas.addEventListener('click', moveSquare);
+            startTimer();
+        }
     }
-    drawSquares(frameSize, valuesArr);
-    movesCounter = 0;
-    moves.innerHTML = movesCounter;
+
+    drawSquares(options.frameSize, options.valuesArr);
 }
 
 const changeFrameSize = () => {
     for (let i = 1; i < selectSize.length; i++) {
         if (selectSize[i].selected) {
-            frameSize = Number(selectSize[i].value);
+            options.frameSize = Number(selectSize[i].value);
         }
     }
+    localStorage.removeItem('options');
+    stopWrapper.classList.remove('stopWrapper');
     createBasicGame();
 }
 
 
 const moveSquare = (event) => {
-    const squareSize = canvas.offsetWidth / frameSize;
-    // console.log(event.offsetX, squareSize);
-    const targetIndex = Math.floor(event.offsetX / squareSize) + frameSize * Math.floor(event.offsetY / squareSize);
-    const zeroIndex = valuesArr.indexOf(0);
+    const squareSize = canvas.offsetWidth / options.frameSize;
+    const targetIndex = Math.floor(event.offsetX / squareSize) + options.frameSize * Math.floor(event.offsetY / squareSize);
+    const zeroIndex = options.valuesArr.indexOf(0);
     const availableArr = [];
 
-    if (zeroIndex % frameSize !== 0) {
+    if (zeroIndex % options.frameSize !== 0) {
         availableArr.push(zeroIndex - 1);
     }
 
-    if ( (zeroIndex + 1) % frameSize !== 0) {
+    if ( (zeroIndex + 1) % options.frameSize !== 0) {
         availableArr.push(zeroIndex + 1);
     }
 
-    if (Math.floor(zeroIndex / frameSize) !== 0) {
-        availableArr.push(zeroIndex - frameSize);
+    if (Math.floor(zeroIndex / options.frameSize) !== 0) {
+        availableArr.push(zeroIndex - options.frameSize);
     }
 
-    if (zeroIndex < Math.pow(frameSize, 2) - frameSize) {
-        availableArr.push(zeroIndex + frameSize);
+    if (zeroIndex < Math.pow(options.frameSize, 2) - options.frameSize) {
+        availableArr.push(zeroIndex + options.frameSize);
     }
 
     if (availableArr.includes(targetIndex)) {
         if (options.volume) {
-            const audio = new Audio('sources/sounds/click.wav');
+            audio.currentTime = 0;
             audio.play();
         }
-        valuesArr[zeroIndex] = valuesArr[targetIndex];
-        valuesArr[targetIndex] = 0;
-        drawSquares(frameSize, valuesArr);
+        options.valuesArr[zeroIndex] = options.valuesArr[targetIndex];
+        options.valuesArr[targetIndex] = 0;
+        drawSquares(options.frameSize, options.valuesArr);
         changeMoves();
     }
 
+}
+
+const shuffleGame = () => {
+    if (localStorage.getItem('options')) {
+        localStorage.removeItem('options');
+    }
+    stopWrapper.classList.remove('stopWrapper');
+    createBasicGame();
+}
+
+const saveGame = () => {
+    options.minutes = time.minutes;
+    options.seconds = time.seconds;
+    localStorage.setItem('options', JSON.stringify(options));
 }
 
 createBasicGame();
@@ -156,6 +195,11 @@ createBasicGame();
 // listeners
 selectSize.addEventListener('change', changeFrameSize);
 canvas.addEventListener('click', moveSquare);
-shuffleButton.addEventListener('click', createBasicGame);
+shuffleButton.addEventListener('click', shuffleGame);
 stopButton.addEventListener('click', stopGame);
+saveButton.addEventListener('click', saveGame);
 volumeButton.addEventListener('click', changeVolume);
+
+if (options.stopped) {
+    canvas.removeEventListener('click', moveSquare);
+}

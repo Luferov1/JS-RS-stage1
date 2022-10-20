@@ -49,4 +49,10 @@ container.append(canvas);
 canvas.width = 500;
 canvas.height = 500;
 
+export const stopWrapper = document.createElement('div');
+container.append(stopWrapper);
+
+export const leaderTable = document.createElement('div');
+
+
 

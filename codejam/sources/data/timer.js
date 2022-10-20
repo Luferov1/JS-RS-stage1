@@ -1,5 +1,3 @@
-// import { options } from "./canvas.js";
-
 export const timer = document.querySelector('.time span');
 
 export const time = {
