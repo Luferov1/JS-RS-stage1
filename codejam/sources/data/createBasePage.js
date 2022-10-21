@@ -1,4 +1,4 @@
-const container = document.createElement('div');
+export const container = document.createElement('div');
 container.classList.add('container');
 document.body.prepend(container);
 
@@ -53,6 +53,23 @@ export const stopWrapper = document.createElement('div');
 container.append(stopWrapper);
 
 export const leaderTable = document.createElement('div');
+leaderTable.classList.add('leader-table');
+leaderTable.classList.add('leader-table_closed');
+leaderTable.innerHTML = '<h2>Leader Bords</h2><button><span></span><span></span></button>'
+container.append(leaderTable);
+
+for (let i = 0; i <= 10; i++) {
+    const position = document.createElement('div');
+    position.classList.add('leader-table__place');
+    if (i === 0) {
+        position.innerHTML = '<div class="place">Place</div><div class="name">Name</div><div class="moves-spended">Moves</div><div class="time-spended">Time</div>';
+    } else {
+        position.innerHTML = `<div class="place">${i}</div><div class="name"></div><div class="moves-spended"></div><div class="time-spended"></div>`;
+    }
+    leaderTable.append(position);
+}
+
+
 
 
 
