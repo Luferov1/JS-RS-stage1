@@ -140,12 +140,12 @@ const stopGame = () => {
         options.stopped = !options.stopped;
         stopButton.classList.add('stopped');
         stopWrapper.classList.add('stopWrapper');
-        canvas.removeEventListener('pointerdown', dragSquare);
+        canvas.removeEventListener('mousedown', dragSquare);
     } else {
         options.stopped = !options.stopped;
         stopButton.classList.remove('stopped');
         stopWrapper.classList.remove('stopWrapper');
-        canvas.addEventListener('pointerdown', dragSquare);
+        canvas.addEventListener('mousedown', dragSquare);
         startTimer();
     }
 }
@@ -353,10 +353,10 @@ const dragSquare = (event) => {
             moveAt(event.pageX, event.pageY);
         }
 
-        document.addEventListener('pointermove', onMouseMove);
+        document.addEventListener('mousemove', onMouseMove);
 
         
-        dragableSquare.onpointerup = () => {
+        dragableSquare.onmouseup = () => {
             const dragBorders = calculateDragBorders(targetIndex, zeroIndex, squareSize);
             if (dragBorders.way === 'column') {
                 const mouseUpCords = dragableSquare.style.top.slice(0, dragableSquare.style.top.length - 2) - 102;
@@ -405,7 +405,7 @@ const dragSquare = (event) => {
                 }
             }
             
-            document.removeEventListener('pointermove', onMouseMove);
+            document.removeEventListener('mousemove', onMouseMove);
 
         }
 
@@ -469,7 +469,7 @@ createBasicGame();
 // listeners
 selectSize.addEventListener('change', changeFrameSize);
 // canvas.addEventListener('click', moveSquare);
-canvas.addEventListener('pointerdown', dragSquare);
+canvas.addEventListener('mousedown', dragSquare);
 
 
 shuffleButton.addEventListener('click', shuffleGame);
@@ -481,6 +481,6 @@ volumeButton.addEventListener('click', changeVolume);
 
 
 if (options.stopped) {
-    canvas.addEventListener('pointerdown', dragSquare);
+    canvas.addEventListener('mousedown', dragSquare);
 }
 
