@@ -69,6 +69,8 @@ for (let i = 0; i <= 10; i++) {
     leaderTable.append(position);
 }
 
+console.log('Чтобы сбросить сохранение смените размер поля или нажмите "shuffle and start"')
+
 
 
 

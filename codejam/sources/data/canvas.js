@@ -95,7 +95,7 @@ const checkArray = (arr) => {
         }
 }
 
-const drawSquares = (size, arr) => {
+const drawSquares = (size, arr, deleteIndex) => {
     ctx.font = 'bold 30px serif';
     ctx.fillStyle = '#8b00ff';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -112,15 +112,18 @@ const drawSquares = (size, arr) => {
             continue;
         }
 
-        ctx.fillStyle = '#f2c100';
-        ctx.fillRect((i % size) * squareWidth + 2, heightIndex * squareHeight + 2, squareWidth - 4, squareHeight - 4);
-        ctx.fillStyle = '#8b00ff';
-
-        if (arr[i] < 10) {
-        ctx.fillText(arr[i], (i % size) * squareWidth + squareWidth / 2 - 5, heightIndex * squareHeight + squareHeight / 2 + 10);
-        } else {
-            ctx.fillText(arr[i], (i % size) * squareWidth + squareWidth / 2 - 15, heightIndex * squareHeight + squareHeight / 2 + 10);
+        if (i !== deleteIndex) {
+            ctx.fillStyle = '#f2c100';
+            ctx.fillRect((i % size) * squareWidth + 2, heightIndex * squareHeight + 2, squareWidth - 4, squareHeight - 4);
+            ctx.fillStyle = '#8b00ff';
+    
+            if (arr[i] < 10) {
+            ctx.fillText(arr[i], (i % size) * squareWidth + squareWidth / 2 - 5, heightIndex * squareHeight + squareHeight / 2 + 10);
+            } else {
+                ctx.fillText(arr[i], (i % size) * squareWidth + squareWidth / 2 - 15, heightIndex * squareHeight + squareHeight / 2 + 10);
+            }
         }
+
         if ((i + 1) % size === 0) {
             heightIndex++;
         }
@@ -224,11 +227,11 @@ const addToLeaderBord = () => {
 
     localStorage.setItem('leaderBord', JSON.stringify(leaderBordArr));
     for (let i = 0; i < leaderBordArr.length; i++) {
-        leaderTable.childNodes[i + 3].childNodes[1].innerHTML = `${leaderBordArr[i].name} (${options.frameSize})`;
+        leaderTable.childNodes[i + 3].childNodes[1].innerHTML = leaderBordArr[i].name;
         leaderTable.childNodes[i + 3].childNodes[2].innerHTML = leaderBordArr[i].moves;
         leaderTable.childNodes[i + 3].childNodes[3].innerHTML = leaderBordArr[i].time;
     }
-    createBasicGame();
+    shuffleGame();
 }
 
 const showWin = () => {
@@ -242,13 +245,173 @@ const showWin = () => {
     options.seconds = time.seconds;
 }
 
-// showWin();
-
 const checkWin = () => {
     for (let i = 0; i < options.valuesArr.length - 1; i++) {
         if (options.valuesArr[i] !== i + 1) return;
     }
     showWin();
+}
+
+const calculateDragBorders = (target, zero, size) => {
+    if (target - options.frameSize === zero) {
+        return {
+            way: 'column',
+            min: Math.floor(zero / options.frameSize) * size,
+            max: Math.floor(target / options.frameSize) * size
+        }
+    } else if (target + options.frameSize === zero) {
+        return {
+            way: 'column',
+            min: Math.floor(target / options.frameSize) * size,
+            max: Math.floor(zero / options.frameSize) * size
+        }
+    } else if (target + 1 === zero) {
+        return {
+            way: 'row',
+            min: target % options.frameSize * size,
+            max: zero % options.frameSize * size
+        }
+    } else {
+        return {
+            way: 'row',
+            min: zero % options.frameSize * size,
+            max: target % options.frameSize * size
+        }
+    }
+}
+
+const dragSquare = (event) => {
+    const squareSize = canvas.offsetWidth / options.frameSize;
+    const targetIndex = Math.floor(event.offsetX / squareSize) + options.frameSize * Math.floor(event.offsetY / squareSize);
+    const zeroIndex = options.valuesArr.indexOf(0);
+    const availableArr = [];
+
+    if (zeroIndex % options.frameSize !== 0) {
+        availableArr.push(zeroIndex - 1);
+    }
+
+    if ( (zeroIndex + 1) % options.frameSize !== 0) {
+        availableArr.push(zeroIndex + 1);
+    }
+
+    if (Math.floor(zeroIndex / options.frameSize) !== 0) {
+        availableArr.push(zeroIndex - options.frameSize);
+    }
+
+    if (zeroIndex < Math.pow(options.frameSize, 2) - options.frameSize) {
+        availableArr.push(zeroIndex + options.frameSize);
+    }
+
+    if (availableArr.includes(targetIndex)) {
+        const dragableSquare = document.createElement('div');
+        dragableSquare.classList.add('dragable')
+        container.append(dragableSquare);
+        dragableSquare.style.width = `${squareSize - 4}px`;
+        dragableSquare.style.height = `${squareSize - 4}px`;
+        dragableSquare.innerHTML = options.valuesArr[targetIndex];
+
+        drawSquares(options.frameSize, options.valuesArr, targetIndex);
+
+        let shiftX = event.clientX - 2 - (targetIndex % options.frameSize * squareSize);
+        let shiftY = event.clientY - 102 - (Math.floor(targetIndex / options.frameSize) * squareSize);
+        
+        moveAt(event.pageX, event.pageY);
+
+        function moveAt(pageX, pageY) {
+            const dragBorders = calculateDragBorders(targetIndex, zeroIndex, squareSize);
+
+            if (dragBorders.way === 'row') {
+                if (pageX - shiftX > dragBorders.max) {
+                    dragableSquare.style.left = `${dragBorders.max + 2}px`;
+                } 
+                else if (pageX - shiftX < dragBorders.min) {
+                    dragableSquare.style.left = `${dragBorders.min + 2}px`;
+                } 
+                else {
+                    dragableSquare.style.left = pageX - shiftX + 'px';
+                }
+
+                // dragableSquare.style.left = pageX - shiftX + 'px';
+                dragableSquare.style.top = `${102 + Math.floor(targetIndex / options.frameSize) * squareSize}px`;
+            } else {
+
+                if (pageY - shiftY - 102 > dragBorders.max) {
+                    dragableSquare.style.top = `${dragBorders.max + 102}px`;
+                } 
+                else if (pageY - shiftY - 102 < dragBorders.min) {
+                    dragableSquare.style.top = `${dragBorders.min + 102}px`;
+                } 
+                else {
+                    dragableSquare.style.top = pageY - shiftY +'px';
+                }
+                dragableSquare.style.left = `${2 + (targetIndex % options.frameSize * squareSize)}px`
+            }
+
+        }
+
+        const onMouseMove = (event) => {
+            moveAt(event.pageX, event.pageY);
+        }
+
+        document.addEventListener('pointermove', onMouseMove);
+
+        
+        dragableSquare.onpointerup = () => {
+            const dragBorders = calculateDragBorders(targetIndex, zeroIndex, squareSize);
+
+            if (dragBorders.way === 'column') {
+                const mouseUpCords = dragableSquare.style.top.slice(0, dragableSquare.style.top.length - 2) - 102;
+                const average = (dragBorders.max - dragBorders.min) / 2;
+                if (zeroIndex < targetIndex) {
+                    if (mouseUpCords < (dragBorders.max - average + average / 2) || mouseUpCords > dragBorders.max * 0.99) {
+                        dragableSquare.remove();
+                        moveSquare(event);
+                    } else {
+                        dragableSquare.remove();
+                        drawSquares(options.frameSize, options.valuesArr);
+                    }
+                } else {
+
+                    if (mouseUpCords > (dragBorders.max - average - average / 2) || mouseUpCords < dragBorders.min + ((dragBorders.max - dragBorders.min) * 0.05)) {
+                        dragableSquare.remove();
+                        moveSquare(event);
+                    } else {
+                        dragableSquare.remove();
+                        drawSquares(options.frameSize, options.valuesArr);
+
+                    }
+                }
+            } else {
+                const mouseUpCords = dragableSquare.style.left.slice(0, dragableSquare.style.left.length - 2) - 2;
+                const average = (dragBorders.max - dragBorders.min) / 2;
+                
+                if (zeroIndex < targetIndex) {
+                    if (mouseUpCords < (dragBorders.max - average + average / 2) || mouseUpCords > dragBorders.max * 0.99) {
+                        dragableSquare.remove();
+                        moveSquare(event);
+                    } else {
+                        dragableSquare.remove();
+                        drawSquares(options.frameSize, options.valuesArr);
+                    }
+                } else {
+
+                    if (mouseUpCords > (dragBorders.max - average - average / 2) || mouseUpCords < dragBorders.min + ((dragBorders.max - dragBorders.min) * 0.05)) {
+                        dragableSquare.remove();
+                        moveSquare(event);
+                    } else {
+                        dragableSquare.remove();
+                        drawSquares(options.frameSize, options.valuesArr);
+
+                    }
+                }
+            }
+            
+            document.removeEventListener('pointermove', onMouseMove);
+
+        }
+
+    }
+
 }
 
 const moveSquare = (event) => {
@@ -278,6 +441,8 @@ const moveSquare = (event) => {
             audio.currentTime = 0;
             audio.play();
         }
+        // 
+        // 
         options.valuesArr[zeroIndex] = options.valuesArr[targetIndex];
         options.valuesArr[targetIndex] = 0;
         drawSquares(options.frameSize, options.valuesArr);
@@ -306,7 +471,9 @@ createBasicGame();
 
 // listeners
 selectSize.addEventListener('change', changeFrameSize);
-canvas.addEventListener('click', moveSquare);
+// canvas.addEventListener('click', moveSquare);
+canvas.addEventListener('pointerdown', dragSquare);
+
 
 shuffleButton.addEventListener('click', shuffleGame);
 stopButton.addEventListener('click', stopGame);
@@ -314,6 +481,7 @@ saveButton.addEventListener('click', saveGame);
 leaderBordsButton.addEventListener('click', openLeaderBords);
 closeLeaderBordsButton.addEventListener('click', closeLeaderBords);
 volumeButton.addEventListener('click', changeVolume);
+
 
 if (options.stopped) {
     canvas.removeEventListener('click', moveSquare);

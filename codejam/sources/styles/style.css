@@ -233,6 +233,17 @@ form input[type='button']:hover {
     transform: scale(1.01);
 }
 
+.dragable {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2c100;
+    color: #8b00ff;
+    font: bold 30px serif;
+    z-index: 10;
+}
+
 @media screen  and (max-width: 600px){
     
     .container {
@@ -307,6 +318,10 @@ form input[type='button']:hover {
         height: 40px;
         font-size: 20px;
     }
+
+    .dragable {
+        font-size: 24px;
+    }
 }
 
 @media screen  and (max-width: 420px){
@@ -358,6 +373,10 @@ form input[type='button']:hover {
     form input[type='button'] {
         width: 200px;
 
+    }
+
+    .dragable {
+        font-size: 18px;
     }
 
 }
