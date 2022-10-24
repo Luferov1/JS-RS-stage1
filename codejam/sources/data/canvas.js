@@ -152,11 +152,11 @@ const stopGame = () => {
 
 
 const openLeaderBords = () => {
-    leaderTable.classList.remove('leader-table_closed');
+    leaderTable.classList.add('leader-table_open');
 }
 
 const closeLeaderBords = () => {
-    leaderTable.classList.add('leader-table_closed');
+    leaderTable.classList.remove('leader-table_open');
 }
 
 const changeVolume = () => {
@@ -237,20 +237,21 @@ const addToLeaderBord = () => {
 const showWin = () => {
     const winMessage = document.createElement('div');
     winMessage.classList.add('win-message');
-    winMessage.innerHTML = '<h2>Congrates! You win!</h2><form action="#"><label for="name">Input your name</label><input type="text" name="name" id="name" placeholder="your name" maxlength="20" size="20"><input type="button" value="submit"></form>'
+    options.minutes = time.minutes;
+    options.seconds = time.seconds;
+    winMessage.innerHTML = `<h2>Congrates! You win! Time ${String(options.minutes).padStart(2, '0')}:${String(options.seconds).padStart(2, '0')} Moves: ${options.movesCounter}</h2><form action="#"><label for="name">Input your name</label><input type="text" name="name" id="name" placeholder="your name" maxlength="20" size="20"><input type="button" value="submit"></form>`
     container.append(winMessage);
     const submitButton = document.querySelector('input[type="button"]');
     submitButton.addEventListener('click', addToLeaderBord);
-    options.minutes = time.minutes;
-    options.seconds = time.seconds;
-}
 
+}
 const checkWin = () => {
     for (let i = 0; i < options.valuesArr.length - 1; i++) {
         if (options.valuesArr[i] !== i + 1) return;
     }
     showWin();
 }
+
 
 const calculateDragBorders = (target, zero, size) => {
     if (target - options.frameSize === zero) {
