@@ -358,7 +358,6 @@ const dragSquare = (event) => {
         
         dragableSquare.onpointerup = () => {
             const dragBorders = calculateDragBorders(targetIndex, zeroIndex, squareSize);
-
             if (dragBorders.way === 'column') {
                 const mouseUpCords = dragableSquare.style.top.slice(0, dragableSquare.style.top.length - 2) - 102;
                 const average = (dragBorders.max - dragBorders.min) / 2;
@@ -484,3 +483,4 @@ volumeButton.addEventListener('click', changeVolume);
 if (options.stopped) {
     canvas.addEventListener('pointerdown', dragSquare);
 }
+
