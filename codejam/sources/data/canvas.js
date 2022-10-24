@@ -140,12 +140,12 @@ const stopGame = () => {
         options.stopped = !options.stopped;
         stopButton.classList.add('stopped');
         stopWrapper.classList.add('stopWrapper');
-        canvas.removeEventListener('click', moveSquare);
+        canvas.removeEventListener('pointerdown', dragSquare);
     } else {
         options.stopped = !options.stopped;
         stopButton.classList.remove('stopped');
         stopWrapper.classList.remove('stopWrapper');
-        canvas.addEventListener('click', moveSquare);
+        canvas.addEventListener('pointerdown', dragSquare);
         startTimer();
     }
 }
@@ -364,20 +364,21 @@ const dragSquare = (event) => {
                 const average = (dragBorders.max - dragBorders.min) / 2;
                 if (zeroIndex < targetIndex) {
                     if (mouseUpCords < (dragBorders.max - average + average / 2) || mouseUpCords > dragBorders.max * 0.99) {
-                        dragableSquare.remove();
                         moveSquare(event);
-                    } else {
                         dragableSquare.remove();
+                    } else {
                         drawSquares(options.frameSize, options.valuesArr);
+                        dragableSquare.remove();
                     }
                 } else {
 
                     if (mouseUpCords > (dragBorders.max - average - average / 2) || mouseUpCords < dragBorders.min + ((dragBorders.max - dragBorders.min) * 0.05)) {
-                        dragableSquare.remove();
                         moveSquare(event);
-                    } else {
                         dragableSquare.remove();
+
+                    } else {
                         drawSquares(options.frameSize, options.valuesArr);
+                        dragableSquare.remove();
 
                     }
                 }
@@ -387,21 +388,20 @@ const dragSquare = (event) => {
                 
                 if (zeroIndex < targetIndex) {
                     if (mouseUpCords < (dragBorders.max - average + average / 2) || mouseUpCords > dragBorders.max * 0.99) {
-                        dragableSquare.remove();
                         moveSquare(event);
-                    } else {
                         dragableSquare.remove();
+                    } else {
                         drawSquares(options.frameSize, options.valuesArr);
+                        dragableSquare.remove();
                     }
                 } else {
 
                     if (mouseUpCords > (dragBorders.max - average - average / 2) || mouseUpCords < dragBorders.min + ((dragBorders.max - dragBorders.min) * 0.05)) {
-                        dragableSquare.remove();
                         moveSquare(event);
-                    } else {
                         dragableSquare.remove();
+                    } else {
                         drawSquares(options.frameSize, options.valuesArr);
-
+                        dragableSquare.remove();
                     }
                 }
             }
@@ -441,8 +441,6 @@ const moveSquare = (event) => {
             audio.currentTime = 0;
             audio.play();
         }
-        // 
-        // 
         options.valuesArr[zeroIndex] = options.valuesArr[targetIndex];
         options.valuesArr[targetIndex] = 0;
         drawSquares(options.frameSize, options.valuesArr);
@@ -484,5 +482,5 @@ volumeButton.addEventListener('click', changeVolume);
 
 
 if (options.stopped) {
-    canvas.removeEventListener('click', moveSquare);
+    canvas.addEventListener('pointerdown', dragSquare);
 }
