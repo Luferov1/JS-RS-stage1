@@ -54,7 +54,7 @@ container.append(stopWrapper);
 
 export const leaderTable = document.createElement('div');
 leaderTable.classList.add('leader-table');
-leaderTable.classList.add('leader-table_closed');
+// leaderTable.classList.add('leader-table_open');
 leaderTable.innerHTML = '<h2>Leader Bords</h2><button><span></span><span></span></button>'
 container.append(leaderTable);
 
