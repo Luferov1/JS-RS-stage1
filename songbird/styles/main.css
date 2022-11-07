@@ -1,0 +1,14 @@
+.container {
+  max-width: 1520px;
+  height: 900px;
+  margin: 100px auto;
+  background: url(../assets/img/main-page-background.jpg) 600px 150px/800px 600px no-repeat, linear-gradient(90deg, #76DAFF, #FCD000);
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1380px;
+  height: 100%;
+}
+
+/*# sourceMappingURL=main.css.map */
