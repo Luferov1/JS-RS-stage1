@@ -31,6 +31,28 @@ ul ul li {
    list-style-type: none;
 }
 
+body {
+  background: linear-gradient(-135deg, #56ab2f, #a8e063);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1520px;
+  height: 800px;
+  margin: 100px auto 0 auto;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1380px;
+  height: 100%;
+}
+
 a {
   text-decoration: none;
+}
+
+html {
+  font-size: 10px;
+  font-family: 'Roboto', sans-serif;
 }

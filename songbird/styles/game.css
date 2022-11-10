@@ -120,56 +120,7 @@
 }
 
 .container {
-  background: url(../assets/img/main-page-background.jpg) 600px 150px/800px 600px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
+  background: linear-gradient(90deg, #76daff, #fcd000);
 }
 
-.main {
-  width: 100%;
-}
-.main .main__wrapper {
-  display: flex;
-  flex-direction: column;
-}
-.main .main__wrapper .main__header {
-  margin-top: 40px;
-  margin-bottom: 10px;
-  font-size: 7rem;
-  font-weight: 700;
-  color: #101f24;
-}
-.main .main__wrapper .main__subheader {
-  font-size: 5rem;
-  font-weight: 500;
-  color: #006400;
-  margin-bottom: 20px;
-  line-height: 60px;
-}
-.main .main__wrapper .main__paragraph {
-  font-size: 2rem;
-  font-weight: 300;
-  color: #56ab2f;
-  margin-bottom: 80px;
-}
-.main .main__wrapper .start-game-button {
-  display: block;
-  border: none;
-  cursor: pointer;
-  text-transform: uppercase;
-  background-color: #101f24;
-  width: 300px;
-  height: 50px;
-  border-radius: 50px;
-  margin-left: 5%;
-  font-size: 3rem;
-  font-weight: 500;
-  color: #56ab2f;
-}
-.main .main__wrapper .start-game-button:hover {
-  transform: rotate(360deg);
-  transform: scale(1.01);
-}
-.main .main__wrapper > * {
-  width: 37%;
-}
-
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=game.css.map */

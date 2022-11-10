@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/basic.css">
+  <link rel="stylesheet" href="../styles/game.css">
+  <title>SongBird game</title>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="
+          wrapper 
+          header__wrapper">
+        <div class="emblem">
+          <h1 class="emblem__header">SongBird</h1>
+        </div>
+        <nav class="navigation">
+          <ul class="navigation__list">
+            <li class="navigation__item">
+              <a 
+                  href="index.html"
+                  class="navigation__link">
+                  Home
+              </a>
+            </li>
+            <li class="navigation__item">
+              <a 
+                  role="link" 
+                  aria-disabled="true" 
+                  class="
+                  navigation__link
+                  navigation__link_active">
+                  Game
+              </a>
+            </li>
+            <li class="navigation__item">
+              <a 
+                  href="gallery.html" 
+                  class="navigation__link">
+                  Gallery
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="change-language">
+          <span class="change-language__text">Language</span>
+          <button 
+              class="
+              change-language__button 
+              change-language__button_active">
+          <img 
+              src="../assets/img/usa-flag.png" 
+              alt="usa-flag" 
+              class="change-language__img">
+          </button>
+          <button class="change-language__button">
+          <img 
+              class="change-language__img"
+              src="../assets/img/rus-flag.png" 
+              alt="rus-flag">
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="wrapper">
+        <section class="scoreboard">
+          <div class="question-topics">
+            <span 
+                class="question-topics__item">
+                Warm-up
+            </span>
+            <span 
+                class="question-topics__item">
+                Passerines
+            </span>
+            <span 
+                class="question-topics__item">
+                Forest birds
+            </span>
+            <span 
+                class="question-topics__item">
+                Songbirds
+            </span>
+            <span 
+                class="question-topics__item">
+                Predators
+            </span>
+            <span 
+                class="question-topics__item">
+                Sea birds
+            </span>
+          </div>
+          <div class="score-table">
+            Score: 
+            <span class="score-table__value">22</span>
+          </div>
+        </section>
+        <section class="question">
+          <img 
+              class="question-img question-img_disabled" 
+              src="" 
+              alt="">
+          <div class="answer">
+            <h2 class="answer__header">???</h2>
+            <div class="player">
+              <button class="player__play-button"></button>
+              <div class="player__progress-bar">
+                <span class="todler"></span>
+              </div>
+              <div class="player__time-played">
+                <span class="minutes">00</span>
+                :
+                <span class="seconds">00</span>
+              </div>
+              <div class="player__full-time">
+                <span class="minutes">00</span>
+                :
+                <span class="seconds">00</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="answer-options">
+          <ul class="answer-options__list">
+            <li class="answer-options__item"></li>
+            <li class="answer-options__item"></li>
+            <li class="answer-options__item"></li>
+            <li class="answer-options__item"></li>
+            <li class="answer-options__item"></li>
+            <li class="answer-options__item"></li>
+          </ul>
+        </section>
+        <section class="description">
+          <img 
+              class="question-img question-img_disabled" 
+              src="" 
+              alt="">
+          <div class="answer">
+            <h2 class="answer__header">???</h2>
+            <h3 class="answer__subheader"></h3>
+            <div class="player">
+              <button class="player__play-button"></button>
+              <div class="player__progress-bar">
+                <span class="todler"></span>
+              </div>
+              <div class="player__time-played">
+                <span class="minutes">00</span>
+                :
+                <span class="seconds">00</span>
+              </div>
+              <div class="player__full-time">
+                <span class="minutes">00</span>
+                :
+                <span class="seconds">00</span>
+              </div>
+            </div>
+            <p class="bird-description"></p>
+            <div class="description__cover"></div>
+          </div>
+        </section>
+        <button class="next-level-button">Next level</button>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <div class="wrapper footer__wrapper">
+      <a 
+          class="footer__link"
+          href="https://github.com/Luferov1"  
+          target="_blank">
+        <img 
+            class="footer__img" 
+            src="../assets/img/git-logo.png" 
+            alt="git-logo">
+      </a>
+      <span class="year">2022</span>
+      <a 
+          class="footer__link" 
+          href="https://rs.school/js/" 
+          target="_blank">
+        <img 
+            class="footer__img" 
+            src="../assets/svg/rs_school_js.svg" 
+            alt="rs-img">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
