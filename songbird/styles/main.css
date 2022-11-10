@@ -51,17 +51,14 @@
   text-align: center;
   width: 100%;
   height: 100%;
+  cursor: default;
 }
-.navigation .navigation__list .navigation__item:hover .navigation__link {
+.navigation .navigation__list .navigation__item:hover :not(.navigation__link_active) {
   text-decoration: underline;
+  cursor: pointer;
 }
 .navigation .navigation__list .navigation__item .navigation__link_active {
-  color: #006400;
-}
-.navigation .navigation__list .navigation__item:hover .navigation__link_active {
-  text-decoration: none;
-  color: #006400;
-  cursor: default;
+  color: #101f24;
 }
 
 .change-language {
@@ -112,7 +109,7 @@ body {
 .container {
   max-width: 1520px;
   height: 800px;
-  margin: 100px auto;
+  margin: 100px auto 0 auto;
   background: url(../assets/img/main-page-background.jpg) 600px 150px/800px 600px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
 }
 
@@ -169,6 +166,29 @@ body {
 }
 .main .main__wrapper > * {
   width: 37%;
+}
+
+.footer {
+  width: 100%;
+  height: 70px;
+}
+.footer .footer__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .footer__link {
+  display: block;
+  width: 200px;
+  height: 50px;
+}
+.footer .footer__img {
+  width: 50%;
+  height: 100%;
+}
+.footer .year {
+  font-size: 3rem;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=main.css.map */

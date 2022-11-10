@@ -14,7 +14,7 @@ body {
 .container {
   max-width: 1520px;
   height: 800px;
-  margin: 100px auto;
+  margin: 100px auto 0 auto;
   background: url(../assets/img/main-page-background.jpg) 600px 150px / 800px 600px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
 }
 
@@ -74,6 +74,33 @@ body {
 
   .main__wrapper > * {
     width: 37%;
+  }
+}
+
+.footer {
+  width: 100%;
+  height: 70px;
+
+  .footer__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // padding-top: 10px;
+  }
+
+  .footer__link {
+    display: block;
+    width: 200px;
+    height: 50px;
+  }
+
+  .footer__img {
+    width: 50%;
+    height: 100%;
+  }
+
+  .year {
+    @include medium-font;
   }
 }
 

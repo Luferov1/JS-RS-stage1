@@ -51,17 +51,14 @@
   text-align: center;
   width: 100%;
   height: 100%;
+  cursor: default;
 }
-.navigation .navigation__list .navigation__item:hover .navigation__link {
+.navigation .navigation__list .navigation__item:hover :not(.navigation__link_active) {
   text-decoration: underline;
+  cursor: pointer;
 }
 .navigation .navigation__list .navigation__item .navigation__link_active {
-  color: #006400;
-}
-.navigation .navigation__list .navigation__item:hover .navigation__link_active {
-  text-decoration: none;
-  color: #006400;
-  cursor: default;
+  color: #101f24;
 }
 
 .change-language {
