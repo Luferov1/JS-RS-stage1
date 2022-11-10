@@ -1,7 +1,27 @@
 @import 'header';
 @import 'font';
 @import 'footer';
+@import 'scoreboard';
+@import 'question';
 
 .container {
   background: linear-gradient(90deg, #76daff, #fcd000);
 }
+
+.main {
+  width: 100%;
+  height: 700px;
+}
+
+.main__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+// 45 section1
+// 30
+// 175 section2
+// 30
+// 350 section3-section4
+// 30
+// 40 button

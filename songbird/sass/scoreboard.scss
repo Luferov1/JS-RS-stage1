@@ -1,0 +1,39 @@
+@import 'font';
+
+.scoreboard {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+
+  .scoreboard__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 88%;
+    height: 100%;
+    background-color: $dark-green-color;
+    border-radius: 10px;
+
+    .scoreboard__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: calc(100% / 6);
+      height: 100%;
+      border-radius: 10px;
+      color: $green-color;
+      @include medium-font;
+    }
+
+    .scoreboard__item_active {
+      background-color: $dark-blue-color;
+    }
+  }
+
+  .score-table {
+    margin-left: 10px;
+    color: $dark-blue-color;
+    @include medium-font;
+  }
+}

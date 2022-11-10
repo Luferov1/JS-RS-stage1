@@ -1,0 +1,37 @@
+.scoreboard {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+}
+.scoreboard .scoreboard__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 88%;
+  height: 100%;
+  background-color: #006400;
+  border-radius: 10px;
+}
+.scoreboard .scoreboard__list .scoreboard__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16.6666666667%;
+  height: 100%;
+  border-radius: 10px;
+  color: #56ab2f;
+  font-size: 3rem;
+  font-weight: 500;
+}
+.scoreboard .scoreboard__list .scoreboard__item_active {
+  background-color: #101f24;
+}
+.scoreboard .score-table {
+  margin-left: 10px;
+  color: #101f24;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=scoreboard.css.map */
