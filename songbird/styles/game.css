@@ -124,7 +124,6 @@
   align-items: center;
   height: 50px;
   width: 100%;
-  margin-bottom: 30px;
 }
 .scoreboard .scoreboard__list {
   display: flex;
@@ -259,6 +258,50 @@
   right: 0;
 }
 
+.answer-options {
+  width: 45%;
+  height: 350px;
+  border: 4px solid #56ab2f;
+  background-color: #56ab2f;
+}
+.answer-options .answer-options__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+.answer-options .answer-options__list .answer-options__item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 53.66px;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #808080;
+  background-color: #101f24;
+}
+.answer-options .answer-options__list .list-marker {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #808080;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+.answer-options .answer-options__list .answer-options__item_true {
+  color: #56ab2f;
+}
+.answer-options .answer-options__list .answer-options__item_true .list-marker {
+  background-color: #56ab2f;
+}
+.answer-options .answer-options__list .answer-options__item_false {
+  color: #ff0000;
+}
+.answer-options .answer-options__list .answer-options__item_false .list-marker {
+  background-color: #ff0000;
+}
+
 .container {
   background: linear-gradient(90deg, #76daff, #fcd000);
 }
@@ -270,7 +313,10 @@
 
 .main__wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  flex-wrap: wrap;
 }
 
 /*# sourceMappingURL=game.css.map */

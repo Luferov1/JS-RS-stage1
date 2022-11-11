@@ -3,6 +3,7 @@
 @import 'footer';
 @import 'scoreboard';
 @import 'question';
+@import 'answer-options';
 
 .container {
   background: linear-gradient(90deg, #76daff, #fcd000);
@@ -15,7 +16,10 @@
 
 .main__wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  flex-wrap: wrap;
 }
 
 // 45 section1
