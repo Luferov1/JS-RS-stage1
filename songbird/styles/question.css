@@ -1,3 +1,104 @@
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 175px;
+  padding: 0 40px 0 10px;
+  background-color: #101f24;
+  border-radius: 10px;
+}
+.question .question__img {
+  width: 200px;
+  height: 155px;
+  border-radius: 20px;
+}
 
+.answer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+  height: 88.5%;
+}
+.answer .answer__header {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #56ab2f;
+  width: 100%;
+  height: 38.7096774194%;
+  border-bottom: 2px solid #56ab2f;
+}
+
+.player {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 54.8387096774%;
+}
+.player .player__play-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 4px solid #56ab2f;
+  cursor: pointer;
+}
+.player .player__play-button .player__play-button_play {
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 25px solid #56ab2f;
+  margin-left: 5px;
+}
+.player .player__play-button .player__play-button_pause {
+  display: block;
+  width: 10px;
+  height: 20px;
+  border-color: #56ab2f;
+  border-style: double;
+  border-width: 0px 0px 0px 20px;
+}
+.player .player__play-button:hover {
+  transform: rotate(360deg);
+  transform: scale(1.11);
+}
+.player .player__progress-bar {
+  position: relative;
+  width: 93%;
+  height: 10px;
+  background-color: #56ab2f;
+}
+.player .player__progress-bar .todler {
+  position: absolute;
+  top: 50%;
+  transform: translate(-5px, -50%);
+  display: block;
+  background-color: #006400;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.player .player__time-played, .player .player__full-time {
+  position: absolute;
+  font-size: 2rem;
+  font-weight: 300;
+  color: #56ab2f;
+  bottom: 0;
+}
+.player .player__time-played {
+  left: 60px;
+}
+.player .player__full-time {
+  right: 0;
+}
 
 /*# sourceMappingURL=question.css.map */

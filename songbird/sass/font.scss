@@ -25,6 +25,10 @@
   font-weight: 700;
 }
 
+@mixin border {
+  border: 1px solid black;
+}
+
 $green-color: #56ab2f;
 $dark-green-color: #006400;
 $yellow-color: #fcd000;
