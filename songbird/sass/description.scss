@@ -1,0 +1,53 @@
+@import 'font';
+
+.description {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 48%;
+  height: 350px;
+  padding: 20px 40px 10px 10px;
+  background-color: $dark-blue-color;
+  @include border;
+
+  .answer {
+    width: 60%;
+    height: 155px;
+
+    .answer__subheader {
+      @include lite-font;
+      color: $green-color;
+    }
+
+    .player__progress-bar {
+      width: 80%;
+    }
+  }
+
+  .bird-description {
+    width: 100%;
+    @include lite-font;
+    color: $green-color;
+    text-align: justify;
+  }
+
+  .description__cover {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    padding: 20px;
+    background-color: $dark-blue-color;
+    @include medium-font;
+    color: $green-color;
+  }
+
+  .description__cover_active {
+    display: block;
+  }
+}

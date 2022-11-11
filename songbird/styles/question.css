@@ -8,7 +8,8 @@
   background-color: #101f24;
   border-radius: 10px;
 }
-.question .question__img {
+
+.question__img {
   width: 200px;
   height: 155px;
   border-radius: 20px;
