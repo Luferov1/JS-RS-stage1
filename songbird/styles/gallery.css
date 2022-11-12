@@ -119,42 +119,6 @@
   font-weight: 500;
 }
 
-.scoreboard {
-  display: flex;
-  align-items: center;
-  height: 50px;
-  width: 100%;
-}
-.scoreboard .scoreboard__list {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 88%;
-  height: 100%;
-  background-color: #006400;
-  border-radius: 10px;
-}
-.scoreboard .scoreboard__list .scoreboard__item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 16.6666666667%;
-  height: 100%;
-  border-radius: 10px;
-  color: #56ab2f;
-  font-size: 3rem;
-  font-weight: 500;
-}
-.scoreboard .scoreboard__list .scoreboard__item_active {
-  background-color: #101f24;
-}
-.scoreboard .score-table {
-  margin-left: 10px;
-  color: #101f24;
-  font-size: 3rem;
-  font-weight: 500;
-}
-
 .question {
   display: flex;
   justify-content: space-between;
@@ -259,51 +223,6 @@
   right: 0;
 }
 
-.answer-options {
-  width: 48%;
-  height: 350px;
-  border: 4px solid #56ab2f;
-  background-color: #56ab2f;
-}
-.answer-options .answer-options__list {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-}
-.answer-options .answer-options__list .answer-options__item {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 53.66px;
-  font-size: 3rem;
-  font-weight: 500;
-  color: #808080;
-  background-color: #101f24;
-  cursor: pointer;
-}
-.answer-options .answer-options__list .list-marker {
-  display: block;
-  width: 10px;
-  height: 10px;
-  background-color: #808080;
-  border-radius: 50%;
-  margin: 0 10px;
-}
-.answer-options .answer-options__list .answer-options__item_true {
-  color: #56ab2f;
-}
-.answer-options .answer-options__list .answer-options__item_true .list-marker {
-  background-color: #56ab2f;
-}
-.answer-options .answer-options__list .answer-options__item_false {
-  color: #ff0000;
-}
-.answer-options .answer-options__list .answer-options__item_false .list-marker {
-  background-color: #ff0000;
-}
-
 .description {
   position: relative;
   display: flex;
@@ -357,88 +276,44 @@
   background: linear-gradient(90deg, #76daff, #fcd000);
 }
 
-.main {
-  position: relative;
+.main__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.all-birds {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48%;
+  height: 700px;
+}
+.all-birds .all-birds__header {
+  font-size: 5rem;
+  font-weight: 500;
+  color: #101f24;
+}
+.all-birds .all-birds__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
   height: 700px;
 }
-
-.main__wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-content: space-between;
-  flex-wrap: wrap;
-}
-
-.next-level-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 40px;
-  border: none;
-  border-radius: 20px;
-  font-size: 3rem;
-  font-weight: 500;
-  background-color: transparent;
-  border: 4px solid #56ab2f;
-}
-
-.next-level-button_active {
-  color: #56ab2f;
-  background-color: #101f24;
-  cursor: pointer;
-}
-
-.next-level-button_active:hover {
-  transform: rotate(360deg);
-  transform: scale(1.01);
-}
-
-.win-page {
-  display: none;
-  position: absolute;
-  z-index: 2;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #101f24;
-}
-.win-page .win-page__header {
-  font-size: 7rem;
-  font-weight: 700;
-  color: #56ab2f;
-  margin-bottom: 10px;
-}
-.win-page .win-page__subheader {
-  font-size: 5rem;
-  font-weight: 500;
-  color: #56ab2f;
-  margin-bottom: 50px;
-}
-.win-page .win-page__button {
-  width: 80%;
+.all-birds .all-birds__list .all-birds__item {
+  width: 22%;
   height: 50px;
-  font-size: 3rem;
-  font-weight: 500;
+  border-radius: 15px;
   background-color: #56ab2f;
   color: #101f24;
-  border-radius: 15px;
-  border: none;
+  font-size: 2rem;
+  font-weight: 300;
   cursor: pointer;
 }
-.win-page .win-page__button:hover {
+.all-birds .all-birds__list .all-birds__item:hover {
   transform: rotate(360deg);
-  transform: scale(1.01);
+  transform: scale(1.05);
 }
 
-.win-page_active {
-  display: flex;
-}
-
-/*# sourceMappingURL=game.css.map */
+/*# sourceMappingURL=gallery.css.map */

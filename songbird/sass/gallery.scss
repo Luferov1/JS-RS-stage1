@@ -1,0 +1,51 @@
+@import 'font';
+@import 'header';
+@import 'footer';
+@import 'question';
+@import 'description';
+
+.container {
+  background: linear-gradient(90deg, #76daff, #fcd000);
+}
+
+.main__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.all-birds {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48%;
+  height: 700px;
+
+  .all-birds__header {
+    @include huge-font;
+    color: $dark-blue-color;
+  }
+
+  .all-birds__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 700px;
+
+    .all-birds__item {
+      width: 22%;
+      height: 50px;
+      border-radius: 15px;
+      background-color: $green-color;
+      color: $dark-blue-color;
+      @include lite-font;
+      cursor: pointer;
+    }
+
+    .all-birds__item:hover {
+      transform: rotate(360deg);
+      transform: scale(1.05);
+    }
+  }
+}

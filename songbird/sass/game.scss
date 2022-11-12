@@ -11,6 +11,7 @@
 }
 
 .main {
+  position: relative;
   width: 100%;
   height: 700px;
 }
@@ -45,6 +46,52 @@
 .next-level-button_active:hover {
   transform: rotate(360deg);
   transform: scale(1.01);
+}
+
+.win-page {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $dark-blue-color;
+
+  .win-page__header {
+    @include very-huge-font;
+    color: $green-color;
+    margin-bottom: 10px;
+  }
+
+  .win-page__subheader {
+    @include huge-font;
+    color: $green-color;
+    margin-bottom: 50px;
+  }
+
+  .win-page__button {
+    width: 80%;
+    height: 50px;
+    @include medium-font;
+    background-color: $green-color;
+    color: $dark-blue-color;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .win-page__button:hover {
+    transform: rotate(360deg);
+    transform: scale(1.01);
+  }
+}
+
+.win-page_active {
+  display: flex;
 }
 
 // 45 section1
