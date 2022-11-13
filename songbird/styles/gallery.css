@@ -13,10 +13,12 @@
   align-items: center;
   height: 100%;
   width: 300px;
+  flex-shrink: 0;
 }
 .emblem .emblem__header {
   font-size: 5rem;
   font-weight: 500;
+  line-height: 6rem;
   font-style: italic;
   width: 100%;
   background: -webkit-linear-gradient(45deg, #56ab2f, #676767);
@@ -96,6 +98,68 @@
   cursor: default;
 }
 
+@media screen and (max-width: 900px) {
+  .header__wrapper {
+    justify-content: space-between;
+  }
+  .emblem {
+    width: 150px;
+    height: 80px;
+  }
+  .change-language {
+    width: 100px;
+    height: 50px;
+  }
+  .change-language .change-language__button {
+    width: 45px;
+    height: 30px;
+  }
+  .navigation {
+    width: 50%;
+  }
+  .navigation .navigation__list {
+    justify-content: space-between;
+  }
+  .navigation .navigation__list .navigation__item {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 620px) {
+  .header {
+    height: 60px;
+  }
+  .emblem {
+    width: 130px;
+    height: 50px;
+  }
+  .navigation {
+    height: 100%;
+  }
+  .navigation .navigation__list .navigation__item {
+    height: 30px;
+  }
+  .change-language {
+    width: 80px;
+    height: 40px;
+  }
+  .change-language .change-language__button {
+    width: 38px;
+    height: 25px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .emblem {
+    width: 100px;
+  }
+  .change-language {
+    width: 70px;
+    height: 35px;
+  }
+  .change-language .change-language__button {
+    width: 35px;
+    height: 25px;
+  }
+}
 .footer {
   width: 100%;
   height: 70px;
@@ -107,11 +171,11 @@
 }
 .footer .footer__link {
   display: block;
-  width: 200px;
+  width: 100px;
   height: 50px;
 }
 .footer .footer__img {
-  width: 50%;
+  width: 100%;
   height: 100%;
 }
 .footer .year {
@@ -119,6 +183,36 @@
   font-weight: 500;
 }
 
+@media screen and (max-width: 1520px) {
+  .footer {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 1220px) {
+  .footer {
+    max-width: 900px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .footer {
+    max-width: 600px;
+  }
+}
+@media screen and (max-width: 620px) {
+  .footer {
+    max-width: 450px;
+    height: 40px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .footer {
+    max-width: 340px;
+  }
+  .footer .footer__link {
+    height: 30px;
+  }
+}
 .question {
   display: flex;
   justify-content: space-between;
@@ -292,6 +386,7 @@
 .all-birds .all-birds__header {
   font-size: 5rem;
   font-weight: 500;
+  line-height: 6rem;
   color: #101f24;
 }
 .all-birds .all-birds__list {

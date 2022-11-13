@@ -40,7 +40,8 @@ ul ul li {
 
 body {
   background: linear-gradient(-135deg, #56ab2f, #a8e063);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .container {
@@ -62,6 +63,55 @@ a {
 html {
   font-size: 10px;
   font-family: "Roboto", sans-serif;
+}
+
+@media screen and (max-width: 1520px) {
+  .container {
+    max-width: 1220px;
+    height: 800px;
+  }
+  .wrapper {
+    width: 92%;
+  }
+}
+@media screen and (max-width: 1220px) {
+  body {
+    overflow-y: visible;
+    background: none;
+    background-color: #a8e063;
+  }
+  .container {
+    max-width: 900px;
+    height: 1000px;
+    margin: 50px auto 0 auto;
+  }
+}
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 7px;
+  }
+  .container {
+    max-width: 600px;
+    height: 1000px;
+    margin: 0px auto 0 auto;
+  }
+}
+@media screen and (max-width: 620px) {
+  html {
+    font-size: 6px;
+  }
+  .container {
+    max-width: 450px;
+  }
+}
+@media screen and (max-width: 450px) {
+  html {
+    font-size: 4.5px;
+  }
+  .container {
+    max-width: 340px;
+    height: 800px;
+  }
 }
 
 /*# sourceMappingURL=basic.css.map */

@@ -25,7 +25,7 @@
       @include huge-font;
       color: $dark-green-color;
       margin-bottom: 20px;
-      line-height: 60px
+      // line-height: 60px
     }
 
     .main__paragraph {
@@ -40,7 +40,7 @@
       cursor: pointer;
       text-transform: uppercase;
       background-color: $dark-blue-color;
-      width: 300px;
+      width: 400px;
       height: 50px;
       border-radius: 50px;
       margin-left: 5%;
@@ -58,6 +58,89 @@
     width: 37%;
   }
 }
+
+@media screen and (max-width: 1520px) {
+
+  .container {
+    background: url(../assets/img/main-page-background.jpg) 550px 150px / 600px 450px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
+  }
+
+  .main {
+
+    .main__wrapper > * {
+      width: 45%;
+    }
+  }
+}
+
+@media screen and (max-width: 1220px) {
+
+  .container {
+    background: url(../assets/img/main-page-background.jpg) 450px 150px / 400px 350px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
+  }
+
+  .main {
+
+    .main__wrapper {
+
+      .main__paragraph {
+        margin-top: 50px;
+        width: 100%;
+        @include medium-font;
+      }
+
+      form {
+        width: 100%;
+      }
+      .start-game-button {
+        width: 100%;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+
+  .container {
+    background: url(../assets/img/main-page-background.jpg) center 300px / 400px 350px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
+  }
+
+  .main {
+
+    .main__wrapper > * {
+      width: 100%;
+    }
+  }
+
+  .main__header, .main__subheader {
+    text-align: center;
+  }
+
+  .main .main__wrapper .main__paragraph {
+    margin-top: 400px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  
+  .container {
+    background: url(../assets/img/main-page-background.jpg) center 250px / 400px 350px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  
+  .container {
+    background: url(../assets/img/main-page-background.jpg) center 230px / 300px 250px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
+  }
+
+  .main .main__wrapper .main__paragraph {
+    margin-top: 300px;
+    margin-bottom: 50px;
+  }
+}
+
 
 
 

@@ -15,6 +15,7 @@
   align-items: center;
   height: 100%;
   width: 300px;
+  flex-shrink: 0;
 
   .emblem__header {
     @include huge-font;
@@ -106,5 +107,89 @@
   .change-language__button_active .change-language__img{
     border: 4px solid $dark-green-color;
     cursor: default;
+  }
+}
+
+
+@media screen and (max-width: 900px) {
+  
+  .header__wrapper {
+    justify-content: space-between;
+  }
+
+  .emblem {
+    width: 150px;
+    height: 80px;
+  }
+
+  .change-language {
+    width: 100px;
+    height: 50px;
+
+    .change-language__button {
+      width: 45px;
+      height: 30px;
+    }
+  }
+
+  .navigation {
+
+    width: 50%;
+    
+    .navigation__list {
+      justify-content: space-between;
+
+      .navigation__item {
+
+        width: 30%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
+
+  .header {
+    height: 60px;
+  }
+
+  .emblem {
+    width: 130px;
+    height: 50px;
+  }
+
+  .navigation {
+    height: 100%;
+  }
+
+  .navigation .navigation__list .navigation__item {
+    height: 30px;
+  }
+
+  .change-language {
+    width: 80px;
+    height: 40px;
+
+    .change-language__button {
+      width: 38px;
+      height: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  
+  .emblem {
+    width: 100px;
+  }
+
+  .change-language {
+    width: 70px;
+    height: 35px;
+
+    .change-language__button {
+      width: 35px;
+      height: 25px;
+    }
   }
 }

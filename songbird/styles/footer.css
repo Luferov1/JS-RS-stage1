@@ -1,9 +1,9 @@
 /* Error: Undefined mixin.
  *    ,
- * 24 |     @include medium-font;
+ * 23 |     @include medium-font;
  *    |     ^^^^^^^^^^^^^^^^^^^^
  *    '
- *   sass\footer.scss 24:5  root stylesheet */
+ *   sass\footer.scss 23:5  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a    \2577 \a 24 \2502      @include medium-font;\d\a    \2502      ^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   sass\\footer.scss 24:5  root stylesheet";
+  content: "Error: Undefined mixin.\a    \2577 \a 23 \2502      @include medium-font;\d\a    \2502      ^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   sass\\footer.scss 23:5  root stylesheet";
 }

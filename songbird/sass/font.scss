@@ -18,11 +18,13 @@
 @mixin huge-font {
   font-size: 5rem;
   font-weight: 500;
+  line-height: 6rem;
 }
 
 @mixin very-huge-font {
   font-size: 7rem;
   font-weight: 700;
+  line-height: 8rem;
 }
 
 @mixin border {
