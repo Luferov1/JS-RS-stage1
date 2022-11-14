@@ -429,6 +429,7 @@
   height: 350px;
   padding: 20px 40px 10px 10px;
   background-color: #101f24;
+  border-radius: 10px;
   border: 1px solid black;
 }
 .description .answer {
@@ -534,6 +535,7 @@
   font-weight: 500;
   line-height: 6rem;
   color: #101f24;
+  margin-bottom: 10px;
 }
 .all-birds .all-birds__list {
   display: flex;
@@ -555,6 +557,59 @@
 .all-birds .all-birds__list .all-birds__item:hover {
   transform: rotate(360deg);
   transform: scale(1.05);
+}
+
+@media screen and (max-width: 1220px) {
+  .main {
+    height: 880px;
+  }
+  .main__wrapper {
+    flex-direction: column;
+  }
+  .all-birds {
+    width: 100%;
+    height: 550px;
+  }
+  .all-birds .all-birds__list .all-birds__item {
+    height: 45px;
+  }
+  .description {
+    width: 100%;
+    height: 300px;
+  }
+  .description .answer {
+    width: 70%;
+  }
+  .description .answer .player__progress-bar {
+    width: 88%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .description .answer {
+    width: 60%;
+  }
+  .description .answer .player__progress-bar {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 620px) {
+  .all-birds {
+    height: 600px;
+  }
+  .description {
+    height: 250px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .main {
+    height: 700px;
+  }
+  .all-birds {
+    height: 500px;
+  }
+  .description {
+    height: 200px;
+  }
 }
 
 /*# sourceMappingURL=gallery.css.map */

@@ -10,6 +10,7 @@
   height: 350px;
   padding: 20px 40px 10px 10px;
   background-color: $dark-blue-color;
+  border-radius: 10px;
   @include border;
 
   .answer {
