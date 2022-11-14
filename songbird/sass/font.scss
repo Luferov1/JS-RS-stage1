@@ -10,6 +10,10 @@
   font-weight: 300;
 }
 
+@mixin lite-medium-font {
+  font-size: 2.5rem;
+}
+
 @mixin medium-font {
   font-size: 3rem;
   font-weight: 500;

@@ -18,7 +18,9 @@
 
     .answer__subheader {
       @include lite-font;
+      width: 100%;
       color: $green-color;
+      border-bottom: 2px solid #56ab2f;
     }
 
     .player__progress-bar {
@@ -49,5 +51,62 @@
 
   .description__cover_active {
     display: block;
+  }
+}
+
+@media screen and (max-width: 1520px) {
+
+  .description .answer {
+    width: 50%;
+  }
+
+  .description .answer .player__progress-bar {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1220px) {
+
+  .description .answer {
+    width: 50%;
+  }
+
+  .description .answer .player__progress-bar {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  
+  .description {
+    height: 250px;
+    width: 100%;
+    padding-right: 10px;
+  }
+
+  .description .answer {
+    width: 60%;
+  }
+
+  .description .answer .player__progress-bar {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  
+  .description .answer {
+    height: 120px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  
+  .description {
+    height: 180px;
+  }
+
+  .description .answer {
+    height: 100px;
   }
 }

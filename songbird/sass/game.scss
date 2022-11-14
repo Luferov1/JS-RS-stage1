@@ -94,6 +94,31 @@
   display: flex;
 }
 
+@media screen and (max-width: 1220px) {
+  
+  .main {
+    height: 800px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  
+  .main {
+    height: 880px;
+  }
+
+  .main__wrapper {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  
+  .main {
+    height: 700px;
+  }
+}
+
 // 45 section1
 // 30
 // 175 section2

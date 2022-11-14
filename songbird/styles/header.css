@@ -98,6 +98,11 @@
   cursor: default;
 }
 
+@media screen and (max-width: 1220px) {
+  .emblem {
+    width: 220px;
+  }
+}
 @media screen and (max-width: 900px) {
   .header__wrapper {
     justify-content: space-between;

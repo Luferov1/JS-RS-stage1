@@ -49,3 +49,27 @@
 
   }
 }
+
+@media screen and (max-width: 900px) {
+  
+  .answer-options {
+    width: 100%;
+    height: 260px;
+  }
+
+  .answer-options .answer-options__list .answer-options__item {
+    height: 40px;
+  }
+}
+
+
+@media screen and (max-width: 450px) {
+  
+  .answer-options {
+    height: 200px;
+  }
+
+  .answer-options .answer-options__list .answer-options__item {
+    height: 30px;
+  }
+}

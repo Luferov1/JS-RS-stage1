@@ -38,3 +38,43 @@
     @include medium-font;
   }
 }
+
+@media screen and (max-width: 1520px) {
+  
+  .scoreboard .scoreboard__list {
+    width: 87%;
+  }
+}
+
+@media screen and (max-width: 1220px) {
+
+  .scoreboard {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    height: 100px;
+
+    .scoreboard__list {
+      height: 50px;
+      width: 100%;
+      order: 2;
+
+      .scoreboard__item {
+
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  
+  .scoreboard .scoreboard__list .scoreboard__item {
+    width: max-content;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  
+  .scoreboard .scoreboard__list .scoreboard__item {
+    @include lite-medium-font;
+  }
+}
