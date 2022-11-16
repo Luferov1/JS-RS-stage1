@@ -1,6 +1,7 @@
 // imports
 
 import translations from "./translations.js";
+import birdsData from "./birds.js";
 
 // variables
 
@@ -9,10 +10,29 @@ const languageContainer = document.querySelector('.change-language');
 const englishFlag = languageContainer.children[1];
 const russainFlag = languageContainer.children[2];
 const navigationLinks = document.querySelectorAll('.navigation__link');
+const birds = document.querySelectorAll('.all-birds__item');
 
 
 
 // functions
+
+const fillGallery = () => {
+
+  if (language.enlish) {
+    for (let i = 0; i < birdsData.length; i++) {
+      for (let j = 0; j < birdsData[i].length; j++) {
+        birds[i * 6 + j].innerHTML = birdsData[i][j].nameEn;
+      }
+    }
+  } else {
+    for (let i = 0; i < birdsData.length; i++) {
+      for (let j = 0; j < birdsData[i].length; j++) {
+        birds[i * 6 + j].innerHTML = birdsData[i][j].nameRus;
+      }
+    }
+  }
+}
+
 
 const changeTexts = () => {
   
@@ -44,7 +64,6 @@ const changeTexts = () => {
         arr[i].innerHTML = translations.mainTranslation[1][i];
       }
     }
-    console.log('main');
   }
 
   if (navigationLinks[1].classList.contains('navigation__link_active')) {
@@ -78,12 +97,12 @@ const changeTexts = () => {
         winMessageArr[i].innerHTML = translations.winMessageTranslation[1][i];
       }
     }
-    console.log('game');
   }
 
   if (navigationLinks[2].classList.contains('navigation__link_active')) {
     const item = document.querySelector('.all-birds__header');
-    
+    fillGallery();
+
     if (language.enlish) {
       item.innerHTML = translations.galleryTranslation[0];
       document.querySelector('.description__cover').innerHTML = 'Select a bird from the list.';
@@ -91,7 +110,6 @@ const changeTexts = () => {
       item.innerHTML = translations.galleryTranslation[1];
       document.querySelector('.description__cover').innerHTML = 'Выберите птицу из списка.';
     }
-    console.log('galery');
   }
 
 }
@@ -110,8 +128,6 @@ const changeLanguage = (event) => {
       englishFlag.classList.remove('change-language__button_active');
       changeTexts();
     }
-
-    console.log(language.enlish);
   }
 }
 

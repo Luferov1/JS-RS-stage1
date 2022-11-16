@@ -528,7 +528,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 48%;
+  width: 51%;
   height: 700px;
 }
 .all-birds .all-birds__header {
@@ -546,13 +546,18 @@
   height: 700px;
 }
 .all-birds .all-birds__list .all-birds__item {
-  width: 22%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 24%;
   height: 50px;
   border-radius: 15px;
   background-color: #56ab2f;
   color: #101f24;
-  font-size: 2rem;
-  font-weight: 300;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 2rem;
   cursor: pointer;
 }
 .all-birds .all-birds__list .all-birds__item:hover {
