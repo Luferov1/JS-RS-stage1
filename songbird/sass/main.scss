@@ -25,13 +25,14 @@
       @include huge-font;
       color: $dark-green-color;
       margin-bottom: 20px;
-      // line-height: 60px
+      height: 120px;
     }
 
     .main__paragraph {
       @include lite-font;
       color: $green-color;
       margin-bottom: 80px;
+      height: 180px;
     }
 
     .start-game-button {
@@ -83,10 +84,15 @@
 
     .main__wrapper {
 
+      .main__subheader {
+        height: 153px;
+      }
+
       .main__paragraph {
         margin-top: 50px;
         width: 100%;
         @include medium-font;
+        height: 191.25px;
       }
 
       form {
@@ -113,12 +119,18 @@
     }
   }
 
+  .main .main__wrapper .main__subheader {
+    height: 84px;
+  }
+
   .main__header, .main__subheader {
     text-align: center;
   }
 
   .main .main__wrapper .main__paragraph {
     margin-top: 400px;
+    height: 189px;
+    margin-bottom: 30px;
   }
 }
 
@@ -126,6 +138,10 @@
   
   .container {
     background: url(../assets/img/main-page-background.jpg) center 250px / 400px 350px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
+  }
+
+  .main .main__wrapper .main__subheader {
+    height: 72px;
   }
 }
 
@@ -138,6 +154,7 @@
   .main .main__wrapper .main__paragraph {
     margin-top: 300px;
     margin-bottom: 50px;
+    height: 162px;
   }
 }
 

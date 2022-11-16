@@ -243,12 +243,14 @@
   line-height: 6rem;
   color: #006400;
   margin-bottom: 20px;
+  height: 120px;
 }
 .main .main__wrapper .main__paragraph {
   font-size: 2rem;
   font-weight: 300;
   color: #56ab2f;
   margin-bottom: 80px;
+  height: 180px;
 }
 .main .main__wrapper .start-game-button {
   display: block;
@@ -284,11 +286,15 @@
   .container {
     background: url(../assets/img/main-page-background.jpg) 450px 150px/400px 350px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
   }
+  .main .main__wrapper .main__subheader {
+    height: 153px;
+  }
   .main .main__wrapper .main__paragraph {
     margin-top: 50px;
     width: 100%;
     font-size: 3rem;
     font-weight: 500;
+    height: 191.25px;
   }
   .main .main__wrapper form {
     width: 100%;
@@ -305,16 +311,24 @@
   .main .main__wrapper > * {
     width: 100%;
   }
+  .main .main__wrapper .main__subheader {
+    height: 84px;
+  }
   .main__header, .main__subheader {
     text-align: center;
   }
   .main .main__wrapper .main__paragraph {
     margin-top: 400px;
+    height: 189px;
+    margin-bottom: 30px;
   }
 }
 @media screen and (max-width: 620px) {
   .container {
     background: url(../assets/img/main-page-background.jpg) center 250px/400px 350px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
+  }
+  .main .main__wrapper .main__subheader {
+    height: 72px;
   }
 }
 @media screen and (max-width: 450px) {
@@ -324,6 +338,7 @@
   .main .main__wrapper .main__paragraph {
     margin-top: 300px;
     margin-bottom: 50px;
+    height: 162px;
   }
 }
 

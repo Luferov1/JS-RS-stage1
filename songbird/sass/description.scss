@@ -46,6 +46,7 @@
     z-index: 2;
     padding: 20px;
     background-color: $dark-blue-color;
+    border-radius: 10px;
     @include medium-font;
     color: $green-color;
   }
