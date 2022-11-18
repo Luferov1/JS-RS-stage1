@@ -347,7 +347,7 @@ const birdsData = [
       species: 'Pelecanus',
       descriptionRus: 'Пеликаны — обитатели морей и рек. Ходят они неуклюже, но хорошо летают и плавают. Питаются в основном рыбой, устраивают коллективные охоты — выстроившись полукругом хлопают по воде крыльями и клювами и вытесняют напуганную рыбу на мелководье.',
       descriptionEn: 'Pelicans are inhabitants of the seas and rivers. They walk awkwardly, but fly and swim well. They feed mainly on fish, organize collective hunts - lining up in a semicircle, they flap their wings and beaks on the water and force out the frightened fish in shallow water.',
-      image: 'https://live.staticflickr.com/65535/49159147156_dcbbb5c12a.jpg',
+      image: 'https://i.ibb.co/mqqxpKB/89644134.jpg',
       audio: 'https://www.xeno-canto.org/sounds/uploaded/XAMHIHFTZG/XC331138-call1.mp3'
     },
     {
