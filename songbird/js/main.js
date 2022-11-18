@@ -2,7 +2,6 @@
 
 import language from "./language.js";
 import birdsData from "./birds.js";
-import translations from "./translations.js";
 
 // variables
 const languageContainer = document.querySelector('.change-language');
@@ -23,8 +22,6 @@ const descriptionImg = document.querySelector('.description .question__img');
 const nextRoundButton = document.querySelector('.next-level-button');
 
 const winPage = document.querySelector('.win-page');
-const winPageHeader = document.querySelector('.win-page__header');
-const winPageText = document.querySelector('.win-page__text');
 const winPageScore = document.querySelector('.win-page__score');
 const winPageButton = document.querySelector('.win-page__button');
 
