@@ -44,7 +44,7 @@
       border-radius: 15px;
       background-color: $green-color;
       color: $dark-blue-color;
-      @include lite-medium-font;
+      @include lite-font;
       line-height: 2rem;
       cursor: pointer;
     }
@@ -97,6 +97,10 @@
 
   .description .answer .player__progress-bar {
     width: 80%;
+  }
+
+  .all-birds .all-birds__list .all-birds__item {
+    @include lite-medium-font;
   }
 }
 

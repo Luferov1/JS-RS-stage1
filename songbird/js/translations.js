@@ -3,7 +3,7 @@ const translations = {
     [
       'Home',
       'Game',
-      'Galery',
+      'Gallery',
       'Language'
     ],
     [

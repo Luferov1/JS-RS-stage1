@@ -555,8 +555,8 @@
   border-radius: 15px;
   background-color: #56ab2f;
   color: #101f24;
-  font-size: 2.5rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 300;
   line-height: 2rem;
   cursor: pointer;
 }
@@ -596,6 +596,10 @@
   }
   .description .answer .player__progress-bar {
     width: 80%;
+  }
+  .all-birds .all-birds__list .all-birds__item {
+    font-size: 2.5rem;
+    font-weight: 500;
   }
 }
 @media screen and (max-width: 620px) {
