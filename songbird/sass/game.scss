@@ -1,0 +1,128 @@
+@import 'header';
+@import 'font';
+@import 'footer';
+@import 'scoreboard';
+@import 'question';
+@import 'answer-options';
+@import 'description';
+
+.container {
+  background: linear-gradient(90deg, #76daff, #fcd000);
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  height: 700px;
+}
+
+.main__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  flex-wrap: wrap;
+}
+
+.next-level-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  @include medium-font;
+  background-color: transparent;
+  border: 4px solid $green-color;
+}
+
+.next-level-button_active {
+  color: $green-color;
+  background-color: $dark-blue-color;
+  cursor: pointer;
+}
+
+.next-level-button_active:hover {
+  transform: rotate(360deg);
+  transform: scale(1.01);
+}
+
+.win-page {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $dark-blue-color;
+
+  .win-page__header {
+    @include very-huge-font;
+    color: $green-color;
+    margin-bottom: 10px;
+  }
+
+  .win-page__subheader {
+    @include huge-font;
+    color: $green-color;
+    margin-bottom: 50px;
+  }
+
+  .win-page__button {
+    width: 80%;
+    height: 50px;
+    @include medium-font;
+    background-color: $green-color;
+    color: $dark-blue-color;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .win-page__button:hover {
+    transform: rotate(360deg);
+    transform: scale(1.01);
+  }
+}
+
+.win-page_active {
+  display: flex;
+}
+
+@media screen and (max-width: 1220px) {
+  
+  .main {
+    height: 800px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  
+  .main {
+    height: 880px;
+  }
+
+  .main__wrapper {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  
+  .main {
+    height: 700px;
+  }
+}
+
+// 45 section1
+// 30
+// 175 section2
+// 30
+// 350 section3-section4
+// 30
+// 40 button

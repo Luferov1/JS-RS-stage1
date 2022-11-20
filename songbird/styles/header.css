@@ -1,0 +1,169 @@
+.header {
+  width: 100%;
+  height: 100px;
+}
+
+.header__wrapper {
+  display: flex;
+}
+
+.emblem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 300px;
+  flex-shrink: 0;
+}
+.emblem .emblem__header {
+  font-size: 5rem;
+  font-weight: 500;
+  line-height: 6rem;
+  font-style: italic;
+  width: 100%;
+  background: -webkit-linear-gradient(45deg, #56ab2f, #676767);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navigation {
+  width: 65%;
+  height: 100px;
+  font-size: 3rem;
+  font-weight: 500;
+}
+.navigation .navigation__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+}
+.navigation .navigation__list .navigation__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 60px;
+}
+.navigation .navigation__list .navigation__item .navigation__link {
+  display: block;
+  color: #56ab2f;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+.navigation .navigation__list .navigation__item:hover :not(.navigation__link_active) {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.navigation .navigation__list .navigation__item .navigation__link_active {
+  color: #101f24;
+}
+
+.change-language {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 180px;
+  height: 90px;
+  align-self: center;
+}
+.change-language .change-language__text {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: 300;
+  color: #006400;
+}
+.change-language .change-language__button {
+  display: block;
+  border: none;
+  cursor: pointer;
+  width: 85px;
+  height: 60px;
+  background-color: transparent;
+}
+.change-language .change-language__button .change-language__img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.change-language .change-language__button_active .change-language__img {
+  border: 4px solid #006400;
+  cursor: default;
+}
+
+@media screen and (max-width: 1220px) {
+  .emblem {
+    width: 220px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .header__wrapper {
+    justify-content: space-between;
+  }
+  .emblem {
+    width: 150px;
+    height: 80px;
+  }
+  .change-language {
+    width: 100px;
+    height: 50px;
+  }
+  .change-language .change-language__button {
+    width: 45px;
+    height: 30px;
+  }
+  .navigation {
+    width: 50%;
+  }
+  .navigation .navigation__list {
+    justify-content: space-between;
+  }
+  .navigation .navigation__list .navigation__item {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 620px) {
+  .header {
+    height: 60px;
+  }
+  .emblem {
+    width: 130px;
+    height: 50px;
+  }
+  .navigation {
+    height: 100%;
+  }
+  .navigation .navigation__list .navigation__item {
+    height: 30px;
+  }
+  .change-language {
+    width: 80px;
+    height: 40px;
+  }
+  .change-language .change-language__button {
+    width: 38px;
+    height: 25px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .emblem {
+    width: 100px;
+  }
+  .change-language {
+    width: 70px;
+    height: 35px;
+  }
+  .change-language .change-language__button {
+    width: 35px;
+    height: 25px;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */

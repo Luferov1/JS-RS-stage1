@@ -1,0 +1,122 @@
+@import 'font';
+
+.description {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 48%;
+  height: 350px;
+  padding: 20px 40px 10px 10px;
+  background-color: $dark-blue-color;
+  border-radius: 10px;
+  @include border;
+
+  .answer {
+    width: 60%;
+    height: 155px;
+
+    .answer__subheader {
+      @include lite-font;
+      width: 100%;
+      color: $green-color;
+      border-bottom: 2px solid #56ab2f;
+    }
+
+    .player__progress-bar {
+      width: 80%;
+    }
+  }
+
+  .bird-description {
+    width: 100%;
+    @include lite-font;
+    color: $green-color;
+    text-align: justify;
+  }
+
+  .description__cover {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    padding: 20px;
+    background-color: $dark-blue-color;
+    border-radius: 10px;
+    @include medium-font;
+    color: $green-color;
+  }
+
+  .description__cover_active {
+    display: block;
+  }
+
+  .description__progress {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background-color: $dark-green-color;
+  }
+}
+
+@media screen and (max-width: 1520px) {
+
+  .description .answer {
+    width: 50%;
+  }
+
+  .description .answer .player__progress-bar {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1220px) {
+
+  .description .answer {
+    width: 50%;
+  }
+
+  .description .answer .player__progress-bar {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  
+  .description {
+    height: 250px;
+    width: 100%;
+    padding-right: 10px;
+  }
+
+  .description .answer {
+    width: 60%;
+  }
+
+  .description .answer .player__progress-bar {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  
+  .description .answer {
+    height: 120px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  
+  .description {
+    height: 180px;
+  }
+
+  .description .answer {
+    height: 100px;
+  }
+}

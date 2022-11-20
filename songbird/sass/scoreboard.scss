@@ -1,0 +1,75 @@
+@import 'font';
+
+.scoreboard {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+
+  .scoreboard__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 88%;
+    height: 100%;
+    background-color: $dark-green-color;
+    border-radius: 10px;
+
+    .scoreboard__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: calc(100% / 6);
+      height: 100%;
+      border-radius: 10px;
+      color: $green-color;
+      @include lite-medium-font;
+    }
+
+    .scoreboard__item_active {
+      background-color: $dark-blue-color;
+    }
+  }
+
+  .score-table {
+    margin-left: 10px;
+    color: $dark-blue-color;
+    @include medium-font;
+  }
+}
+
+@media screen and (max-width: 1520px) {
+  
+  .scoreboard .scoreboard__list {
+    width: 87%;
+  }
+}
+
+@media screen and (max-width: 1220px) {
+
+  .scoreboard {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    height: 100px;
+
+    .scoreboard__list {
+      height: 50px;
+      width: 100%;
+      order: 2;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  
+  .scoreboard .scoreboard__list .scoreboard__item {
+    width: max-content;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  
+  .scoreboard .scoreboard__list .scoreboard__item {
+    @include lite-medium-font;
+  }
+}

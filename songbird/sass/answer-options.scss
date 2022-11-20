@@ -1,0 +1,75 @@
+.answer-options {
+  width: 48%;
+  height: 350px;
+  border: 4px solid $green-color;
+  background-color: $green-color;
+
+  .answer-options__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+
+    .answer-options__item {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 53.66px;
+      @include medium-font;
+      color: $gray-color;
+      background-color: $dark-blue-color;
+      cursor: pointer;
+    }
+
+    .list-marker {
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-color: $gray-color;
+      border-radius: 50%;
+      margin: 0 10px;
+    }
+
+    .answer-options__item_true {
+      color: $green-color;
+
+      .list-marker {
+        background-color: $green-color;
+      }
+    }
+
+    .answer-options__item_false {
+      color: $red-color;
+
+      .list-marker {
+        background-color: $red-color;
+      }
+    }
+
+  }
+}
+
+@media screen and (max-width: 900px) {
+  
+  .answer-options {
+    width: 100%;
+    height: 260px;
+  }
+
+  .answer-options .answer-options__list .answer-options__item {
+    height: 40px;
+  }
+}
+
+
+@media screen and (max-width: 450px) {
+  
+  .answer-options {
+    height: 200px;
+  }
+
+  .answer-options .answer-options__list .answer-options__item {
+    height: 30px;
+  }
+}
