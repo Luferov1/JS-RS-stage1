@@ -54,6 +54,14 @@
   .description__cover_active {
     display: block;
   }
+
+  .description__progress {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background-color: $dark-green-color;
+  }
 }
 
 @media screen and (max-width: 1520px) {

@@ -26,7 +26,16 @@ const winPageScore = document.querySelector('.win-page__score');
 const winPageButton = document.querySelector('.win-page__button');
 
 const answerPlayerPlayButton = document.querySelector('.player__play-button');
+const descriptionPlayerPlayButton = document.querySelector('.description .player__play-button');
 const playerCovers = document.querySelectorAll('.player__cover');
+const playersFullTimeMinutes = document.querySelectorAll('.player__full-time .minutes');
+const playersFullTimeSeconds = document.querySelectorAll('.player__full-time .seconds');
+const questionProgress = document.querySelector('.question__progress');
+const descriptionProgress = document.querySelector('.description__progress');
+
+const playerCurrentTimeMinutes = document.querySelectorAll('.player__time-played .minutes');
+const playerCurrentTimeSeconds = document.querySelectorAll('.player__time-played .seconds');
+
 
 let answerOptionsArr;
 let score = 0;
@@ -35,6 +44,7 @@ let points;
 let trueIndex;
 let answer;
 let answerAudio;
+let descriptionAudio;
 
 const trueSound = new Audio('../assets/audio/true.mp3');
 const falseSound = new Audio('../assets/audio/false.mp3');
@@ -77,18 +87,48 @@ const showTrueBird = () => {
   }
 }
 
+const updatedescriptionTime = () => {
+  const currentTime = Math.ceil(descriptionAudio.currentTime);
+
+  if (currentTime < 10) {
+    playerCurrentTimeSeconds[1].innerHTML = String(currentTime).padStart(2, 0);
+  } else if (currentTime < 60) {
+    playerCurrentTimeSeconds[1].innerHTML = currentTime;
+  } else {
+    playerCurrentTimeMinutes[1].innerHTML = String(Math.floor(currentTime / 60)).padStart(2, 0);
+
+    if (currentTime % 60 < 10) {
+      playerCurrentTimeSeconds[1].innerHTML = String(currentTime % 60).padStart(2, 0);
+    } else {
+      playerCurrentTimeSeconds[1].innerHTML = currentTime % 60;
+    }
+  }
+  descriptionProgress.style.width = `${descriptionAudio.currentTime / descriptionAudio.duration * 100}%`
+}
+
 const showBird = (answer) => {
 
+  playerCovers[1].classList.add('player__cover_active');
+
+  if (descriptionAudio) {
+    descriptionAudio.pause();
+    descriptionPlayerPlayButton.firstElementChild.classList.add('player__play-button_play');
+    descriptionPlayerPlayButton.firstElementChild.classList.remove('player__play-button_pause');
+    descriptionProgress.style.width = '0%';
+  }
+
+  let chosenBird;
   if (language.enlish) {
 
     for (let i = 0; i < answerOptions.length; i++) {
 
       if (birdsData[i][round - 1].nameEn === answer) {
-        console.log(answer);
         descriptionImg.src = birdsData[i][round - 1].image;
         descriptionHeader.innerHTML = birdsData[i][round - 1].nameEn;
         descriptionSubheader.innerHTML = birdsData[i][round - 1].species;
         description.innerHTML = birdsData[i][round - 1].descriptionEn;
+
+        chosenBird = birdsData[i][round - 1];
       }
     }
   } else {
@@ -100,8 +140,35 @@ const showBird = (answer) => {
         descriptionHeader.innerHTML = birdsData[i][round - 1].nameRus;
         descriptionSubheader.innerHTML = birdsData[i][round - 1].species;
         description.innerHTML = birdsData[i][round - 1].descriptionRus;
+
+        chosenBird = birdsData[i][round - 1];
       }
     }
+  }
+
+  descriptionAudio = new Audio(chosenBird.audio);
+  descriptionAudio.oncanplaythrough = () => {
+    playerCovers[1].classList.remove('player__cover_active');
+
+    const duration = Math.ceil(descriptionAudio.duration);
+
+    if (duration < 10) {
+      playersFullTimeMinutes[1].innerHTML = '00';
+      playersFullTimeSeconds[1].innerHTML = String(duration).padStart(2, 0);
+    } else if (duration < 60) {
+      playersFullTimeMinutes[1].innerHTML = '00';
+      playersFullTimeSeconds[1].innerHTML = duration;
+    } else {
+      playersFullTimeMinutes[1].innerHTML = String(Math.floor(duration / 60)).padStart(2, 0);
+
+      if (duration % 60 < 10) {
+        playersFullTimeSeconds[1].innerHTML = String(duration % 60).padStart(2, 0);
+      } else {
+        playersFullTimeSeconds[1].innerHTML = duration % 60;
+      }
+    }
+    descriptionAudio.addEventListener('timeupdate', updatedescriptionTime);
+    descriptionAudio.addEventListener('ended', refreshDescriptionAudio);
   }
 }
 
@@ -158,19 +225,110 @@ const abbleToWatch = (event) => {
   showBird(answer);
 }
 
-const startRound = async () => {
+const updateAnswerTime = () => {
+  const currentTime = Math.ceil(answerAudio.currentTime);
+
+  if (currentTime < 10) {
+    playerCurrentTimeSeconds[0].innerHTML = String(currentTime).padStart(2, 0);
+  } else if (currentTime < 60) {
+    playerCurrentTimeSeconds[0].innerHTML = currentTime;
+  } else {
+    playerCurrentTimeMinutes[0].innerHTML = String(Math.floor(currentTime / 60)).padStart(2, 0);
+
+    if (currentTime % 60 < 10) {
+      playerCurrentTimeSeconds[0].innerHTML = String(currentTime % 60).padStart(2, 0);
+    } else {
+      playerCurrentTimeSeconds[0].innerHTML = currentTime % 60;
+    }
+  }
+  questionProgress.style.width = `${answerAudio.currentTime / answerAudio.duration * 100}%`
+}
+
+const playAudio = () => {
+  // 
+  if (descriptionAudio) {
+    descriptionAudio.pause();
+    descriptionPlayerPlayButton.firstElementChild.classList.add('player__play-button_play');
+    descriptionPlayerPlayButton.firstElementChild.classList.remove('player__play-button_pause');
+  }
+
+  const button = answerPlayerPlayButton.firstElementChild;
+  if (button.classList.contains('player__play-button_play')) {
+    button.classList.remove('player__play-button_play');
+    button.classList.add('player__play-button_pause');
+    answerAudio.play();
+  } else {
+    button.classList.add('player__play-button_play');
+    button.classList.remove('player__play-button_pause');
+    answerAudio.pause();
+  }
+}
+
+const playDescriptionAudio = () => {
+  if (answerAudio) {
+    answerAudio.pause();
+    answerPlayerPlayButton.firstElementChild.classList.add('player__play-button_play');
+    answerPlayerPlayButton.firstElementChild.classList.remove('player__play-button_pause');
+  }
+
+  const button = descriptionPlayerPlayButton.firstElementChild;
+  if (button.classList.contains('player__play-button_play')) {
+    button.classList.remove('player__play-button_play');
+    button.classList.add('player__play-button_pause');
+    descriptionAudio.play();
+  } else {
+    button.classList.add('player__play-button_play');
+    button.classList.remove('player__play-button_pause');
+    descriptionAudio.pause();
+  }
+}
+
+const refreshDescriptionAudio = () => {
+  playDescriptionAudio();
+  
+    playerCurrentTimeMinutes[1].innerHTML = '00';
+    playerCurrentTimeSeconds[1].innerHTML = '00';
+
+  descriptionProgress.style.width = '0%';
+}
+
+const refreshAudio = () => {
+  playAudio();
+  
+  for (let i = 0; i < 2; i++) {
+    playerCurrentTimeMinutes[0].innerHTML = '00';
+    playerCurrentTimeSeconds[0].innerHTML = '00';
+  }
+
+  questionProgress.style.width = '0%';
+}
+
+const startRound = () => {
   scoreBoardItems[round - 1].classList.add('scoreboard__item_active');
   trueIndex = chooseTrueIndex();
-  // const audioPromise = new Promise((resolve, reject) => {
-  //   resolve(new Audio('https://www.xeno-canto.org/sounds/uploaded/XQEVNREHJY/SHEARWATER%20Christmas%20Island_04_Motu_Isla%20de%20Pascua-Easter%20Island_CH_4MAR03_Alvaro%20Jaramillo.mp3'));
-  //   reject(new Error('error'));
-  // })
-  // answerAudio = await audioPromise;
-  // answerAudio.preload = 'metadata';
   answerAudio = new Audio(birdsData[trueIndex][round - 1].audio);
-  answerAudio.onloadedmetadata = () => {
-    console.log(answerAudio.duration);
+  answerAudio.oncanplaythrough = () => {
     playerCovers[0].classList.remove('player__cover_active');
+
+    const duration = Math.ceil(answerAudio.duration);
+
+    if (duration < 10) {
+      playersFullTimeMinutes[0].innerHTML = '00';
+      playersFullTimeSeconds[0].innerHTML = String(duration).padStart(2, 0);
+    } else if (duration < 60) {
+      playersFullTimeMinutes[0].innerHTML = '00';
+      playersFullTimeSeconds[0].innerHTML = duration;
+    } else {
+      playersFullTimeMinutes[0].innerHTML = String(Math.floor(duration / 60)).padStart(2, 0);
+
+      if (duration % 60 < 10) {
+        playersFullTimeSeconds[0].innerHTML = String(duration % 60).padStart(2, 0);
+      } else {
+        playersFullTimeSeconds[0].innerHTML = duration % 60;
+      }
+    }
+    answerAudio.addEventListener('timeupdate', updateAnswerTime);
+    answerAudio.addEventListener('ended', refreshAudio);
   }
 
   answerOptionsArr = shuffleArr();
@@ -193,6 +351,23 @@ const clearPrevRound = () => {
     answerOptions[i].classList.remove('answer-options__item_true');
     answerOptions[i].classList.remove('answer-options__item_false');
   }
+  playerCovers[0].classList.add('player__cover_active');
+  
+  const button = answerPlayerPlayButton.firstElementChild;
+  answerAudio.pause();
+  button.classList.add('player__play-button_play');
+  button.classList.remove('player__play-button_pause');
+
+  for (let i = 0; i < 2; i++) {
+    playerCurrentTimeMinutes[i].innerHTML = '00';
+    playerCurrentTimeSeconds[i].innerHTML = '00';
+  }
+
+  questionProgress.style.width = '0%';
+
+  descriptionAudio.pause();
+  descriptionPlayerPlayButton.firstElementChild.classList.add('player__play-button_play');
+  descriptionPlayerPlayButton.firstElementChild.classList.remove('player__play-button_pause');
 }
 
 const startGameAgain = () => {
@@ -275,3 +450,5 @@ startRound();
 
 // listeners 
 languageContainer.addEventListener('click', changeAnswerOptionsLanguage);
+answerPlayerPlayButton.addEventListener('click', playAudio);
+descriptionPlayerPlayButton.addEventListener('click', playDescriptionAudio);
