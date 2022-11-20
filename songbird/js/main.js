@@ -25,12 +25,16 @@ const winPage = document.querySelector('.win-page');
 const winPageScore = document.querySelector('.win-page__score');
 const winPageButton = document.querySelector('.win-page__button');
 
+const answerPlayerPlayButton = document.querySelector('.player__play-button');
+const playerCovers = document.querySelectorAll('.player__cover');
+
 let answerOptionsArr;
 let score = 0;
 let round = 1;
 let points;
 let trueIndex;
 let answer;
+let answerAudio;
 
 const trueSound = new Audio('../assets/audio/true.mp3');
 const falseSound = new Audio('../assets/audio/false.mp3');
@@ -140,6 +144,7 @@ const translateDescription = (answer) => {
 const changeAnswerOptionsLanguage = () => {
   fillAnswerOptions(answerOptionsArr);
   translateDescription(answer);
+  
   for (let i = 0; i < answerOptions.length; i++) {
     if (answerOptions[i].classList.contains('answer-options__item_true')) {
       showTrueBird();
@@ -153,10 +158,21 @@ const abbleToWatch = (event) => {
   showBird(answer);
 }
 
-const startRound = () => {
+const startRound = async () => {
   scoreBoardItems[round - 1].classList.add('scoreboard__item_active');
   trueIndex = chooseTrueIndex();
-  console.log(trueIndex);
+  // const audioPromise = new Promise((resolve, reject) => {
+  //   resolve(new Audio('https://www.xeno-canto.org/sounds/uploaded/XQEVNREHJY/SHEARWATER%20Christmas%20Island_04_Motu_Isla%20de%20Pascua-Easter%20Island_CH_4MAR03_Alvaro%20Jaramillo.mp3'));
+  //   reject(new Error('error'));
+  // })
+  // answerAudio = await audioPromise;
+  // answerAudio.preload = 'metadata';
+  answerAudio = new Audio(birdsData[trueIndex][round - 1].audio);
+  answerAudio.onloadedmetadata = () => {
+    console.log(answerAudio.duration);
+    playerCovers[0].classList.remove('player__cover_active');
+  }
+
   answerOptionsArr = shuffleArr();
   points = 5;
   fillAnswerOptions(answerOptionsArr);

@@ -11,8 +11,7 @@ const englishFlag = languageContainer.children[1];
 const russainFlag = languageContainer.children[2];
 const navigationLinks = document.querySelectorAll('.navigation__link');
 const birds = document.querySelectorAll('.all-birds__item');
-
-
+const playerCovers = document.querySelectorAll('.player__cover');
 
 // functions
 
@@ -24,11 +23,19 @@ const fillGallery = () => {
         birds[i * 6 + j].innerHTML = birdsData[i][j].nameEn;
       }
     }
+    
+    for (let i = 0; i < playerCovers.length; i++) {
+      playerCovers[i].innerHTML = 'loading';
+    }
   } else {
     for (let i = 0; i < birdsData.length; i++) {
       for (let j = 0; j < birdsData[i].length; j++) {
         birds[i * 6 + j].innerHTML = birdsData[i][j].nameRus;
       }
+    }
+
+    for (let i = 0; i < playerCovers.length; i++) {
+      playerCovers[i].innerHTML = 'загрузка';
     }
   }
 }
@@ -88,13 +95,22 @@ const changeTexts = () => {
         winMessageArr[i].innerHTML = translations.winMessageTranslation[0][i];
       }
 
+      for (let i = 0; i < playerCovers.length; i++) {
+        playerCovers[i].innerHTML = 'loading';
+      }
+
     } else {
       for (let i = 0; i < arr.length; i++) {
         arr[i].innerHTML = translations.gameTranslation[1][i];
       }
       document.querySelector('.description__cover').innerHTML = 'Послушайте плеер. Выберите птицу из списка.';
+
       for (let i = 0; i < winMessageArr.length; i++) {
         winMessageArr[i].innerHTML = translations.winMessageTranslation[1][i];
+      }
+
+      for (let i = 0; i < playerCovers.length; i++) {
+        playerCovers[i].innerHTML = 'загрузка';
       }
     }
   }

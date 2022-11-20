@@ -43,6 +43,23 @@
   width: 100%;
   height: calc(85 / 155 * 100%);
 
+  .player__cover {
+    display: none;
+    align-items: center;
+    padding-left: 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $dark-blue-color;
+    @include medium-font;
+    color: $green-color;
+    z-index: 2;
+  }
+
+  .player__cover_active {
+    display: flex;
+  }
+
  .player__play-button {
   display: flex;
   justify-content: center;
@@ -94,6 +111,14 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
+  }
+
+  .question__progress {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background-color: $dark-green-color;
   }
  }
 
