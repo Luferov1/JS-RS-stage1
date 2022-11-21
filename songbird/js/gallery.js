@@ -26,9 +26,13 @@ const playerCurrentTimeSeconds = document.querySelector('.player__time-played .s
 
 const languageContainer = document.querySelector('.change-language');
 
+const volumeButton = document.querySelector('.volume__button');
+const volumeProgressBar = document.querySelector('.volume__progress');
 
 let answer;
 let descriptionAudio;
+let volumeLevel;
+
 
 // functions
 
@@ -98,7 +102,6 @@ const fillDescription = () => {
       for (let j = 0; j < 6; j++) {
 
         if (birdsData[i][j].nameEn === answer) {
-          console.log(answer);
           descriptionImg.src = birdsData[i][j].image;
           descriptionHeader.innerHTML = birdsData[i][j].nameEn;
           descriptionSubheader.innerHTML = birdsData[i][j].species;
@@ -201,9 +204,50 @@ const translateDescription = () => {
     }
   }
 }
+
+const switchVolume = () => {
+  if (!volumeButton.classList.contains('volume__button_disabled')) {
+    volumeLevel = descriptionAudio.volume;
+    descriptionAudio.volume = 0;
+    volumeProgressBar.firstElementChild.style.width = '0%';
+    volumeButton.classList.add('volume__button_disabled');   
+
+  } else {
+    volumeButton.classList.remove('volume__button_disabled');
+    descriptionAudio.volume = volumeLevel;
+    volumeProgressBar.firstElementChild.style.width = `${volumeLevel * 100}%`;
+
+  }
+}
+
+const changeVolume = (event) => {
+  const width = event.target.closest('.volume__progress').offsetWidth;
+  const clickCoord = event.offsetX;
+  const vol = clickCoord / width;
+
+  if (vol < 0.1) {
+    volumeLevel = descriptionAudio.volume;
+    descriptionAudio.volume = 0;
+    volumeProgressBar.firstElementChild.style.width = '0%';
+    volumeButton.classList.add('volume__button_disabled');
+    volumeButton.classList.add('volume__button_disabled');
+  } else if (vol > 0.9) {
+    volumeButton.classList.remove('volume__button_disabled');
+    volumeLevel = 1;
+    descriptionAudio.volume = volumeLevel;
+    volumeProgressBar.firstElementChild.style.width = `${volumeLevel * 100}%`;
+  } else {
+    volumeButton.classList.remove('volume__button_disabled');
+    volumeLevel = vol;
+    descriptionAudio.volume = volumeLevel;
+    volumeProgressBar.firstElementChild.style.width = `${volumeLevel * 100}%`;
+  }
+}
  
 // listeners
 
 birdsList.addEventListener('click', showBird);
 languageContainer.addEventListener('click', translateDescription);
 descriptionPlayerPlayButton.addEventListener('click', playDescriptionAudio);
+volumeButton.addEventListener('click', switchVolume);
+volumeProgressBar.addEventListener('click', changeVolume);

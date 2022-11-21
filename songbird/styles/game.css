@@ -378,16 +378,6 @@
   height: 10px;
   background-color: #56ab2f;
 }
-.player .player__progress-bar .todler {
-  position: absolute;
-  top: 50%;
-  transform: translate(-5px, -50%);
-  display: block;
-  background-color: #006400;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-}
 .player .player__progress-bar .question__progress {
   display: block;
   position: absolute;
@@ -407,6 +397,61 @@
 }
 .player .player__full-time {
   right: 0;
+}
+.player .volume {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  width: 30%;
+}
+.player .volume .volume__button {
+  position: relative;
+  border: none;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  background-color: #56ab2f;
+  cursor: pointer;
+  overflow: hidden;
+}
+.player .volume .volume__button .volume__img {
+  width: 100%;
+  height: 100%;
+}
+.player .volume .volume__button .volume__line {
+  display: none;
+  position: absolute;
+  top: 2px;
+  background-color: #ff0000;
+  width: 150%;
+  height: 2px;
+  transform: rotate(45deg) translate(2px, 14px);
+}
+.player .volume .volume__button .volume__line:nth-child(3) {
+  top: 26px;
+  transform: rotate(-45deg) translate(2px, -14px);
+}
+.player .volume .volume__button:hover {
+  transform: rotate(360deg);
+  transform: scale(1.01);
+}
+.player .volume .volume__button_disabled .volume__line {
+  display: block;
+}
+.player .volume .volume__progress {
+  width: 75%;
+  height: 100%;
+  background-color: #56ab2f;
+  cursor: pointer;
+}
+.player .volume .volume__progress .volume__progress-bar {
+  width: 100%;
+  height: 100%;
+  background-color: #006400;
 }
 
 @media screen and (max-width: 1220px) {
@@ -432,6 +477,24 @@
   .player .player__progress-bar {
     width: 80%;
   }
+  .player .volume {
+    left: 60%;
+    bottom: 2px;
+    transform: translateX(-50%);
+    height: 20px;
+  }
+  .player .volume .volume__button {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+  .player .volume .volume__button .volume__line {
+    width: 140%;
+    transform: rotate(45deg) translate(2px, 8px);
+  }
+  .player .volume .volume__button .volume__line:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -15px);
+  }
 }
 @media screen and (max-width: 620px) {
   .question__img {
@@ -440,6 +503,21 @@
   }
   .player {
     height: 40%;
+  }
+  .player .volume {
+    left: 62%;
+    height: 15px;
+  }
+  .player .volume .volume__button {
+    width: 15px;
+    height: 15px;
+  }
+  .player .volume .volume__button .volume__line {
+    width: 140%;
+    transform: rotate(45deg) translate(0px, 6px);
+  }
+  .player .volume .volume__button .volume__line:nth-child(3) {
+    transform: rotate(-45deg) translate(10px, -16px);
   }
   .player .player__play-button {
     width: 40px;
@@ -504,6 +582,20 @@
   }
   .player .player__time-played {
     left: 40px;
+  }
+  .player .volume {
+    height: 10px;
+  }
+  .player .volume .volume__button {
+    width: 10px;
+    height: 10px;
+  }
+  .player .volume .volume__button .volume__line {
+    width: 140%;
+    transform: rotate(45deg) translate(-1px, 3px);
+  }
+  .player .volume .volume__button .volume__line:nth-child(3) {
+    transform: rotate(-45deg) translate(14px, -17px);
   }
 }
 .answer-options {
