@@ -129,3 +129,17 @@
     height: 200px;
   }
 }
+
+@media screen and (min-width: 1221px) {
+  
+  .player {
+
+    .volume {
+      width: 400px;
+      bottom: -250px;
+      left: 40px;
+      justify-content: flex-start;
+      gap: 30px;
+    }
+  }
+}

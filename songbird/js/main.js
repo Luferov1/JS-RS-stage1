@@ -36,6 +36,8 @@ const descriptionProgress = document.querySelector('.description__progress');
 const playerCurrentTimeMinutes = document.querySelectorAll('.player__time-played .minutes');
 const playerCurrentTimeSeconds = document.querySelectorAll('.player__time-played .seconds');
 
+const volumeButton = document.querySelector('.volume__button');
+const volumeProgressBar = document.querySelector('.volume__progress');
 
 let answerOptionsArr;
 let score = 0;
@@ -45,6 +47,7 @@ let trueIndex;
 let answer;
 let answerAudio;
 let descriptionAudio;
+let volumeLevel;
 
 const trueSound = new Audio('../assets/audio/true.mp3');
 const falseSound = new Audio('../assets/audio/false.mp3');
@@ -78,6 +81,10 @@ const fillAnswerOptions = (arr) => {
 }
 
 const showTrueBird = () => {
+  answerAudio.pause();
+  answerPlayerPlayButton.firstElementChild.classList.add('player__play-button_play');
+  answerPlayerPlayButton.firstElementChild.classList.remove('player__play-button_pause');
+  
   answerImg.src = birdsData[trueIndex][round - 1].image;
 
   if (language.enlish) {
@@ -439,11 +446,73 @@ const checkAnswer = (event) => {
   }
 }
 
-
 const nextRound = () => {
   clearPrevRound();
   round++;
   startRound();
+}
+
+// volume
+
+const switchVolume = () => {
+  if (!volumeButton.classList.contains('volume__button_disabled')) {
+    volumeLevel = answerAudio.volume;
+    answerAudio.volume = 0;
+    volumeProgressBar.firstElementChild.style.width = '0%';
+    volumeButton.classList.add('volume__button_disabled');
+
+    if (descriptionAudio) {
+      descriptionAudio.volume = 0;
+    }    
+
+  } else {
+    volumeButton.classList.remove('volume__button_disabled');
+    answerAudio.volume = volumeLevel;
+    volumeProgressBar.firstElementChild.style.width = `${volumeLevel * 100}%`;
+
+    if (descriptionAudio) {
+      descriptionAudio.volume = volumeLevel;
+    }
+  }
+}
+
+const changeVolume = (event) => {
+  console.log(event.offsetX);
+  console.log(event.target.offsetWidth);
+  const width = event.target.closest('.volume__progress').offsetWidth;
+  const clickCoord = event.offsetX;
+  const vol = clickCoord / width;
+
+  if (vol < 0.1) {
+    volumeLevel = answerAudio.volume;
+    answerAudio.volume = 0;
+    volumeProgressBar.firstElementChild.style.width = '0%';
+    volumeButton.classList.add('volume__button_disabled');
+
+    if (descriptionAudio) {
+      descriptionAudio.volume = 0;
+    }
+    volumeButton.classList.add('volume__button_disabled');
+  } else if (vol > 0.9) {
+    volumeButton.classList.remove('volume__button_disabled');
+    volumeLevel = 1;
+    answerAudio.volume = volumeLevel;
+    volumeProgressBar.firstElementChild.style.width = `${volumeLevel * 100}%`;
+
+    if (descriptionAudio) {
+      descriptionAudio.volume = volumeLevel;
+    }
+  } else {
+    volumeButton.classList.remove('volume__button_disabled');
+    volumeLevel = vol;
+    answerAudio.volume = volumeLevel;
+    volumeProgressBar.firstElementChild.style.width = `${volumeLevel * 100}%`;
+
+    if (descriptionAudio) {
+      descriptionAudio.volume = volumeLevel;
+    }
+  }
+  
 }
 
 startRound();
@@ -452,3 +521,5 @@ startRound();
 languageContainer.addEventListener('click', changeAnswerOptionsLanguage);
 answerPlayerPlayButton.addEventListener('click', playAudio);
 descriptionPlayerPlayButton.addEventListener('click', playDescriptionAudio);
+volumeButton.addEventListener('click', switchVolume);
+volumeProgressBar.addEventListener('click', changeVolume);
