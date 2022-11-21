@@ -477,8 +477,6 @@ const switchVolume = () => {
 }
 
 const changeVolume = (event) => {
-  console.log(event.offsetX);
-  console.log(event.target.offsetWidth);
   const width = event.target.closest('.volume__progress').offsetWidth;
   const clickCoord = event.offsetX;
   const vol = clickCoord / width;
