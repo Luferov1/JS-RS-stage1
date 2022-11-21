@@ -41,7 +41,6 @@ ul ul li {
 body {
   background: linear-gradient(-135deg, #56ab2f, #a8e063);
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .container {
