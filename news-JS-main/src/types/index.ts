@@ -10,9 +10,11 @@ export interface newsInterface {
     title: string;
     url: string;
     urlToImage: string;
+    articles?: [];
 }
 
 export interface sourcesInterface {
     name: string;
-    id: string
+    id: string;
+    sources?: [];
 }

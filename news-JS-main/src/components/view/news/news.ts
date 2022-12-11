@@ -57,5 +57,7 @@ class News {
         }
     }
 }
+const oleg = new News();
+console.log(oleg);
 
 export default News;
