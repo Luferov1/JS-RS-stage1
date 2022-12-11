@@ -11,3 +11,8 @@ export interface newsInterface {
     url: string;
     urlToImage: string;
 }
+
+export interface sourcesInterface {
+    name: string;
+    id: string
+}
