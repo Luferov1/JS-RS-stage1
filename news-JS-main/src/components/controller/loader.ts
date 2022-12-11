@@ -1,6 +1,6 @@
 type respObj = {
     endpoint: string;
-    options: object;
+    options?: object;
 };
 
 class Loader {
