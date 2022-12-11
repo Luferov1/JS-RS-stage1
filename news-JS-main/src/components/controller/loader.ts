@@ -1,7 +1,7 @@
-interface respObj {
+type respObj = {
     endpoint: string;
     options: object;
-}
+};
 
 class Loader {
     baseLink: string;
