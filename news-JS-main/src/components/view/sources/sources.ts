@@ -13,18 +13,22 @@ class Sources {
                 const sourceItem = (sourceClone as Element).querySelector('.source__item');
                 if (sourceItemName) {
                     sourceItemName.textContent = item.name;
-                }
+                } else this.thrErr();
                 if (sourceItem) {
                     sourceItem.setAttribute('data-source-id', item.id);
-                }
+                } else this.thrErr();
 
                 fragment.append(sourceClone);
-            }
+            } else this.thrErr();
         });
         const sourcesElement = document.querySelector('.sources');
         if (sourcesElement) {
             sourcesElement.append(fragment);
-        }
+        } else this.thrErr();
+    }
+
+    thrErr() {
+        throw new Error('selector is null');
     }
 }
 

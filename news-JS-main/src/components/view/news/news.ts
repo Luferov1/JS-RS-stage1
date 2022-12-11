@@ -21,43 +21,43 @@ class News {
 
                 if (newsItem) {
                     if (idx % 2) newsItem.classList.add('alt');
-                }
+                } else this.thrErr();
                 if (newsMetaPhoto) {
                     (newsMetaPhoto as HTMLDivElement).style.backgroundImage = `url(${
                         item.urlToImage || 'img/news_placeholder.jpg'
                     })`;
-                }
+                } else this.thrErr();
                 if (newsMetaAuthor) {
                     newsMetaAuthor.textContent = item.author || item.source.name;
-                }
+                } else this.thrErr();
                 if (newsMetaDate) {
                     newsMetaDate.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
-                }
+                } else this.thrErr();
                 if (newsDescriptionTitle) {
                     newsDescriptionTitle.textContent = item.title;
-                }
+                } else this.thrErr();
                 if (newsDescriptionSource) {
                     newsDescriptionSource.textContent = item.source.name;
-                }
+                } else this.thrErr();
                 if (newsDescriptionContent) {
                     newsDescriptionContent.textContent = item.description;
-                }
+                } else this.thrErr();
                 if (newsReadMore) {
                     newsReadMore.setAttribute('href', item.url);
-                }
+                } else this.thrErr();
                 fragment.append(newsClone);
-            } else {
-                throw new Error('selects null');
-            }
+            } else this.thrErr();
         });
         const newsElement = document.querySelector('.news');
         if (newsElement) {
             newsElement.innerHTML = '';
             newsElement.appendChild(fragment);
-        }
+        } else this.thrErr();
+    }
+
+    thrErr() {
+        throw new Error('selector is null');
     }
 }
-const oleg = new News();
-console.log(oleg);
 
 export default News;
