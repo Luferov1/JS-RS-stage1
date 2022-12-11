@@ -1,9 +1,13 @@
 export interface newsInterface {
-    id: string;
-    name: string;
+    author: string;
+    content: string;
     description: string;
+    publishedAt: string;
+    source: {
+        id: string;
+        name: string;
+    };
+    title: string;
     url: string;
-    category: string;
-    language: string;
-    country: string;
+    urlToImage: string;
 }
