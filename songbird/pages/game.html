@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/img/songbird.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/basic.css">
+    <link rel="stylesheet" href="../styles/game.css">
+    <title>SongBird game</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="
+            wrapper 
+            header__wrapper">
+          <div class="emblem">
+            <h1 class="emblem__header">SongBird</h1>
+          </div>
+          <nav class="navigation">
+            <ul class="navigation__list">
+              <li class="navigation__item">
+                <a 
+                    href="index.html"
+                    class="navigation__link">
+                </a>
+              </li>
+              <li class="navigation__item">
+                <a 
+                    role="link" 
+                    aria-disabled="true" 
+                    class="
+                    navigation__link
+                    navigation__link_active">
+                </a>
+              </li>
+              <li class="navigation__item">
+                <a 
+                    href="gallery.html" 
+                    class="navigation__link">
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="change-language">
+            <span class="change-language__text"></span>
+            <button 
+                class="change-language__button">
+            <img 
+                src="../assets/img/usa-flag.png" 
+                alt="usa-flag" 
+                class="change-language__img">
+            </button>
+            <button class="change-language__button">
+            <img 
+                class="change-language__img"
+                src="../assets/img/rus-flag.png" 
+                alt="rus-flag">
+            </button>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <div class="wrapper main__wrapper">
+          <section class="scoreboard">
+            <ul class="scoreboard__list">
+              <li 
+                  class="scoreboard__item">
+              </li>
+              <li 
+                  class="scoreboard__item">
+              </li>
+              <li 
+                  class="scoreboard__item">
+              </li>
+              <li 
+                  class="scoreboard__item">
+              </li>
+              <li 
+                  class="scoreboard__item">
+              </li>
+              <li 
+                  class="scoreboard__item">
+              </li>
+            </ul>
+            <div class="score-table">
+              <span class="score-table__text"></span>:  
+              <span class="score-table__value">0</span>
+            </div>
+          </section>
+          <section class="question">
+            <img 
+                class="question__img" 
+                src="../assets/img/bird-disabled.jpg" 
+                alt="bird-disabled">
+            <div class="answer">
+              <h2 class="answer__header">??????</h2>
+              <div class="player">
+                <button class="player__play-button">
+                  <span class="player__play-button_play"></span>
+                </button>
+                <div class="player__progress-bar">
+                  <span class="question__progress"></span>
+                </div>
+                <div class="player__time-played">
+                  <span class="minutes">00</span>
+                  :
+                  <span class="seconds">00</span>
+                </div>
+                <div class="player__full-time">
+                  <span class="minutes">00</span>
+                  :
+                  <span class="seconds">00</span>
+                </div>
+                <div class="volume">
+                  <button class="volume__button">
+                    <img 
+                    class="volume__img"
+                    src="../assets/img/volume.png" 
+                    alt="volume">
+                    <span class="volume__line"></span>
+                    <span class="volume__line"></span>
+                  </button>
+                  <div class="volume__progress">
+                    <div class="volume__progress-bar"></div>
+                    <span class="todler"></span>
+                  </div>
+                </div>
+                <div class="player__cover player__cover_active"></div>
+              </div>
+            </div>
+          </section>
+          <section class="answer-options">
+            <ul class="answer-options__list">
+              <li class="answer-options__item">
+                <span class="list-marker"></span> 
+              </li>
+              <li class="answer-options__item">
+                <span class="list-marker"></span> 
+              </li>
+              <li class="answer-options__item">
+                <span class="list-marker"></span> 
+              </li>
+              <li class="answer-options__item">
+                <span class="list-marker"></span> 
+              </li>
+              <li class="answer-options__item">
+                <span class="list-marker"></span> 
+              </li>
+              <li class="answer-options__item">
+                <span class="list-marker"></span> 
+              </li>
+            </ul>
+          </section>
+          <section class="description">
+            <img 
+                class="question__img" 
+                src="../assets/img/bird-disabled.jpg" 
+                alt="bird-disabled">
+            <div class="answer">
+              <h2 class="answer__header">??????</h2>
+              <h3 class="answer__subheader">Delichon urbicum</h3>
+              <div class="player">
+                <button class="player__play-button">
+                  <span class="player__play-button_play"></span>
+                </button>
+                <div class="player__progress-bar">
+                  <span class="description__progress"></span>
+                </div>
+                <div class="player__time-played">
+                  <span class="minutes">00</span>
+                  :
+                  <span class="seconds">00</span>
+                </div>
+                <div class="player__full-time">
+                  <span class="minutes">00</span>
+                  :
+                  <span class="seconds">00</span>
+                </div>
+                <div class="player__cover player__cover_active"></div>
+              </div>
+            </div>
+            <p class="bird-description"></p>
+            <div class="description__cover description__cover_active"></div>
+          </section>
+          <button class="next-level-button"></button>
+        </div>
+        <div class="win-page">
+          <h2 class="win-page__header"></h2>
+          <h3 class="win-page__subheader"><span class="win-page__text"></span> <span class="win-page__score"></span> / 30</h3>
+          <button class="win-page__button"></button>
+        </div>
+      </main>
+    </div>
+    <footer class="footer">
+      <div class="wrapper footer__wrapper">
+        <a 
+            class="footer__link"
+            href="https://github.com/Luferov1"  
+            target="_blank">
+          <img 
+              class="footer__img" 
+              src="../assets/img/git-logo.png" 
+              alt="git-logo">
+        </a>
+        <span class="year">2022</span>
+        <a 
+            class="footer__link" 
+            href="https://rs.school/js/" 
+            target="_blank">
+          <img 
+              class="footer__img" 
+              src="../assets/svg/rs_school_js.svg" 
+              alt="rs-img">
+        </a>
+      </div>
+    </footer>
+    <script type="module" src="../js/language.js"></script>
+    <script type="module" src="../js/main.js"></script>
+  </body>
+</html>

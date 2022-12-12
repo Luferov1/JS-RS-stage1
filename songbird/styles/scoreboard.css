@@ -1,0 +1,66 @@
+.scoreboard {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+}
+.scoreboard .scoreboard__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 88%;
+  height: 100%;
+  background-color: #006400;
+  border-radius: 10px;
+}
+.scoreboard .scoreboard__list .scoreboard__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16.6666666667%;
+  height: 100%;
+  border-radius: 10px;
+  color: #56ab2f;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+.scoreboard .scoreboard__list .scoreboard__item_active {
+  background-color: #101f24;
+}
+.scoreboard .score-table {
+  margin-left: 10px;
+  color: #101f24;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1520px) {
+  .scoreboard .scoreboard__list {
+    width: 87%;
+  }
+}
+@media screen and (max-width: 1220px) {
+  .scoreboard {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    height: 100px;
+  }
+  .scoreboard .scoreboard__list {
+    height: 50px;
+    width: 100%;
+    order: 2;
+  }
+}
+@media screen and (max-width: 900px) {
+  .scoreboard .scoreboard__list .scoreboard__item {
+    width: max-content;
+  }
+}
+@media screen and (max-width: 620px) {
+  .scoreboard .scoreboard__list .scoreboard__item {
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+}
+
+/*# sourceMappingURL=scoreboard.css.map */

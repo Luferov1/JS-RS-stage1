@@ -1,0 +1,387 @@
+body {
+    background-image: url('../img/background.jpg');
+}
+
+.container {
+    position: absolute;
+    top: 50px;  
+    left: 50%; 
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 600px;
+    overflow: hidden;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 70px;
+}
+
+.buttons-container * {
+    height: 30px;
+    background-color: #8b00ff;
+    color: #f2c100;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.buttons-container button:hover {
+    color: white;
+}
+
+.buttons-container select option:disabled {
+    color: white;
+}
+
+
+.statistics {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.statistics div {
+    font-weight: bold;
+}
+
+.canvas {
+    width: 500px;
+    height: 500px;
+    touch-action: none;
+}
+
+.volume_off {
+    color: white;
+    background-color: red
+}
+
+.stopped {
+    color: white;
+    background-color: gray;
+}
+
+.stopWrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 500px;
+    background-color: #f2c100;
+    z-index: 5;
+}
+
+.leader-table {
+    position: absolute;
+    bottom: 0;
+    left: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    background-color: #8b00ff;
+    z-index: 6;
+    transition: transform 2s;
+}
+
+.leader-table_open {
+    transform: translateX(-600px);
+}
+
+.leader-table h2 {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.leader-table button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 6px;
+    background: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.leader-table button span {
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.leader-table button span:first-child {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.leader-table button span:last-child {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+.leader-table__place {
+    display: flex;
+    width: 90%;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.place {
+    flex-basis: 15%;
+}
+
+.name {
+    flex-basis: 50%;
+}
+
+.moves-spended {
+    flex-basis: 15%;
+    text-align: center;
+}
+
+.time-spended {
+    flex-basis: 20%;
+    text-align: center;
+}
+
+.win-message {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 600px;
+    background-color: #8b00ff;
+    z-index: 6;
+    transition: opacity 2s;
+}
+
+.win-message h2 {
+    margin-top: 20px;
+    margin-bottom: 120px;
+    font-size: 46px;
+    font-weight: bold;
+    color: #f2c100;
+    text-align: center;
+}
+
+.win-message form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+form label {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+}
+
+form input[type='text'] {
+    width: 200px;
+    height: 30px;
+    margin-bottom: 150px;
+}
+
+form input[type='button'] {
+    width: 300px;
+    height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    background-color: #f2c100;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+form input[type='button']:hover {
+    transform: rotate(360deg);
+    transform: scale(1.01);
+}
+
+.dragable {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2c100;
+    color: #8b00ff;
+    font: bold 30px serif;
+    z-index: 10;
+}
+
+@media screen  and (max-width: 600px){
+    
+    .container {
+        top: 20px;
+        width: 400px;
+        height: 500px;
+    }
+
+    .canvas {
+        width: 400px;
+        height: 400px;
+    }
+
+    .stopWrapper {
+        height: 400px;
+    }
+
+    .leader-table {
+        height: 400px;
+        left: 500px;
+    }
+
+    .leader-table h2 {
+        font-size: 20px;
+    }
+
+    .leader-table__place {
+        font-size: 14px;
+    }
+
+    .leader-table button {
+        top: 10px;
+        right: 10px;
+        width: 25px;
+        height: 25px;
+    }
+    
+    .leader-table button span {
+        height: 4px;
+    }
+
+    .leader-table button span:first-child {
+        transform: translateY(9px) rotate(45deg);
+    }
+    
+    .leader-table button span:last-child {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .leader-table_open {
+        transform: translateX(-500px);
+    }
+
+    .win-message {
+        height: 500px;
+    }
+
+    .win-message h2 {
+        font-size: 30px;
+    }
+
+    form label {
+        font-size: 25px;
+    }
+    
+    form input[type='text'] {
+        width: 200px;
+        height: 30px;
+        margin-bottom: 150px;
+    }
+    
+    form input[type='button'] {
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .dragable {
+        font-size: 24px;
+    }
+}
+
+@media screen  and (max-width: 420px){
+        
+    .container {
+        top: 20px;
+        width: 300px;
+        height: 400px;
+    }
+
+    .canvas {
+        width: 300px;
+        height: 300px;
+    }
+
+    .stopWrapper {
+        height: 300px;
+    }
+
+    .leader-table {
+        height: 300px;
+        left: 400px;
+    }
+
+    .leader-table h2 {
+        font-size: 14px;
+    }
+
+    .leader-table__place {
+        font-size: 10px;
+        margin-bottom: 12px;
+    }
+
+    .leader-table_open {
+        transform: translateX(-400px);
+    }
+
+    .win-message {
+        height: 400px;
+    }
+
+    .win-message h2 {
+        margin-bottom: 80px;
+    }
+
+    form input[type='text'] {
+        margin-bottom: 120px;
+    }
+    
+    form input[type='button'] {
+        width: 200px;
+
+    }
+
+    .dragable {
+        font-size: 18px;
+    }
+
+}

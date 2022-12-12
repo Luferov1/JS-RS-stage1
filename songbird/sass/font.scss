@@ -1,0 +1,46 @@
+@mixin font-color {
+  background: -webkit-linear-gradient(45deg, #56ab2f, #676767);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin lite-font {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+@mixin lite-medium-font {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+@mixin medium-font {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+@mixin huge-font {
+  font-size: 5rem;
+  font-weight: 500;
+  line-height: 6rem;
+}
+
+@mixin very-huge-font {
+  font-size: 7rem;
+  font-weight: 700;
+  line-height: 8rem;
+}
+
+@mixin border {
+  border: 1px solid black;
+}
+
+$green-color: #56ab2f;
+$dark-green-color: #006400;
+$yellow-color: #fcd000;
+$orange-color: #ff9b76;
+$dark-blue-color: #101f24;
+$gray-color: #808080;
+$red-color: #ff0000;
+

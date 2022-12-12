@@ -1,0 +1,345 @@
+.header {
+  width: 100%;
+  height: 100px;
+}
+
+.header__wrapper {
+  display: flex;
+}
+
+.emblem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 300px;
+  flex-shrink: 0;
+}
+.emblem .emblem__header {
+  font-size: 5rem;
+  font-weight: 500;
+  line-height: 6rem;
+  font-style: italic;
+  width: 100%;
+  background: -webkit-linear-gradient(45deg, #56ab2f, #676767);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navigation {
+  width: 65%;
+  height: 100px;
+  font-size: 3rem;
+  font-weight: 500;
+}
+.navigation .navigation__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+}
+.navigation .navigation__list .navigation__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 60px;
+}
+.navigation .navigation__list .navigation__item .navigation__link {
+  display: block;
+  color: #56ab2f;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+.navigation .navigation__list .navigation__item:hover :not(.navigation__link_active) {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.navigation .navigation__list .navigation__item .navigation__link_active {
+  color: #101f24;
+}
+
+.change-language {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 180px;
+  height: 90px;
+  align-self: center;
+}
+.change-language .change-language__text {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: 300;
+  color: #006400;
+}
+.change-language .change-language__button {
+  display: block;
+  border: none;
+  cursor: pointer;
+  width: 85px;
+  height: 60px;
+  background-color: transparent;
+}
+.change-language .change-language__button .change-language__img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.change-language .change-language__button_active .change-language__img {
+  border: 4px solid #006400;
+  cursor: default;
+}
+
+@media screen and (max-width: 1220px) {
+  .emblem {
+    width: 220px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .header__wrapper {
+    justify-content: space-between;
+  }
+  .emblem {
+    width: 150px;
+    height: 80px;
+  }
+  .change-language {
+    width: 100px;
+    height: 50px;
+  }
+  .change-language .change-language__button {
+    width: 45px;
+    height: 30px;
+  }
+  .navigation {
+    width: 50%;
+  }
+  .navigation .navigation__list {
+    justify-content: space-between;
+  }
+  .navigation .navigation__list .navigation__item {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 620px) {
+  .header {
+    height: 60px;
+  }
+  .emblem {
+    width: 130px;
+    height: 50px;
+  }
+  .navigation {
+    height: 100%;
+  }
+  .navigation .navigation__list .navigation__item {
+    height: 30px;
+  }
+  .change-language {
+    width: 80px;
+    height: 40px;
+  }
+  .change-language .change-language__button {
+    width: 38px;
+    height: 25px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .emblem {
+    width: 100px;
+  }
+  .change-language {
+    width: 70px;
+    height: 35px;
+  }
+  .change-language .change-language__button {
+    width: 35px;
+    height: 25px;
+  }
+}
+.footer {
+  width: 100%;
+  height: 70px;
+}
+.footer .footer__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .footer__link {
+  display: block;
+  width: 100px;
+  height: 50px;
+}
+.footer .footer__img {
+  width: 100%;
+  height: 100%;
+}
+.footer .year {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1520px) {
+  .footer {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 1220px) {
+  .footer {
+    max-width: 900px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .footer {
+    max-width: 600px;
+  }
+}
+@media screen and (max-width: 620px) {
+  .footer {
+    max-width: 450px;
+    height: 40px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .footer {
+    max-width: 340px;
+  }
+  .footer .footer__link {
+    height: 30px;
+  }
+}
+.container {
+  background: url(../assets/img/main-page-background.jpg) 600px 150px/800px 600px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
+}
+
+.main {
+  width: 100%;
+}
+.main .main__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.main .main__wrapper .main__header {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 7rem;
+  font-weight: 700;
+  line-height: 8rem;
+  color: #101f24;
+}
+.main .main__wrapper .main__subheader {
+  font-size: 5rem;
+  font-weight: 500;
+  line-height: 6rem;
+  color: #006400;
+  margin-bottom: 20px;
+  height: 120px;
+}
+.main .main__wrapper .main__paragraph {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #56ab2f;
+  margin-bottom: 80px;
+  height: 180px;
+}
+.main .main__wrapper .start-game-button {
+  display: block;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: #101f24;
+  width: 400px;
+  height: 50px;
+  border-radius: 50px;
+  margin-left: 5%;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #56ab2f;
+}
+.main .main__wrapper .start-game-button:hover {
+  transform: rotate(360deg);
+  transform: scale(1.01);
+}
+.main .main__wrapper > * {
+  width: 37%;
+}
+
+@media screen and (max-width: 1520px) {
+  .container {
+    background: url(../assets/img/main-page-background.jpg) 550px 150px/600px 450px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
+  }
+  .main .main__wrapper > * {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 1220px) {
+  .container {
+    background: url(../assets/img/main-page-background.jpg) 450px 150px/400px 350px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
+  }
+  .main .main__wrapper .main__subheader {
+    height: 153px;
+  }
+  .main .main__wrapper .main__paragraph {
+    margin-top: 50px;
+    width: 100%;
+    font-size: 3rem;
+    font-weight: 500;
+    height: 191.25px;
+  }
+  .main .main__wrapper form {
+    width: 100%;
+  }
+  .main .main__wrapper .start-game-button {
+    width: 100%;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 900px) {
+  .container {
+    background: url(../assets/img/main-page-background.jpg) center 300px/400px 350px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
+  }
+  .main .main__wrapper > * {
+    width: 100%;
+  }
+  .main .main__wrapper .main__subheader {
+    height: 84px;
+  }
+  .main__header, .main__subheader {
+    text-align: center;
+  }
+  .main .main__wrapper .main__paragraph {
+    margin-top: 400px;
+    height: 189px;
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 620px) {
+  .container {
+    background: url(../assets/img/main-page-background.jpg) center 250px/400px 350px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
+  }
+  .main .main__wrapper .main__subheader {
+    height: 72px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .container {
+    background: url(../assets/img/main-page-background.jpg) center 230px/300px 250px no-repeat, linear-gradient(90deg, #76daff, #fcd000);
+  }
+  .main .main__wrapper .main__paragraph {
+    margin-top: 300px;
+    margin-bottom: 40px;
+    height: 162px;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
