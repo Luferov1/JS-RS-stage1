@@ -1,4 +1,6 @@
 body {
+    max-width: 1600px;
+    margin: 0 auto;
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
@@ -13,11 +15,41 @@ header h1 {
     font-weight: 800;
 }
 
+main {
+    height: auto;
+}
+main h2 {
+    font-size: 30px;
+    font-weight: 30px;
+    padding-left: 30px;
+}
+.choose-another-button {
+    display: none;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    width: 250px;
+    height: 40px;
+    color: #fff;
+    background-color: #30c5ff;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.25s
+}
+.choose-another-button_active {
+    display: block;
+}
+.choose-another-button:hover {
+    background-color: #69db7e;
+    box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
+    transform: translateY(-0.25em);
+}
 footer {
     height: 100px;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 footer .copyright {
     font-size: 14px;
@@ -32,4 +64,17 @@ footer .copyright a:hover {
 }
 footer .copyright:before {
     content: '©';
+}
+.footer__link {
+    height: 40px;
+}
+.footer__img {
+    height: 100%;
+    width: 100%;
+}
+.git {
+    width: 40px;
+}
+.rs {
+    width: 80px;
 }
