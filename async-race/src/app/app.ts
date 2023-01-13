@@ -24,8 +24,7 @@ class App {
       ButtonClassNames.garage,
       ButtonClassNames.basic,
       ButtonClassNames.big,
-      ButtonClassNames.yellow,
-      ButtonClassNames.active
+      ButtonClassNames.yellow
     );
     winnersButton.classList.add(
       ButtonClassNames.winners,
@@ -33,6 +32,12 @@ class App {
       ButtonClassNames.big,
       ButtonClassNames.yellow
     );
+
+    if (App.params.activePage === PageName.garage) {
+      garageButton.classList.add(ButtonClassNames.active);
+    } else {
+      winnersButton.classList.add(ButtonClassNames.active);
+    }
 
     garageButton.innerHTML = PageName.garage;
     winnersButton.innerHTML = PageName.winners;
