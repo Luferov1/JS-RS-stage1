@@ -1,3 +1,5 @@
+import App from './app/app';
 import './style.scss';
 
-console.log('ivan');
+const app = new App();
+app.run();
