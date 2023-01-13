@@ -1,15 +1,49 @@
+@import './constants.scss';
+
 html {
   font-size: 10px;
+}
+
+body {
+  background-color: $background-color;
+  padding: 5vh;
 }
 
 .button {
   border: none;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 1rem;
+  width: 80px;
+  height: 30px;
+  font-size: 1.8rem;
+  font-weight: bold;
   transition: all 0.3s ease;
 
   &:hover {
     transform: rotate(360deg);
-    transform: scale(1.01);
+    transform: scale(1.11);
   }
+}
+
+.button_big {
+  width: 100px;
+  height: 40px;
+  font-size: 2rem;
+}
+
+.button_yellow {
+  background-color: $yellow-color;
+  color: $blue-color;
+}
+
+.button_blue {
+  background-color: $blue-color;
+  color: $yellow-color;
+}
+
+.button_active {
+  background-color: $green-color;
+  cursor: auto;
+  pointer-events: none;
+  color: $dark-blue-color;
 }

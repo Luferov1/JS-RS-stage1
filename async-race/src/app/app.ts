@@ -1,4 +1,5 @@
 import PageNameEnum from './abstract/enums/page-name-enum';
+import './app.scss';
 
 class App {
   static params = {
@@ -16,8 +17,9 @@ class App {
     const garageButton = document.createElement('button');
     const winnersButton = document.createElement('button');
 
-    garageButton.classList.add('button', 'garage-button');
-    winnersButton.classList.add('button', 'winners-button');
+    header.classList.add('header');
+    garageButton.classList.add('garage-button', 'button', 'button_big', 'button_yellow', 'button_active');
+    winnersButton.classList.add('winners-button', 'button', 'button_big', 'button_yellow');
 
     garageButton.innerHTML = PageNameEnum.garage;
     winnersButton.innerHTML = PageNameEnum.winners;
