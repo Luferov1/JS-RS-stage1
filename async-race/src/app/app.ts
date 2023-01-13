@@ -1,3 +1,4 @@
+import elementCreator from './abstract/functions/element-creator-func';
 import PageName from './abstract/enums/page-name-enum';
 import ButtonClassNames from './abstract/enums/button-classNames-enum';
 import TagNames from './abstract/enums/tag-names-enum';
@@ -15,22 +16,16 @@ class App {
   }
 
   private drawHeaderButtons() {
-    const header = document.createElement(TagNames.header);
-    const garageButton = document.createElement(TagNames.button);
-    const winnersButton = document.createElement(TagNames.button);
-
-    header.classList.add('header');
-    garageButton.classList.add(
-      ButtonClassNames.garage,
-      ButtonClassNames.basic,
-      ButtonClassNames.big,
-      ButtonClassNames.yellow
+    const header = elementCreator(TagNames.header, ['header']);
+    const garageButton = elementCreator(
+      TagNames.button,
+      [ButtonClassNames.garage, ButtonClassNames.basic, ButtonClassNames.big, ButtonClassNames.yellow],
+      PageName.garage
     );
-    winnersButton.classList.add(
-      ButtonClassNames.winners,
-      ButtonClassNames.basic,
-      ButtonClassNames.big,
-      ButtonClassNames.yellow
+    const winnersButton = elementCreator(
+      TagNames.button,
+      [ButtonClassNames.winners, ButtonClassNames.basic, ButtonClassNames.big, ButtonClassNames.yellow],
+      PageName.winners
     );
 
     if (App.params.activePage === PageName.garage) {
@@ -38,9 +33,6 @@ class App {
     } else {
       winnersButton.classList.add(ButtonClassNames.active);
     }
-
-    garageButton.innerHTML = PageName.garage;
-    winnersButton.innerHTML = PageName.winners;
 
     header.append(garageButton);
     header.append(winnersButton);
