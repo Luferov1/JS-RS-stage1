@@ -1,3 +1,4 @@
+import elementCreator from '@/app/abstract/functions/element-creator-func';
 import TagNames from '@/app/abstract/enums/tag-names-enum';
 import './garage-page.scss';
 
@@ -7,11 +8,10 @@ class GaragePage {
   container: HTMLElement;
 
   constructor() {
-    this.container = document.createElement(TagNames.main);
-    this.container.classList.add('main');
+    this.container = elementCreator(TagNames.main, ['main']);
   }
 
-  private drawInputsContainer() {
+  private createInputsContainer() {
     return;
   }
 
