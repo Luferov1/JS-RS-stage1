@@ -1,6 +1,6 @@
-enum PageNameEnum {
+enum PageName {
   garage = 'garage',
   winners = 'winners',
 }
 
-export default PageNameEnum;
+export default PageName;
