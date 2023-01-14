@@ -1,0 +1,22 @@
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 350px;
+  height: 150px;
+
+  .forms-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .form_create, .form_update {
+      display: flex;
+      justify-content: space-between;
+
+      .form__text-input {
+        width: 50%;
+      }
+    }
+  }
+}

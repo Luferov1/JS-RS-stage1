@@ -1,13 +1,13 @@
-import elementCreator from '@/app/abstract/functions/element-creator-func';
-import TagNames from '@/app/abstract/enums/tag-names-enum';
-import InputTypes from '@/app/abstract/enums/input-types-enum';
-import FormClassNames from '@/app/abstract/enums/form-classNames-enum';
-import ButtonClassNames from '@/app/abstract/enums/button-classNames-enum';
+import elementCreator from '../../../../abstract/functions/element-creator-func';
+import TagNames from '../../../../abstract/enums/tag-names-enum';
+import InputTypes from '../../../../abstract/enums/input-types-enum';
+import FormClassNames from '../../../../abstract/enums/form-classNames-enum';
+import ButtonClassNames from '../../../../abstract/enums/button-classNames-enum';
 import './inputs-form.scss';
 
 class InputsForm {
-  container: HTMLFormElement;
-  buttonText: string;
+  private container: HTMLFormElement;
+  private buttonText: string;
 
   constructor(buttonText: string) {
     this.container =
