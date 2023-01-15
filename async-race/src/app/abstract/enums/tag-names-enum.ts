@@ -9,6 +9,7 @@ enum TagNames {
   h3 = 'h3',
   h4 = 'h4',
   form = 'form',
+  table = 'table',
 }
 
 export default TagNames;
