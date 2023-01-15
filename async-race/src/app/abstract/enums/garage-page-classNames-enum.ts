@@ -5,6 +5,7 @@ enum GaragePageClassNames {
   container = 'garage',
   header = 'garage__header',
   pageNumber = 'garage__page-number',
+  paginationButtons = 'pagination-buttons',
 }
 
 export default GaragePageClassNames;

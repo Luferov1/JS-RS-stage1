@@ -4,7 +4,7 @@ import InputsForm from './components/inputs-form';
 import GaragePageClassNames from '../../abstract/enums/garage-page-classNames-enum';
 import ButtonClassNames from '../../abstract/enums/button-classNames-enum';
 import ButtonText from '../../abstract/enums/button-text-enum';
-import createGarage from '../../abstract/functions/create-garage-funct';
+import createGarage from '../../abstract/functions/create-garage-func';
 import './garage-page.scss';
 
 class GaragePage {

@@ -6,6 +6,8 @@ enum ButtonText {
   generateCars = 'generate cars',
   select = 'select',
   remove = 'remove',
+  prev = 'prev',
+  next = 'next',
 }
 
 export default ButtonText;
