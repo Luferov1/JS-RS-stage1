@@ -5,5 +5,16 @@ import ButtonText from '../../abstract/enums/button-text-enum';
 import './winners-page.scss';
 
 class WinnersPage {
-  
+  private container: HTMLElement;
+
+  constructor() {
+    this.container = elementCreator(TagNames.main, [GaragePageClassNames.main]);
+  }
+
+  render() {
+
+    return this.container;
+  }
 }
+
+export default WinnersPage;
