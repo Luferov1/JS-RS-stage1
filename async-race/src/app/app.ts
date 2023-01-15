@@ -3,59 +3,83 @@ import PageName from './abstract/enums/page-name-enum';
 import ButtonClassNames from './abstract/enums/button-classNames-enum';
 import TagNames from './abstract/enums/tag-names-enum';
 import GaragePage from './pages/garage/garage-page';
+import WinnersPage from './pages/winners/winners-page';
 import './app.scss';
 
 class App {
   static params = {
     activePage: PageName.garage,
-  };
-
-  private container: HTMLElement;
-
-  constructor() {
-    this.container = document.body;
-  }
-
-  private drawHeaderButtons() {
-    const header = elementCreator(TagNames.header, ['header']);
-    const garageButton = elementCreator(
+    garageButton: elementCreator(
       TagNames.button,
       [ButtonClassNames.garage, ButtonClassNames.basic, ButtonClassNames.big, ButtonClassNames.yellow],
       PageName.garage
-    );
-    const winnersButton = elementCreator(
+    ),
+    winnersButton: elementCreator(
       TagNames.button,
       [ButtonClassNames.winners, ButtonClassNames.basic, ButtonClassNames.big, ButtonClassNames.yellow],
       PageName.winners
-    );
+    ),
 
-    if (App.params.activePage === PageName.garage) {
-      garageButton.classList.add(ButtonClassNames.active);
-    } else {
-      winnersButton.classList.add(ButtonClassNames.active);
+    changePage() {
+      if (this.activePage === PageName.garage) {
+        this.activePage = PageName.winners;
+        this.createPage();
+      } else {
+        this.activePage = PageName.garage;
+      }
+    },
+
+    createPage() {
+      const container = document.body;
+      container.innerHTML = '';
+
+      const header = elementCreator(TagNames.header, ['header']);
+      if (this.activePage === PageName.garage) {
+        this.garageButton.classList.add(ButtonClassNames.active);
+      } else {
+        this.winnersButton.classList.add(ButtonClassNames.active);
+      }
+
+      header.append(this.garageButton);
+      header.append(this.winnersButton);
+
+      let page: HTMLElement;
+      if (App.params.activePage === PageName.garage) {
+        const garagePage = new GaragePage();
+        page = garagePage.render();
+      } else {
+        const winnersPage = new WinnersPage();
+        page = winnersPage.render();
+      }
+
+      container.append(header);
+      container.append(page);
+    },
+  };
+
+  private changePage(event: Event) {
+    const target = event.target as Element;
+    if (!target.classList.contains(ButtonClassNames.active)) {
+      if (App.params.activePage === PageName.garage) {
+        App.params.activePage = PageName.winners;
+        App.params.garageButton.classList.remove(ButtonClassNames.active);
+        App.params.createPage();
+      } else {
+        App.params.activePage = PageName.garage;
+        App.params.winnersButton.classList.remove(ButtonClassNames.active);
+        App.params.createPage();
+      }
     }
-
-    header.append(garageButton);
-    header.append(winnersButton);
-
-    return header;
   }
 
-  private drawPage() {
-    let page: HTMLElement;
-    if (App.params.activePage === PageName.garage) {
-      const garagePage = new GaragePage();
-      page = garagePage.render();
-    } else {
-      const garagePage = new GaragePage();
-      page = garagePage.render();
-    }
-    return page;
+  private addButtonListeners() {
+    App.params.winnersButton.addEventListener('click', this.changePage);
+    App.params.garageButton.addEventListener('click', this.changePage);
   }
 
   run() {
-    this.container.append(this.drawHeaderButtons());
-    this.container.append(this.drawPage());
+    this.addButtonListeners();
+    App.params.createPage();
   }
 }
 

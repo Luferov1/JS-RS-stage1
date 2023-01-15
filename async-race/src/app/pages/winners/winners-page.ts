@@ -1,9 +1,9 @@
-import TagNames from '@/app/abstract/enums/tag-names-enum';
-import elementCreator from '@/app/abstract/functions/element-creator-func';
-import createHeaders from '@/app/abstract/functions/create-headers-func';
-import createPaginationButtons from '@/app/abstract/functions/create-pagination-buttons';
+import TagNames from '../../abstract/enums/tag-names-enum';
+import elementCreator from '../../abstract/functions/element-creator-func';
+import createHeaders from '../../abstract/functions/create-headers-func';
+import createPaginationButtons from '../../abstract/functions/create-pagination-buttons';
 import './winners-page.scss';
-import GaragePageClassNames from '@/app/abstract/enums/garage-page-classNames-enum';
+import GaragePageClassNames from '../../abstract/enums/garage-page-classNames-enum';
 
 class WinnersPage {
   private container: HTMLElement;
