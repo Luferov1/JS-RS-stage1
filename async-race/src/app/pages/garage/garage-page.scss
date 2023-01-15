@@ -8,7 +8,9 @@
   .forms-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     width: 100%;
+    margin-bottom: 20px;
 
     .form_create, .form_update {
       display: flex;

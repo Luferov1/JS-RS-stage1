@@ -1,9 +1,8 @@
-import elementCreator from '../../../../abstract/functions/element-creator-func';
-import TagNames from '../../../../abstract/enums/tag-names-enum';
-import InputTypes from '../../../../abstract/enums/input-types-enum';
-import FormClassNames from '../../../../abstract/enums/form-classNames-enum';
-import ButtonClassNames from '../../../../abstract/enums/button-classNames-enum';
-import './inputs-form.scss';
+import elementCreator from '../../../abstract/functions/element-creator-func';
+import TagNames from '../../../abstract/enums/tag-names-enum';
+import InputTypes from '../../../abstract/enums/input-types-enum';
+import FormClassNames from '../../../abstract/enums/form-classNames-enum';
+import ButtonClassNames from '../../../abstract/enums/button-classNames-enum';
 
 class InputsForm {
   private container: HTMLFormElement;
