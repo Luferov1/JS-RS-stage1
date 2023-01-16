@@ -33,7 +33,8 @@ class InputsForm {
       TagNames.button,
       [FormClassNames.button, ButtonClassNames.basic, ButtonClassNames.blue],
       this.buttonText
-    );
+    ) as HTMLButtonElement;
+    button.type = InputTypes.button;
     return button;
   }
 
