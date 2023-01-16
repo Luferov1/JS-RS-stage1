@@ -61,3 +61,26 @@ h3 {
   pointer-events: none;
   color: $dark-blue-color;
 }
+
+table { 
+  width: 60%; 
+  border-collapse:separate;
+  border-spacing:.25em 1em;
+  th, td {
+    padding: .25em .5em;
+    text-align:left;
+    height: 30px;
+    font-size: 2rem;
+    &:nth-child(3) {
+      text-align: center;
+    }
+  }
+  td {
+    background-color:$white-color;
+    color: $background-color;
+  }
+  th {
+    background-color: $dark-blue-color;
+    color: $white-color;
+  }
+}
