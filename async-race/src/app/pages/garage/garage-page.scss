@@ -58,6 +58,7 @@
   border: 1px solid $blue-color;
   color: $blue-color;
   font-size: 2rem;
+  transition: all 0.3s ease;
 
   &:hover {
     transform: rotate(360deg);
