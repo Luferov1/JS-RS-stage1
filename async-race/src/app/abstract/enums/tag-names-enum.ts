@@ -13,6 +13,7 @@ enum TagNames {
   th = 'th',
   tr = 'tr',
   td = 'td',
+  img = 'img',
 }
 
 export default TagNames;

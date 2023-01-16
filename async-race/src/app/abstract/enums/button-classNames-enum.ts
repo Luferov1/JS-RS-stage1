@@ -7,6 +7,8 @@ enum ButtonClassNames {
   active = 'button_active',
   garage = 'garage-button',
   winners = 'winners-button',
+  move = 'move-button',
+  moveDisabled = 'move-button_disabled',
 }
 
 export default ButtonClassNames;

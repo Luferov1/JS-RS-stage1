@@ -8,6 +8,8 @@ enum ButtonText {
   remove = 'remove',
   prev = 'prev',
   next = 'next',
+  go = 'A',
+  back = 'B',
 }
 
 export default ButtonText;

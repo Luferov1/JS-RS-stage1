@@ -4,12 +4,21 @@ import elementCreator from './element-creator-func';
 import GaragePageClassNames from '../enums/garage-page-classNames-enum';
 import createPaginationButtons from './create-pagination-buttons';
 import createHeaders from './create-headers-func';
+import Car from '../../pages/garage/components/car';
 
 const createGarage = () => {
   const div = elementCreator(TagNames.div, [GaragePageClassNames.container]);
   createHeaders(PageName.garage).forEach((header) => div.append(header));
 
+  const obj = {
+    id: 1,
+    name: 'tesla',
+    color: '#22ff33',
+  };
+  const car = new Car(obj);
+
   div.append(createPaginationButtons());
+  div.append(car.render());
   return div;
 };
 
