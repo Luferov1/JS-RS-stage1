@@ -1,4 +1,5 @@
 import TagNames from '../../abstract/enums/tag-names-enum';
+import PageName from '../../abstract/enums/page-name-enum';
 import elementCreator from '../../abstract/functions/element-creator-func';
 import createHeaders from '../../abstract/functions/create-headers-func';
 import createPaginationButtons from '../../abstract/functions/create-pagination-buttons';
@@ -24,7 +25,7 @@ class WinnersPage {
   }
 
   render() {
-    createHeaders().forEach((header) => this.container.append(header));
+    createHeaders(PageName.winners).forEach((header) => this.container.append(header));
     this.container.append(this.createTable());
     this.container.append(createPaginationButtons());
     return this.container;
