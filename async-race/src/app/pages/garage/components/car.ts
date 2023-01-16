@@ -69,8 +69,25 @@ class Car {
     return svg;
   }
 
+  private createFlag() {
+    const containFlag = elementCreator(TagNames.div, [CarClassNames.containFlag]);
+    const pole = elementCreator(TagNames.div, [CarClassNames.pole]);
+    const flag = elementCreator(TagNames.div, [CarClassNames.flag]);
+    const shadow = elementCreator(TagNames.div, [CarClassNames.shadow]);
+    const flag2 = elementCreator(TagNames.div, [CarClassNames.flag, CarClassNames.flag2]);
+
+    containFlag.append(pole);
+    containFlag.append(flag);
+    containFlag.append(shadow);
+    containFlag.append(flag2);
+
+    return containFlag;
+  }
+
   private createTrack() {
     const track = elementCreator(TagNames.div, [CarClassNames.track]);
+
+    track.append(this.createFlag());
     return track;
   }
 

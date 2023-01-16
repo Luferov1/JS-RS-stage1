@@ -1,3 +1,5 @@
+@import '../../../sass/constants.scss';
+
 .buttons-container {
   display: flex;
   flex-wrap: wrap;
@@ -27,4 +29,124 @@
   display: flex;
   justify-content: space-between;
   width: 200px;
+  margin-bottom: 30px;
+}
+
+.car {
+  display: flex;
+  flex-direction: column;
+}
+
+.car__header-buttons {
+  display: flex;
+  width: 50%;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.car__main-buttons {
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.move-button {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border: 1px solid $blue-color;
+  color: $blue-color;
+  font-size: 2rem;
+
+  &:hover {
+    transform: rotate(360deg);
+    transform: scale(1.11);
+  }
+}
+
+.move-button_disabled {
+  pointer-events: none;
+  cursor: auto;
+  border: none;
+  color: $background-color;
+}
+
+.car__track {
+  position: relative;
+  border-top: 12px dashed black;
+  margin-top: -12px;
+
+  .contain-flag {
+    position: absolute;
+    top: -93px;
+    right: 4%;
+    height: 80px;
+    width: 60px;
+  }
+  
+  .pole {
+    background-color: $white-color;
+    border: 1px solid $white-color;
+    width: 5px;
+    height: 100%;
+  }
+  
+  .pole:before {
+    position: absolute;
+    top: -8px;
+    left: -2.5px;
+    display: block;
+    background-color: $white-color;
+    border-radius: 50%;
+    border: 1px solid $white-color;
+    width: 10px;
+    height: 10px;
+    content:'';
+  }
+  
+  .flag {
+    position: absolute; 
+    top: 8px;
+    z-index: 10;
+    background-color: $flag-main-color;
+    border: 1px solid $flag-border-color;
+    width: 40px;
+    height: 20px;
+  }
+  
+  .shadow {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 4;
+    width: 0; 
+      height: 0; 
+      border-top: 10px solid transparent;
+      border-bottom: 11px solid transparent;
+      border-left: 21px solid $flag-border-color;
+  }
+  
+  .flag-2 {
+    position: absolute; 
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+    background-color: $flag-main-color;
+    width: 40px;
+    height: 20px;
+  }
+  
+  .flag-2:after {
+    position: absolute;
+    left: 30px;
+    top: -5px;
+    display: block;
+      width: 0; 
+      height: 0; 
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent; 
+      border-right: 15px solid $background-color; 
+      content:'';
+  }
 }
