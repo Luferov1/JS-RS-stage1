@@ -2,8 +2,8 @@ import TagNames from '../../abstract/enums/tag-names-enum';
 import elementCreator from '../../abstract/functions/element-creator-func';
 import createHeaders from '../../abstract/functions/create-headers-func';
 import createPaginationButtons from '../../abstract/functions/create-pagination-buttons';
-import './winners-page.scss';
 import GaragePageClassNames from '../../abstract/enums/garage-page-classNames-enum';
+import TableHeaders from '../../abstract/enums/table-headers-enum';
 
 class WinnersPage {
   private container: HTMLElement;
@@ -14,6 +14,12 @@ class WinnersPage {
 
   private createTable() {
     const table = elementCreator(TagNames.table);
+    const tr = elementCreator(TagNames.tr);
+    for (const key in TableHeaders) {
+      const index = Object.keys(TableHeaders).indexOf(key);
+      tr.append(elementCreator(TagNames.th, [], Object.values(TableHeaders)[index]));
+    }
+    table.append(tr);
     return table;
   }
 

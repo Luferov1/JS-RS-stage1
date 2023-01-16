@@ -10,6 +10,9 @@ enum TagNames {
   h4 = 'h4',
   form = 'form',
   table = 'table',
+  th = 'th',
+  tr = 'tr',
+  td = 'td',
 }
 
 export default TagNames;
