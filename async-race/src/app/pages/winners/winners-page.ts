@@ -31,6 +31,7 @@ class WinnersPage {
 
     this.winners.forEach((winner, index) => {
       const tr = elementCreator(TagNames.tr);
+      // console.log(this.cars, this.winners);
       const winnerName = this.cars.filter((car) => car.id === winner.id)[0].name;
       const carSvg = createCarSvg(this.cars.filter((car) => car.id === winner.id)[0].color);
       [index + 1, carSvg, winnerName, winner.wins, winner.time].forEach((item, index) => {

@@ -9,6 +9,10 @@ import FormClassNames from '../../../abstract/enums/form-classNames-enum';
 import allowInput from '../../../abstract/functions/allow.input';
 import disableInput from '../../../abstract/functions/disable.input';
 import getCarById from '../../../abstract/functions/get-car-by-id';
+import ServerPath from '../../../abstract/enums/server-path-enum';
+import RequestMethods from '../../../abstract/enums/request-methods-enum';
+// import updateCarsId from '../../../abstract/functions/update-cars-id';
+import updateCarsNumber from '../../../abstract/functions/update-cars-number';
 
 class Car {
   private params: carInterface;
@@ -37,6 +41,20 @@ class Car {
     }
   }
 
+  private async deleteCar(event: Event) {
+    const car = (event.target as HTMLElement).closest(`.${CarClassNames.container}`) as HTMLElement;
+    const id = car.id;
+    await fetch(`${ServerPath.address}${ServerPath.garage}/${id}`, {
+      method: RequestMethods.delete,
+    });
+    await fetch(`${ServerPath.address}${ServerPath.winners}/${id}`, {
+      method: RequestMethods.delete,
+    });
+    car.remove();
+    // await updateCarsId();
+    await updateCarsNumber();
+  }
+
   private createHeader() {
     const div = elementCreator(TagNames.div, [CarClassNames.headerButtons]);
     const selectButton = elementCreator(
@@ -52,6 +70,7 @@ class Car {
     const header = elementCreator(TagNames.h3, [CarClassNames.title], this.params.name);
 
     selectButton.addEventListener('click', this.selectCar);
+    removeButton.addEventListener('click', this.deleteCar);
 
     div.append(selectButton);
     div.append(removeButton);

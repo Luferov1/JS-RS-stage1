@@ -50,7 +50,7 @@ class App {
       if (App.params.activePage === PageName.garage) {
         const cars = await getAllCars();
         const garagePage = new GaragePage(cars);
-        page = await garagePage.render();
+        page = garagePage.render();
       } else {
         const cars = await getAllCars();
         const winners = await getAllWinners();
