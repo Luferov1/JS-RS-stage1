@@ -5,7 +5,7 @@ const disableInput = (form: HTMLElement) => {
   const colorInput = form.querySelector(`.${FormClassNames.inputColor}`) as HTMLInputElement;
 
   textInput.value = '';
-  colorInput.value = '#000';
+  colorInput.value = '#000000';
 
   textInput.disabled = true;
   colorInput.disabled = true;
