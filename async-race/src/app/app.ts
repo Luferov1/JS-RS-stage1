@@ -52,8 +52,9 @@ class App {
         const garagePage = new GaragePage(cars);
         page = await garagePage.render();
       } else {
-        const cars = await getAllWinners();
-        const winnersPage = new WinnersPage(cars);
+        const cars = await getAllCars();
+        const winners = await getAllWinners();
+        const winnersPage = new WinnersPage(cars, winners);
         page = await winnersPage.render();
       }
 

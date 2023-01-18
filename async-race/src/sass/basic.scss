@@ -73,14 +73,14 @@ table {
     height: 30px;
     font-size: 2rem;
 
-    &:nth-child(3) {
+    &:nth-child(4) {
       text-align: center;
     }
   }
 
   td {
     background-color:$white-color;
-    color: $background-color;
+    color: $black-color;
   }
   
   th {
