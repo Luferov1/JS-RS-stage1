@@ -4,10 +4,9 @@ import ButtonClassNames from './abstract/enums/button-classNames-enum';
 import TagNames from './abstract/enums/tag-names-enum';
 import GaragePage from './pages/garage/garage-page';
 import WinnersPage from './pages/winners/winners-page';
-import carInterface from './abstract/interfaces/car-interface';
-import './app.scss';
 import getAllCars from './abstract/functions/get-all-cars';
 import getAllWinners from './abstract/functions/get-all-winners';
+import './app.scss';
 
 class App {
   static params = {
@@ -47,14 +46,13 @@ class App {
       header.append(this.winnersButton);
 
       let page: HTMLElement;
-      let cars: carInterface[];
 
       if (App.params.activePage === PageName.garage) {
-        cars = await getAllCars();
+        const cars = await getAllCars();
         const garagePage = new GaragePage(cars);
         page = await garagePage.render();
       } else {
-        cars = await getAllWinners();
+        const cars = await getAllWinners();
         const winnersPage = new WinnersPage(cars);
         page = await winnersPage.render();
       }

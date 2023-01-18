@@ -5,13 +5,13 @@ import createHeaders from '../../abstract/functions/create-headers-func';
 import createPaginationButtons from '../../abstract/functions/create-pagination-buttons';
 import GaragePageClassNames from '../../abstract/enums/garage-page-classNames-enum';
 import TableHeaders from '../../abstract/enums/table-headers-enum';
-import carInterface from '@/app/abstract/interfaces/car-interface';
+import winnerInterface from '@/app/abstract/interfaces/winner-interface';
 
 class WinnersPage {
   private container: HTMLElement;
-  private cars: carInterface[];
+  private cars: winnerInterface[];
 
-  constructor(cars: carInterface[]) {
+  constructor(cars: winnerInterface[]) {
     this.container = elementCreator(TagNames.main, [GaragePageClassNames.main]);
     this.cars = cars;
   }
