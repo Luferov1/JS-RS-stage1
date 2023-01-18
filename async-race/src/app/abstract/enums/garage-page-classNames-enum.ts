@@ -6,6 +6,7 @@ enum GaragePageClassNames {
   header = 'garage__header',
   pageNumber = 'garage__page-number',
   paginationButtons = 'pagination-buttons',
+  invalidInputMessage = 'invalid',
 }
 
 export default GaragePageClassNames;

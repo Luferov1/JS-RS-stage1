@@ -4,17 +4,17 @@ import elementCreator from './element-creator-func';
 import carInterface from '../interfaces/car-interface';
 import winnerInterface from '../interfaces/winner-interface';
 const createHeaders = (pageName: string, cars: carInterface[] | winnerInterface[]) => {
-  const headerSpan = elementCreator(TagNames.span, [], `${cars.length}`);
-  const pageNumberSpan = elementCreator(TagNames.span);
+  const headerSpanText = String(cars.length);
+  const pageNumberSpanText = '1';
   const header = elementCreator(
     TagNames.h2,
     [GaragePageClassNames.header],
-    `${pageName[0].toUpperCase() + pageName.slice(1)} (${headerSpan.innerHTML})`
+    `${pageName[0].toUpperCase() + pageName.slice(1)} (<span>${headerSpanText}</span>)`
   );
   const pageNumber = elementCreator(
     TagNames.h3,
     [GaragePageClassNames.pageNumber],
-    `Page #${pageNumberSpan.innerHTML}`
+    `Page #<span>${pageNumberSpanText}</span>`
   );
 
   return [header, pageNumber];

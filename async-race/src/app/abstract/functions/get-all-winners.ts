@@ -1,4 +1,4 @@
-import ServerPath from '../enums/path-enum';
+import ServerPath from '../enums/server-path-enum';
 import winnerInterface from '../interfaces/winner-interface';
 
 const getAllWinners = async () => {

@@ -1,4 +1,4 @@
-import ServerPath from '../enums/path-enum';
+import ServerPath from '../enums/server-path-enum';
 import carInterface from '../interfaces/car-interface';
 
 const getAllCars = async () => {
