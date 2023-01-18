@@ -51,9 +51,9 @@ class GaragePage {
     return div;
   }
 
-  render() {
+  async render() {
     this.container.append(this.createButtonsContainer());
-    this.container.append(createGarage());
+    this.container.append(await createGarage());
     return this.container;
   }
 }

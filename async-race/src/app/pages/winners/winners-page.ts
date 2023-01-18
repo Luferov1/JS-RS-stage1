@@ -24,8 +24,9 @@ class WinnersPage {
     return table;
   }
 
-  render() {
-    createHeaders(PageName.winners).forEach((header) => this.container.append(header));
+  async render() {
+    const headers = await createHeaders(PageName.winners);
+    headers.forEach((header) => this.container.append(header));
     this.container.append(this.createTable());
     this.container.append(createPaginationButtons());
     return this.container;

@@ -6,9 +6,10 @@ import createPaginationButtons from './create-pagination-buttons';
 import createHeaders from './create-headers-func';
 import Car from '../../pages/garage/components/car';
 
-const createGarage = () => {
+const createGarage = async () => {
   const div = elementCreator(TagNames.div, [GaragePageClassNames.container]);
-  createHeaders(PageName.garage).forEach((header) => div.append(header));
+  const headers = await createHeaders(PageName.garage);
+  headers.forEach((header) => div.append(header));
 
   const obj = {
     id: 1,

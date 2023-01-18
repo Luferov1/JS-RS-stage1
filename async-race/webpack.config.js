@@ -17,6 +17,13 @@ const baseConfig = {
     assetModuleFilename: 'assets/[name].[contenthash][ext]',
   },
   mode: 'development',
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    port: 8080,
+  },
   module: {
     rules: [
       {

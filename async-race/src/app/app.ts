@@ -29,7 +29,7 @@ class App {
       }
     },
 
-    createPage() {
+    async createPage() {
       const container = document.body;
       container.innerHTML = '';
 
@@ -46,10 +46,10 @@ class App {
       let page: HTMLElement;
       if (App.params.activePage === PageName.garage) {
         const garagePage = new GaragePage();
-        page = garagePage.render();
+        page = await garagePage.render();
       } else {
         const winnersPage = new WinnersPage();
-        page = winnersPage.render();
+        page = await winnersPage.render();
       }
 
       container.append(header);
