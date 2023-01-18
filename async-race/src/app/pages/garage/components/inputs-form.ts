@@ -5,6 +5,7 @@ import FormClassNames from '../../../abstract/enums/form-classNames-enum';
 import ButtonClassNames from '../../../abstract/enums/button-classNames-enum';
 import ButtonText from '../../../abstract/enums/button-text-enum';
 import createNewCar from '../../../abstract/functions/create-new-car';
+import updateCar from '../../../abstract/functions/udpate-car';
 
 class InputsForm {
   private container: HTMLFormElement;
@@ -51,6 +52,8 @@ class InputsForm {
     button.type = InputTypes.button;
     if (this.buttonText === ButtonText.create) {
       button.addEventListener('click', createNewCar);
+    } else {
+      button.addEventListener('click', updateCar);
     }
     return button;
   }

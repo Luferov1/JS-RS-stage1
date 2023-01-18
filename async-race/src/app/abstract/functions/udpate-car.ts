@@ -1,29 +1,36 @@
 import Car from '../../pages/garage/components/car';
 import InvalidInputMessage from '../../pages/garage/components/invalid-input-message';
+import ButtonClassNames from '../enums/button-classNames-enum';
+import CarClassNames from '../enums/car-classNames-enum';
 import FormClassNames from '../enums/form-classNames-enum';
 import GaragePageClassNames from '../enums/garage-page-classNames-enum';
 import RequestMethods from '../enums/request-methods-enum';
 import ServerPath from '../enums/server-path-enum';
-import TagNames from '../enums/tag-names-enum';
-// import updateCarsId from './update-cars-id';
+import disableInput from './disable.input';
 import updateCarsNumber from './update-cars-number';
 
-const createNewCar = async (event: Event) => {
-  const form = (event.target as Element).closest(TagNames.form) as HTMLElement;
+const updateCar = async () => {
+  const targetCar = (
+    document.querySelector(`.${CarClassNames.container} .${ButtonClassNames.active}`) as HTMLElement
+  ).closest(`.${CarClassNames.container}`) as HTMLElement;
+  const form = document.querySelector(`.${FormClassNames.formUpdate}`) as HTMLElement;
   const name = (form.querySelector(`.${FormClassNames.inputText}`) as HTMLInputElement).value;
   const color = (form.querySelector(`.${FormClassNames.inputColor}`) as HTMLInputElement).value;
-  const garage = document.querySelector(`.${GaragePageClassNames.container}`) as HTMLElement;
+  const id = targetCar.id;
+  const selectButton = targetCar.querySelector(`.${ButtonClassNames.active}`) as HTMLElement;
+
   const params = {
     name: name,
     color: color,
   };
   const erorMessage = document.querySelector(`.${GaragePageClassNames.invalidInputMessage}`);
+
   if (name.length > 3) {
     if (erorMessage) {
       erorMessage.remove();
     }
-    const response = await fetch(`${ServerPath.address}${ServerPath.garage}`, {
-      method: RequestMethods.post,
+    const response = await fetch(`${ServerPath.address}${ServerPath.garage}/${id}`, {
+      method: RequestMethods.put,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -31,8 +38,10 @@ const createNewCar = async (event: Event) => {
     });
     const newCarParams = await response.json();
     const car = new Car(newCarParams);
-    garage.append(car.render());
+    targetCar.replaceWith(car.render());
     await updateCarsNumber();
+    disableInput(form);
+    selectButton.classList.remove(ButtonClassNames.active);
   } else {
     if (!erorMessage) {
       const error = new InvalidInputMessage();
@@ -41,4 +50,4 @@ const createNewCar = async (event: Event) => {
   }
 };
 
-export default createNewCar;
+export default updateCar;

@@ -9,6 +9,7 @@ enum ButtonClassNames {
   winners = 'winners-button',
   move = 'move-button',
   moveDisabled = 'move-button_disabled',
+  select = 'select-button',
 }
 
 export default ButtonClassNames;

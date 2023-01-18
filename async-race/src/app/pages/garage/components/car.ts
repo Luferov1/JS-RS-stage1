@@ -5,6 +5,10 @@ import CarClassNames from '../../../abstract/enums/car-classNames-enum';
 import ButtonText from '../../../abstract/enums/button-text-enum';
 import ButtonClassNames from '../../../abstract/enums/button-classNames-enum';
 import createCarSvg from '../../../abstract/functions/create-car-svg';
+import FormClassNames from '../../../abstract/enums/form-classNames-enum';
+import allowInput from '../../../abstract/functions/allow.input';
+import disableInput from '../../../abstract/functions/disable.input';
+import getCarById from '../../../abstract/functions/get-car-by-id';
 
 class Car {
   private params: carInterface;
@@ -16,11 +20,28 @@ class Car {
     this.container.id = `${params.id}`;
   }
 
+  private async selectCar(event: Event) {
+    const target = event.target as HTMLElement;
+    const form = document.querySelector(`.${FormClassNames.formUpdate}`) as HTMLElement;
+    const id = (target.closest(`.${CarClassNames.container}`) as HTMLElement).id;
+
+    if (target.classList.contains(ButtonClassNames.active)) {
+      disableInput(form);
+      target.classList.remove(ButtonClassNames.active);
+    } else {
+      const selectButtons = [...document.querySelectorAll(`.${ButtonClassNames.select}`)];
+      selectButtons.forEach((button) => button.classList.remove(ButtonClassNames.active));
+      target.classList.add(ButtonClassNames.active);
+      const data = await getCarById(id);
+      allowInput(form, data);
+    }
+  }
+
   private createHeader() {
     const div = elementCreator(TagNames.div, [CarClassNames.headerButtons]);
     const selectButton = elementCreator(
       TagNames.button,
-      [ButtonClassNames.basic, ButtonClassNames.blue],
+      [ButtonClassNames.basic, ButtonClassNames.blue, ButtonClassNames.select],
       ButtonText.select
     );
     const removeButton = elementCreator(
@@ -29,6 +50,8 @@ class Car {
       ButtonText.remove
     );
     const header = elementCreator(TagNames.h3, [CarClassNames.title], this.params.name);
+
+    selectButton.addEventListener('click', this.selectCar);
 
     div.append(selectButton);
     div.append(removeButton);

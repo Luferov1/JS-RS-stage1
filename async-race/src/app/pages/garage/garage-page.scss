@@ -54,6 +54,11 @@
   margin-bottom: 10px;
 }
 
+.car .button_active {
+  cursor: pointer;
+  pointer-events: all;
+}
+
 .car__main-buttons {
   width: 80px;
   display: flex;
