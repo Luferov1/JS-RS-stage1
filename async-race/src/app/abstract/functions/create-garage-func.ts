@@ -5,10 +5,11 @@ import GaragePageClassNames from '../enums/garage-page-classNames-enum';
 import createPaginationButtons from './create-pagination-buttons';
 import createHeaders from './create-headers-func';
 import Car from '../../pages/garage/components/car';
+import carInterface from '../interfaces/car-interface';
 
-const createGarage = async () => {
+const createGarage = (cars: carInterface[]) => {
   const div = elementCreator(TagNames.div, [GaragePageClassNames.container]);
-  const headers = await createHeaders(PageName.garage);
+  const headers = createHeaders(PageName.garage, cars);
   headers.forEach((header) => div.append(header));
 
   const obj = {

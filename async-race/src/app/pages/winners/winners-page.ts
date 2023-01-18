@@ -5,12 +5,15 @@ import createHeaders from '../../abstract/functions/create-headers-func';
 import createPaginationButtons from '../../abstract/functions/create-pagination-buttons';
 import GaragePageClassNames from '../../abstract/enums/garage-page-classNames-enum';
 import TableHeaders from '../../abstract/enums/table-headers-enum';
+import carInterface from '@/app/abstract/interfaces/car-interface';
 
 class WinnersPage {
   private container: HTMLElement;
+  private cars: carInterface[];
 
-  constructor() {
+  constructor(cars: carInterface[]) {
     this.container = elementCreator(TagNames.main, [GaragePageClassNames.main]);
+    this.cars = cars;
   }
 
   private createTable() {
@@ -25,7 +28,7 @@ class WinnersPage {
   }
 
   async render() {
-    const headers = await createHeaders(PageName.winners);
+    const headers = createHeaders(PageName.winners, this.cars);
     headers.forEach((header) => this.container.append(header));
     this.container.append(this.createTable());
     this.container.append(createPaginationButtons());

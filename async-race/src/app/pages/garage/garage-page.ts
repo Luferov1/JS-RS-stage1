@@ -4,6 +4,7 @@ import InputsForm from './components/inputs-form';
 import GaragePageClassNames from '../../abstract/enums/garage-page-classNames-enum';
 import ButtonClassNames from '../../abstract/enums/button-classNames-enum';
 import ButtonText from '../../abstract/enums/button-text-enum';
+import carInterface from '@/app/abstract/interfaces/car-interface';
 import createGarage from '../../abstract/functions/create-garage-func';
 import './garage-page.scss';
 
@@ -11,8 +12,10 @@ class GaragePage {
   static params = {};
 
   private container: HTMLElement;
+  private cars: carInterface[];
 
-  constructor() {
+  constructor(cars: carInterface[]) {
+    this.cars = cars;
     this.container = elementCreator(TagNames.main, [GaragePageClassNames.main]);
   }
 
@@ -51,9 +54,9 @@ class GaragePage {
     return div;
   }
 
-  async render() {
+  render() {
     this.container.append(this.createButtonsContainer());
-    this.container.append(await createGarage());
+    this.container.append(createGarage(this.cars));
     return this.container;
   }
 }
