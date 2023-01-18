@@ -12,15 +12,13 @@ const createGarage = (cars: carInterface[]) => {
   const headers = createHeaders(PageName.garage, cars);
   headers.forEach((header) => div.append(header));
 
-  const obj = {
-    id: 1,
-    name: 'tesla',
-    color: '#22ff33',
-  };
-  const car = new Car(obj);
-
   div.append(createPaginationButtons());
-  div.append(car.render());
+
+  cars.forEach((obj) => {
+    const car = new Car(obj);
+    div.append(car.render());
+  });
+
   return div;
 };
 
