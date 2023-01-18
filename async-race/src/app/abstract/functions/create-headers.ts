@@ -1,6 +1,6 @@
 import GaragePageClassNames from '../enums/garage-page-classNames-enum';
 import TagNames from '../enums/tag-names-enum';
-import elementCreator from './element-creator-func';
+import elementCreator from './element-creator';
 import carInterface from '../interfaces/car-interface';
 import winnerInterface from '../interfaces/winner-interface';
 const createHeaders = (pageName: string, cars: carInterface[] | winnerInterface[]) => {

@@ -2,7 +2,7 @@ import ButtonClassNames from '../enums/button-classNames-enum';
 import ButtonText from '../enums/button-text-enum';
 import GaragePageClassNames from '../enums/garage-page-classNames-enum';
 import TagNames from '../enums/tag-names-enum';
-import elementCreator from './element-creator-func';
+import elementCreator from './element-creator';
 
 const createPaginationButtons = () => {
   const buttonsContainer = elementCreator(TagNames.div, [GaragePageClassNames.paginationButtons]);

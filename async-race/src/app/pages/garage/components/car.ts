@@ -1,4 +1,4 @@
-import elementCreator from '../../../abstract/functions/element-creator-func';
+import elementCreator from '../../../abstract/functions/element-creator';
 import TagNames from '../../../abstract/enums/tag-names-enum';
 import carInterface from '../../../abstract/interfaces/car-interface';
 import CarClassNames from '../../../abstract/enums/car-classNames-enum';
@@ -13,6 +13,7 @@ class Car {
   constructor(params: carInterface) {
     this.params = params;
     this.container = elementCreator(TagNames.div, [CarClassNames.container]);
+    this.container.id = `${params.id}`;
   }
 
   private createHeader() {

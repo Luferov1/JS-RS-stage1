@@ -1,4 +1,4 @@
-import elementCreator from './abstract/functions/element-creator-func';
+import elementCreator from './abstract/functions/element-creator';
 import PageName from './abstract/enums/page-name-enum';
 import ButtonClassNames from './abstract/enums/button-classNames-enum';
 import TagNames from './abstract/enums/tag-names-enum';

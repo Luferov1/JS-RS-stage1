@@ -1,4 +1,4 @@
-import elementCreator from '../../../abstract/functions/element-creator-func';
+import elementCreator from '../../../abstract/functions/element-creator';
 import TagNames from '../../../abstract/enums/tag-names-enum';
 import InputTypes from '../../../abstract/enums/input-types-enum';
 import FormClassNames from '../../../abstract/enums/form-classNames-enum';
@@ -9,13 +9,16 @@ import createNewCar from '../../../abstract/functions/create-new-car';
 class InputsForm {
   private container: HTMLFormElement;
   private buttonText: string;
+  private disabled: boolean;
 
-  constructor(buttonText: string) {
+  constructor(buttonText: string, disabled = false) {
     this.container =
       buttonText === 'create'
         ? (elementCreator(TagNames.form, [FormClassNames.formCreate]) as HTMLFormElement)
         : (elementCreator(TagNames.form, [FormClassNames.formUpdate]) as HTMLFormElement);
+    this.disabled = disabled;
     this.buttonText = buttonText;
+    this.disabled ? this.container.classList.add(FormClassNames.disabled) : null;
   }
 
   private createTextInput() {
@@ -24,12 +27,18 @@ class InputsForm {
     input.min = `${3}`;
     input.placeholder = 'At least 3 symbols';
     input.required = true;
+    if (this.disabled) {
+      input.disabled = true;
+    }
     return input;
   }
 
   private createColorInput() {
     const input = elementCreator(TagNames.input, [FormClassNames.inputColor]) as HTMLInputElement;
     input.type = InputTypes.color;
+    if (this.disabled) {
+      input.disabled = true;
+    }
     return input;
   }
 

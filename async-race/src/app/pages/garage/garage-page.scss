@@ -26,6 +26,14 @@
   }
 }
 
+.form_disabled .button {
+  pointer-events: none;
+  cursor: auto;
+  border: none;
+  color: $background-color;
+  background-color: $white-color;
+}
+
 .pagination-buttons {
   display: flex;
   justify-content: space-between;

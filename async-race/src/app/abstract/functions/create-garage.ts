@@ -1,9 +1,9 @@
 import TagNames from '../enums/tag-names-enum';
 import PageName from '../enums/page-name-enum';
-import elementCreator from './element-creator-func';
+import elementCreator from './element-creator';
 import GaragePageClassNames from '../enums/garage-page-classNames-enum';
 import createPaginationButtons from './create-pagination-buttons';
-import createHeaders from './create-headers-func';
+import createHeaders from './create-headers';
 import Car from '../../pages/garage/components/car';
 import carInterface from '../interfaces/car-interface';
 

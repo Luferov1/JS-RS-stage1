@@ -1,11 +1,11 @@
-import elementCreator from '../../abstract/functions/element-creator-func';
+import elementCreator from '../../abstract/functions/element-creator';
 import TagNames from '../../abstract/enums/tag-names-enum';
 import InputsForm from './components/inputs-form';
 import GaragePageClassNames from '../../abstract/enums/garage-page-classNames-enum';
 import ButtonClassNames from '../../abstract/enums/button-classNames-enum';
 import ButtonText from '../../abstract/enums/button-text-enum';
 import carInterface from '@/app/abstract/interfaces/car-interface';
-import createGarage from '../../abstract/functions/create-garage-func';
+import createGarage from '../../abstract/functions/create-garage';
 import './garage-page.scss';
 
 class GaragePage {
@@ -22,7 +22,7 @@ class GaragePage {
   private createFormsContainer() {
     const div = elementCreator(TagNames.div, [GaragePageClassNames.formsContainer]);
     const form1 = new InputsForm(ButtonText.create);
-    const form2 = new InputsForm(ButtonText.update);
+    const form2 = new InputsForm(ButtonText.update, true);
     div.append(form1.render());
     div.append(form2.render());
     return div;

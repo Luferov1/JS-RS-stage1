@@ -1,6 +1,6 @@
 import GaragePageClassNames from '../../../abstract/enums/garage-page-classNames-enum';
 import TagNames from '../../../abstract/enums/tag-names-enum';
-import elementCreator from '../../../abstract/functions/element-creator-func';
+import elementCreator from '../../../abstract/functions/element-creator';
 
 class InvalidInputMessage {
   private container: HTMLElement;

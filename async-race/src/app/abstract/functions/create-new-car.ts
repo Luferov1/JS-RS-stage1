@@ -5,6 +5,7 @@ import GaragePageClassNames from '../enums/garage-page-classNames-enum';
 import RequestMethods from '../enums/request-methods-enum';
 import ServerPath from '../enums/server-path-enum';
 import TagNames from '../enums/tag-names-enum';
+import updateCarsId from './update-cars-id';
 import updateCarsNumber from './update-cars-number';
 
 const createNewCar = async (event: Event) => {
