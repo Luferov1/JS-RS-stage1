@@ -5,7 +5,7 @@ import CarClassNames from '../enums/car-classNames-enum';
 import FormClassNames from '../enums/form-classNames-enum';
 import RequestMethods from '../enums/request-methods-enum';
 import ServerPath from '../enums/server-path-enum';
-import disableInput from './disable.input';
+import disableInput from './disable-input';
 import updateCarsNumber from './update-cars-number';
 
 const updateCar = async () => {

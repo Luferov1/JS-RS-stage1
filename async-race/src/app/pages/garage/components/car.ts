@@ -6,8 +6,8 @@ import ButtonText from '../../../abstract/enums/button-text-enum';
 import ButtonClassNames from '../../../abstract/enums/button-classNames-enum';
 import createCarSvg from '../../../abstract/functions/create-car-svg';
 import FormClassNames from '../../../abstract/enums/form-classNames-enum';
-import allowInput from '../../../abstract/functions/allow.input';
-import disableInput from '../../../abstract/functions/disable.input';
+import allowInput from '../../../abstract/functions/allow-input';
+import disableInput from '../../../abstract/functions/disable-input';
 import getCarById from '../../../abstract/functions/get-car-by-id';
 import deleteCar from '../../../abstract/functions/delete-car';
 
