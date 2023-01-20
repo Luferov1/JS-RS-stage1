@@ -17,6 +17,7 @@ class InputsForm {
       buttonText === 'create'
         ? (elementCreator(TagNames.form, [FormClassNames.formCreate]) as HTMLFormElement)
         : (elementCreator(TagNames.form, [FormClassNames.formUpdate]) as HTMLFormElement);
+    this.container.setAttribute('onsubmit', 'return false');
     this.disabled = disabled;
     this.buttonText = buttonText;
     this.disabled ? this.container.classList.add(FormClassNames.disabled) : null;

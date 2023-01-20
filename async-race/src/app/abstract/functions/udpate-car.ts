@@ -3,7 +3,6 @@ import InvalidInputMessage from '../../pages/garage/components/invalid-input-mes
 import ButtonClassNames from '../enums/button-classNames-enum';
 import CarClassNames from '../enums/car-classNames-enum';
 import FormClassNames from '../enums/form-classNames-enum';
-import GaragePageClassNames from '../enums/garage-page-classNames-enum';
 import RequestMethods from '../enums/request-methods-enum';
 import ServerPath from '../enums/server-path-enum';
 import disableInput from './disable.input';
@@ -23,11 +22,11 @@ const updateCar = async () => {
     name: name,
     color: color,
   };
-  const erorMessage = document.querySelector(`.${GaragePageClassNames.invalidInputMessage}`);
+  const errorMessage = document.querySelector('.error_update');
 
-  if (name.length > 3) {
-    if (erorMessage) {
-      erorMessage.remove();
+  if (name.length >= 3) {
+    if (errorMessage) {
+      errorMessage.remove();
     }
     const response = await fetch(`${ServerPath.address}${ServerPath.garage}/${id}`, {
       method: RequestMethods.put,
@@ -43,8 +42,8 @@ const updateCar = async () => {
     disableInput(form);
     selectButton.classList.remove(ButtonClassNames.active);
   } else {
-    if (!erorMessage) {
-      const error = new InvalidInputMessage();
+    if (!errorMessage) {
+      const error = new InvalidInputMessage(FormClassNames.formUpdate);
       form.after(error.render());
     }
   }

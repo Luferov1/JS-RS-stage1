@@ -6,7 +6,6 @@ import GaragePageClassNames from '../enums/garage-page-classNames-enum';
 import RequestMethods from '../enums/request-methods-enum';
 import ServerPath from '../enums/server-path-enum';
 import TagNames from '../enums/tag-names-enum';
-// import updateCarsId from './update-cars-id';
 import updateCarsNumber from './update-cars-number';
 
 const createNewCar = async (event: Event) => {
@@ -18,10 +17,10 @@ const createNewCar = async (event: Event) => {
     name: name,
     color: color,
   };
-  const erorMessage = document.querySelector(`.${GaragePageClassNames.invalidInputMessage}`);
+  const errorMessage = document.querySelector('.error_create');
   if (name.length >= 3) {
-    if (erorMessage) {
-      erorMessage.remove();
+    if (errorMessage) {
+      errorMessage.remove();
     }
     const response = await fetch(`${ServerPath.address}${ServerPath.garage}`, {
       method: RequestMethods.post,
@@ -39,8 +38,8 @@ const createNewCar = async (event: Event) => {
       garage.append(car.render());
     }
   } else {
-    if (!erorMessage) {
-      const error = new InvalidInputMessage();
+    if (!errorMessage) {
+      const error = new InvalidInputMessage(FormClassNames.formCreate);
       form.after(error.render());
     }
   }
