@@ -12,7 +12,7 @@ const createGarage = (carsNumber: carInterface[], cars: carInterface[]) => {
   const headers = createHeaders(PageName.garage, carsNumber);
   headers.forEach((header) => div.append(header));
 
-  div.append(createPaginationButtons());
+  div.append(createPaginationButtons(PageName.garage));
 
   cars.forEach((obj) => {
     const car = new Car(obj);

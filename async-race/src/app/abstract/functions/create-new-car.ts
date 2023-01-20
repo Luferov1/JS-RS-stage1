@@ -19,7 +19,7 @@ const createNewCar = async (event: Event) => {
     color: color,
   };
   const erorMessage = document.querySelector(`.${GaragePageClassNames.invalidInputMessage}`);
-  if (name.length > 3) {
+  if (name.length >= 3) {
     if (erorMessage) {
       erorMessage.remove();
     }

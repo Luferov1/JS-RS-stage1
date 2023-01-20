@@ -54,7 +54,7 @@ class WinnersPage {
     const headers = createHeaders(PageName.winners, this.cars);
     headers.forEach((header) => this.container.append(header));
     this.container.append(this.createTable());
-    this.container.append(createPaginationButtons());
+    this.container.append(createPaginationButtons(PageName.winners));
     return this.container;
   }
 }

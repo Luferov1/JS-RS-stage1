@@ -4,7 +4,9 @@ import CarClassNames from '../enums/car-classNames-enum';
 import GaragePageClassNames from '../enums/garage-page-classNames-enum';
 import RequestMethods from '../enums/request-methods-enum';
 import ServerPath from '../enums/server-path-enum';
+import createGarage from './create-garage';
 import getAllWinners from './get-all-winners';
+import getPageOfCars from './get-page-of-cars';
 import updateCarsNumber from './update-cars-number';
 
 const deleteCar = async (event: Event) => {
@@ -27,6 +29,12 @@ const deleteCar = async (event: Event) => {
     const car = new Car(params);
     const garage = document.querySelector(`.${GaragePageClassNames.container}`) as HTMLElement;
     garage.append(car.render());
+  }
+  if (allCars.length === (GaragePage.params.page - 1) * 7) {
+    const garage = document.querySelector(`.${GaragePageClassNames.container}`) as HTMLElement;
+    const cars = await getPageOfCars(GaragePage.params.page - 1);
+    GaragePage.params.page -= 1;
+    garage.replaceWith(createGarage(allCars, cars));
   }
 };
 
