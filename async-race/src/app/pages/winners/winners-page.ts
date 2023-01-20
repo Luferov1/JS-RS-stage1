@@ -10,6 +10,10 @@ import carInterface from '../../abstract/interfaces/car-interface';
 import createCarSvg from '../../abstract/functions/create-car-svg';
 
 class WinnersPage {
+  static params = {
+    page: 1,
+  };
+
   private container: HTMLElement;
   private winners: winnerInterface[];
   private cars: carInterface[];
@@ -51,7 +55,7 @@ class WinnersPage {
   }
 
   async render() {
-    const headers = createHeaders(PageName.winners, this.cars);
+    const headers = createHeaders(PageName.winners, this.cars, WinnersPage.params.page);
     headers.forEach((header) => this.container.append(header));
     this.container.append(this.createTable());
     this.container.append(createPaginationButtons(PageName.winners));

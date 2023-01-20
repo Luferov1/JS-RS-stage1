@@ -34,7 +34,7 @@ const deleteCar = async (event: Event) => {
     const garage = document.querySelector(`.${GaragePageClassNames.container}`) as HTMLElement;
     const cars = await getPageOfCars(GaragePage.params.page - 1);
     GaragePage.params.page -= 1;
-    garage.replaceWith(createGarage(allCars, cars));
+    garage.replaceWith(createGarage(allCars, cars, GaragePage.params.page));
   }
 };
 

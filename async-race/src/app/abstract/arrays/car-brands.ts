@@ -1,3 +1,3 @@
-const carNames = ['Toyota', 'Honda', 'Tesla', 'Chevrolet', 'Ford', 'Mercedes', 'Jeep', 'BMW', 'Porsche', 'Volkswagen'];
+const carBrands = ['Toyota', 'Honda', 'Tesla', 'Chevrolet', 'Ford', 'Mercedes', 'Jeep', 'BMW', 'Porsche', 'Volkswagen'];
 
-export default carNames;
+export default carBrands;

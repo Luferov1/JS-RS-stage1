@@ -4,9 +4,10 @@ import InputsForm from './components/inputs-form';
 import GaragePageClassNames from '../../abstract/enums/garage-page-classNames-enum';
 import ButtonClassNames from '../../abstract/enums/button-classNames-enum';
 import ButtonText from '../../abstract/enums/button-text-enum';
-import carInterface from '@/app/abstract/interfaces/car-interface';
+import carInterface from '../../abstract/interfaces/car-interface';
 import createGarage from '../../abstract/functions/create-garage';
 import './garage-page.scss';
+import create100Cars from '../../abstract/functions/create-100-cars';
 
 class GaragePage {
   static params = {
@@ -48,6 +49,9 @@ class GaragePage {
       [ButtonClassNames.basic, ButtonClassNames.blue, ButtonClassNames.long],
       ButtonText.generateCars
     );
+
+    generateCarsButton.addEventListener('click', create100Cars);
+
     return [raceButton, resetButton, generateCarsButton];
   }
 
@@ -60,7 +64,7 @@ class GaragePage {
 
   render() {
     this.container.append(this.createButtonsContainer());
-    this.container.append(createGarage(this.carsNumber, this.cars));
+    this.container.append(createGarage(this.carsNumber, this.cars, GaragePage.params.page));
     return this.container;
   }
 }

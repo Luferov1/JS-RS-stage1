@@ -13,7 +13,7 @@ const updateGaragePagination = async (event: Event) => {
     if (cars.length > 0) {
       const carsNumber = await getAllCars();
       GaragePage.params.page += 1;
-      garage.replaceWith(createGarage(carsNumber, cars));
+      garage.replaceWith(createGarage(carsNumber, cars, GaragePage.params.page));
     }
   }
   if (target.classList.contains(ButtonClassNames.prev)) {
@@ -21,7 +21,7 @@ const updateGaragePagination = async (event: Event) => {
       const cars = await getPageOfCars(GaragePage.params.page - 1);
       const carsNumber = await getAllCars();
       GaragePage.params.page -= 1;
-      garage.replaceWith(createGarage(carsNumber, cars));
+      garage.replaceWith(createGarage(carsNumber, cars, GaragePage.params.page));
     }
   }
 };
