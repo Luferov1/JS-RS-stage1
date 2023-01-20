@@ -5,6 +5,8 @@ enum ServerPath {
   garage = '/garage',
   winners = '/winners',
   engine = '/engine',
+  limit = '_limit=7',
+  page = '_page',
 }
 
 export default ServerPath;

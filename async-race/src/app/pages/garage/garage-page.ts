@@ -9,14 +9,18 @@ import createGarage from '../../abstract/functions/create-garage';
 import './garage-page.scss';
 
 class GaragePage {
-  static params = {};
+  static params = {
+    page: 1,
+  };
 
   private container: HTMLElement;
+  private carsNumber: carInterface[];
   private cars: carInterface[];
 
-  constructor(cars: carInterface[]) {
-    this.cars = cars;
+  constructor(carsNumber: carInterface[], cars: carInterface[]) {
+    this.carsNumber = carsNumber;
     this.container = elementCreator(TagNames.main, [GaragePageClassNames.main]);
+    this.cars = cars;
   }
 
   private createFormsContainer() {
@@ -56,7 +60,7 @@ class GaragePage {
 
   render() {
     this.container.append(this.createButtonsContainer());
-    this.container.append(createGarage(this.cars));
+    this.container.append(createGarage(this.carsNumber, this.cars));
     return this.container;
   }
 }

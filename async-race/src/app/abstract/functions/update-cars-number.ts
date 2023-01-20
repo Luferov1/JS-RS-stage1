@@ -6,6 +6,7 @@ const updateCarsNumber = async () => {
   const headerSpan = document.querySelector(`.${GaragePageClassNames.header} ${TagNames.span}`) as HTMLElement;
   const data = await getAllCars();
   headerSpan.innerHTML = `${data.length}`;
+  return data;
 };
 
 export default updateCarsNumber;

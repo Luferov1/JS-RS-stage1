@@ -7,9 +7,9 @@ import createHeaders from './create-headers';
 import Car from '../../pages/garage/components/car';
 import carInterface from '../interfaces/car-interface';
 
-const createGarage = (cars: carInterface[]) => {
+const createGarage = (carsNumber: carInterface[], cars: carInterface[]) => {
   const div = elementCreator(TagNames.div, [GaragePageClassNames.container]);
-  const headers = createHeaders(PageName.garage, cars);
+  const headers = createHeaders(PageName.garage, carsNumber);
   headers.forEach((header) => div.append(header));
 
   div.append(createPaginationButtons());

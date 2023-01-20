@@ -1,5 +1,6 @@
 import Car from '../../pages/garage/components/car';
 import InvalidInputMessage from '../../pages/garage/components/invalid-input-message';
+import CarClassNames from '../enums/car-classNames-enum';
 import FormClassNames from '../enums/form-classNames-enum';
 import GaragePageClassNames from '../enums/garage-page-classNames-enum';
 import RequestMethods from '../enums/request-methods-enum';
@@ -30,9 +31,13 @@ const createNewCar = async (event: Event) => {
       body: JSON.stringify(params),
     });
     const newCarParams = await response.json();
-    const car = new Car(newCarParams);
-    garage.append(car.render());
     await updateCarsNumber();
+    (document.querySelector(`.${FormClassNames.formCreate} .${FormClassNames.inputText}`) as HTMLInputElement).value =
+      '';
+    if (document.querySelectorAll(`.${CarClassNames.container}`).length < 7) {
+      const car = new Car(newCarParams);
+      garage.append(car.render());
+    }
   } else {
     if (!erorMessage) {
       const error = new InvalidInputMessage();
