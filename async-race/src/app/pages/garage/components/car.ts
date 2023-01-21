@@ -10,6 +10,7 @@ import allowInput from '../../../abstract/functions/allow-input';
 import disableInput from '../../../abstract/functions/disable-input';
 import getCarById from '../../../abstract/functions/get-car-by-id';
 import deleteCar from '../../../abstract/functions/delete-car';
+import startEngine from '../../../abstract/functions/start-engine';
 
 class Car {
   private params: carInterface;
@@ -64,15 +65,17 @@ class Car {
 
   private createMain() {
     const div = elementCreator(TagNames.div, [CarClassNames.mainButtons]);
-    const goButton = elementCreator(TagNames.button, [ButtonClassNames.move], ButtonText.go);
+    const goButton = elementCreator(TagNames.button, [ButtonClassNames.move, ButtonClassNames.go], ButtonText.go);
     const backButton = elementCreator(
       TagNames.button,
-      [ButtonClassNames.move, ButtonClassNames.moveDisabled],
+      [ButtonClassNames.move, ButtonClassNames.stop, ButtonClassNames.moveDisabled],
       ButtonText.back
     );
 
     div.append(goButton);
     div.append(backButton);
+
+    goButton.addEventListener('click', startEngine);
 
     return div;
   }

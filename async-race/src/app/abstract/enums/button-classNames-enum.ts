@@ -12,6 +12,8 @@ enum ButtonClassNames {
   select = 'select-button',
   next = 'pagination-next',
   prev = 'pagination-prev',
+  go = 'move-button_go',
+  stop = 'move-button_stop',
 }
 
 export default ButtonClassNames;

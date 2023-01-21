@@ -49,6 +49,7 @@
 .car {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .car__header-buttons {
@@ -68,6 +69,7 @@
   width: 80px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 70px;
 }
 
 .move-button {
@@ -90,6 +92,16 @@
   cursor: auto;
   border: none;
   color: $background-color;
+}
+
+.car__img {
+  position: absolute;
+  // top: 82px;
+  bottom: 0px;
+}
+
+td .car__img {
+  position: static;
 }
 
 .car__track {
