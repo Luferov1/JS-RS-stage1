@@ -8,10 +8,12 @@ import carInterface from '../../abstract/interfaces/car-interface';
 import createGarage from '../../abstract/functions/create-garage';
 import './garage-page.scss';
 import create100Cars from '../../abstract/functions/create-100-cars';
+import raceAllCars from '../../abstract/functions/race-cars';
 
 class GaragePage {
   static params = {
     page: 1,
+    race: false,
   };
 
   private container: HTMLElement;
@@ -51,6 +53,8 @@ class GaragePage {
     );
 
     generateCarsButton.addEventListener('click', create100Cars);
+
+    raceButton.addEventListener('click', raceAllCars);
 
     return [raceButton, resetButton, generateCarsButton];
   }

@@ -7,6 +7,7 @@ interface movingCarParams {
   ratio: number;
   stopButton: HTMLElement;
   goButton: HTMLElement;
+  race: boolean;
 }
 
 export default movingCarParams;

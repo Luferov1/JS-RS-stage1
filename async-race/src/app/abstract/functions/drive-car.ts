@@ -1,10 +1,15 @@
+import GaragePage from '../../pages/garage/garage-page';
 import ButtonClassNames from '../enums/button-classNames-enum';
+import CarClassNames from '../enums/car-classNames-enum';
 import EngineStatus from '../enums/engine-status-enum';
 import RequestMethods from '../enums/request-methods-enum';
 import ServerPath from '../enums/server-path-enum';
 import movingCarParams from '../interfaces/drive-interface';
 import driveParamsInterface from '../interfaces/drive-params-interface';
+// import finishedCarParams from '../interfaces/finished-car-params-interface';
 import cancelAnimation from './cancel-animation';
+// import getCarById from './get-car-by-id';
+import showWin from './show-win';
 
 const driveCar = async (params: movingCarParams) => {
   const controller = new AbortController();
@@ -34,6 +39,12 @@ const driveCar = async (params: movingCarParams) => {
       animation = window.requestAnimationFrame(moveCar);
     } else {
       params.car.style.left = `${params.trackWidth - params.carWidth - params.trackWidth * 0.02}px`;
+      if (GaragePage.params.race) {
+        GaragePage.params.race = !GaragePage.params.race;
+        const name = (params.carContainer.querySelector(`.${CarClassNames.title}`) as HTMLElement)
+          .textContent as string;
+        showWin(name);
+      }
     }
   };
   moveCar();
@@ -62,9 +73,23 @@ const driveCar = async (params: movingCarParams) => {
     );
     if (driveResponse.status === 500) {
       cancelAnimation(animation);
-    }
+      return null;
+    } /* else {
+      const finishedCar = await getCarById(params.id);
+      const obj: finishedCarParams = {
+        color: finishedCar.color,
+        name: finishedCar.name,
+        time: time,
+      };
+      if (GaragePage.params.race) {
+        GaragePage.params.race = false;
+        obj.winner = true;
+      }
+      return obj;
+    } */
   } catch (err) {
     console.log('drive canceled');
+    return null;
   }
 };
 
