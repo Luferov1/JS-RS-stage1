@@ -6,8 +6,10 @@ import RequestMethods from '../enums/request-methods-enum';
 import ServerPath from '../enums/server-path-enum';
 import movingCarParams from '../interfaces/drive-interface';
 import driveParamsInterface from '../interfaces/drive-params-interface';
+import finishedCarParams from '../interfaces/finished-car-params-interface';
 // import finishedCarParams from '../interfaces/finished-car-params-interface';
 import cancelAnimation from './cancel-animation';
+import getCarById from './get-car-by-id';
 // import getCarById from './get-car-by-id';
 import showWin from './show-win';
 
@@ -22,7 +24,7 @@ const driveCar = async (params: movingCarParams) => {
   );
 
   const driveParams: driveParamsInterface = await startResponse.json();
-  // const time = driveParams.distance / driveParams.velocity / 1000;
+  const time = Math.ceil((driveParams.distance / driveParams.velocity / 100) * 2) / 10;
   const speed = ((driveParams.velocity * params.trackWidth) / driveParams.distance) * params.ratio;
 
   let position = 0;
@@ -61,6 +63,10 @@ const driveCar = async (params: movingCarParams) => {
     await fetch(`${ServerPath.address}${ServerPath.engine}?id=${params.id}&status=${EngineStatus.stopped}`, {
       method: RequestMethods.patch,
     });
+    const goButtons = [...document.querySelectorAll(`.${ButtonClassNames.go}`)];
+    if (goButtons.filter((button) => button.classList.contains(ButtonClassNames.moveDisabled)).length === 0) {
+      (document.querySelector(`.${ButtonClassNames.race}`) as HTMLElement).classList.remove(ButtonClassNames.active);
+    }
   });
 
   try {
@@ -74,19 +80,16 @@ const driveCar = async (params: movingCarParams) => {
     if (driveResponse.status === 500) {
       cancelAnimation(animation);
       return null;
-    } /* else {
+    } else {
       const finishedCar = await getCarById(params.id);
       const obj: finishedCarParams = {
         color: finishedCar.color,
         name: finishedCar.name,
         time: time,
+        id: params.id,
       };
-      if (GaragePage.params.race) {
-        GaragePage.params.race = false;
-        obj.winner = true;
-      }
       return obj;
-    } */
+    }
   } catch (err) {
     console.log('drive canceled');
     return null;

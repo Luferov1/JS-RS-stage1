@@ -14,6 +14,8 @@ enum ButtonClassNames {
   prev = 'pagination-prev',
   go = 'move-button_go',
   stop = 'move-button_stop',
+  race = 'race-button',
+  disabled = 'button_disabled',
 }
 
 export default ButtonClassNames;

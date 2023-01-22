@@ -14,6 +14,7 @@ class GaragePage {
   static params = {
     page: 1,
     race: false,
+    lastWinnerId: '',
   };
 
   private container: HTMLElement;
@@ -38,7 +39,7 @@ class GaragePage {
   private createButtons() {
     const raceButton = elementCreator(
       TagNames.button,
-      [ButtonClassNames.basic, ButtonClassNames.yellow],
+      [ButtonClassNames.basic, ButtonClassNames.yellow, ButtonClassNames.race],
       ButtonText.race
     );
     const resetButton = elementCreator(

@@ -67,7 +67,7 @@ class App {
 
   private changePage(event: Event) {
     const target = event.target as Element;
-    if (!target.classList.contains(ButtonClassNames.active)) {
+    if (!target.classList.contains(ButtonClassNames.active) && !target.classList.contains(ButtonClassNames.disabled)) {
       if (App.params.activePage === PageName.garage) {
         App.params.activePage = PageName.winners;
         App.params.garageButton.classList.remove(ButtonClassNames.active);

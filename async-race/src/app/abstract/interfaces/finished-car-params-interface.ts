@@ -2,7 +2,7 @@ interface finishedCarParams {
   color: string;
   name: string;
   time: number;
-  winner?: boolean;
+  id: string;
 }
 
 export default finishedCarParams;
