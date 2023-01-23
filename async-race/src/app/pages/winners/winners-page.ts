@@ -16,7 +16,6 @@ class WinnersPage {
 
   private container: HTMLElement;
   private winners: winnerInterface[];
-  // private allCars: carInterface[];
   private cars: carInterface[];
 
   constructor(cars: carInterface[], winners: winnerInterface[], allWinners: winnerInterface[]) {
