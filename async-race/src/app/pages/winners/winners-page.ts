@@ -7,10 +7,14 @@ import GaragePageClassNames from '../../abstract/enums/garage-page-classNames-en
 import winnerInterface from '../../abstract/interfaces/winner-interface';
 import carInterface from '../../abstract/interfaces/car-interface';
 import createTable from '../../abstract/functions/create-table';
+import Sorting from '../../abstract/enums/sorting-enum';
+import Order from '../../abstract/enums/order-enum';
 
 class WinnersPage {
   static params = {
     page: 1,
+    sort: Sorting.id,
+    order: Order.none,
   };
 
   private container: HTMLElement;

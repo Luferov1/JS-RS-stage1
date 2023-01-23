@@ -8,6 +8,8 @@ enum ServerPath {
   limit = '_limit=7',
   limitW = '_limit=10',
   page = '_page',
+  sort = '_sort',
+  order = '_order',
 }
 
 export default ServerPath;

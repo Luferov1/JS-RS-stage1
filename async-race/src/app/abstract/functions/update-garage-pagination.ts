@@ -24,6 +24,7 @@ const updateGaragePagination = async (event: Event) => {
       garage.replaceWith(createGarage(carsNumber, cars, GaragePage.params.page));
     }
   }
+  localStorage.setItem('garage-page', String(GaragePage.params.page));
 };
 
 export default updateGaragePagination;

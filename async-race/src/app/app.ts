@@ -51,7 +51,12 @@ class App {
 
       if (App.params.activePage === PageName.garage) {
         const carsNumber = await getAllCars();
-        const cars = await getPageOfCars(1);
+        let cars;
+        if (localStorage.getItem('garage-page')) {
+          cars = await getPageOfCars(+(localStorage.getItem('garage-page') as string));
+        } else {
+          cars = await getPageOfCars(1);
+        }
         const garagePage = new GaragePage(carsNumber, cars);
         page = garagePage.render();
       } else {

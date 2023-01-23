@@ -25,6 +25,7 @@ const updateWinnersPagination = async (event: Event) => {
       winnersTable.replaceWith(createTable(cars, carsNumber));
     }
   }
+  localStorage.setItem('garage-page', String(WinnersPage.params.page));
 };
 
 export default updateWinnersPagination;
