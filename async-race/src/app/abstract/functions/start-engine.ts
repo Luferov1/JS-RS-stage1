@@ -20,6 +20,12 @@ const startEngine = async (event: Event) => {
       race: false,
     };
 
+    const car = goButton.closest(`.${CarClassNames.container}`) as HTMLElement;
+    const selectButton = car.querySelector(`.${ButtonClassNames.select}`) as HTMLElement;
+    const removeButton = car.querySelector(`.${ButtonClassNames.remove}`) as HTMLElement;
+    selectButton.classList.add(ButtonClassNames.disabled);
+    removeButton.classList.add(ButtonClassNames.disabled);
+
     await driveCar(params);
   }
 };

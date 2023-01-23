@@ -48,7 +48,7 @@ class Car {
     );
     const removeButton = elementCreator(
       TagNames.button,
-      [ButtonClassNames.basic, ButtonClassNames.blue],
+      [ButtonClassNames.basic, ButtonClassNames.blue, ButtonClassNames.remove],
       ButtonText.remove
     );
     const header = elementCreator(TagNames.h3, [CarClassNames.title], this.params.name);

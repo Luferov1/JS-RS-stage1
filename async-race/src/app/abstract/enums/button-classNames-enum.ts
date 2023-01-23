@@ -17,6 +17,7 @@ enum ButtonClassNames {
   race = 'race-button',
   disabled = 'button_disabled',
   reset = 'reset-button',
+  remove = 'remove-button',
 }
 
 export default ButtonClassNames;

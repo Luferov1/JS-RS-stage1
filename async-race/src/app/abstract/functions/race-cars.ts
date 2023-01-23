@@ -17,6 +17,12 @@ const raceAllCars = async (event: Event) => {
   const stopButtons = [...document.querySelectorAll(`.${ButtonClassNames.stop}`)];
   const promisies = [];
 
+  const selectButtons = [...document.querySelectorAll(`.${ButtonClassNames.select}`)];
+  const removeButtons = [...document.querySelectorAll(`.${ButtonClassNames.remove}`)];
+
+  selectButtons.forEach((button) => button.classList.add(ButtonClassNames.disabled));
+  removeButtons.forEach((button) => button.classList.add(ButtonClassNames.disabled));
+
   GaragePage.params.race = true;
 
   for (let i = 0; i < containers.length; i += 1) {
@@ -34,7 +40,7 @@ const raceAllCars = async (event: Event) => {
     promisies.push(driveCar(params));
   }
   const arr: finishedCarParams[] = [];
-  const x = Promise.allSettled(promisies).then((results) =>
+  const raceResults = Promise.allSettled(promisies).then((results) =>
     results.forEach((result) => {
       if (result.status === 'fulfilled') {
         if (result.value) {
@@ -43,7 +49,7 @@ const raceAllCars = async (event: Event) => {
       }
     })
   );
-  await x;
+  await raceResults;
   await setWinner(arr.sort((a, b) => a.time - b.time)[0]);
   winnersPageButton.classList.remove(ButtonClassNames.disabled);
   resetButton.classList.remove(ButtonClassNames.disabled);
