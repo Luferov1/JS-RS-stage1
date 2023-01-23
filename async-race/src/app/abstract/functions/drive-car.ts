@@ -53,14 +53,14 @@ const driveCar = async (params: movingCarParams) => {
   params.stopButton.classList.remove(ButtonClassNames.moveDisabled);
 
   params.stopButton.addEventListener('click', async () => {
-    params.goButton.classList.remove(ButtonClassNames.moveDisabled);
-    params.stopButton.classList.add(ButtonClassNames.moveDisabled);
-    cancelAnimation(animation);
-    params.car.style.left = '0px';
     controller.abort();
     await fetch(`${ServerPath.address}${ServerPath.engine}?id=${params.id}&status=${EngineStatus.stopped}`, {
       method: RequestMethods.patch,
     });
+    params.goButton.classList.remove(ButtonClassNames.moveDisabled);
+    params.stopButton.classList.add(ButtonClassNames.moveDisabled);
+    cancelAnimation(animation);
+    params.car.style.left = '0px';
     const goButtons = [...document.querySelectorAll(`.${ButtonClassNames.go}`)];
     if (goButtons.filter((button) => button.classList.contains(ButtonClassNames.moveDisabled)).length === 0) {
       (document.querySelector(`.${ButtonClassNames.race}`) as HTMLElement).classList.remove(ButtonClassNames.active);
