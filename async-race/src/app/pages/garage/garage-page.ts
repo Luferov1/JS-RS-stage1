@@ -9,6 +9,7 @@ import createGarage from '../../abstract/functions/create-garage';
 import './garage-page.scss';
 import create100Cars from '../../abstract/functions/create-100-cars';
 import raceAllCars from '../../abstract/functions/race-cars';
+import resetRace from '../../abstract/functions/reset-race';
 
 class GaragePage {
   static params = {
@@ -44,7 +45,7 @@ class GaragePage {
     );
     const resetButton = elementCreator(
       TagNames.button,
-      [ButtonClassNames.basic, ButtonClassNames.yellow],
+      [ButtonClassNames.basic, ButtonClassNames.yellow, ButtonClassNames.disabled, ButtonClassNames.reset],
       ButtonText.reset
     );
     const generateCarsButton = elementCreator(
@@ -56,6 +57,7 @@ class GaragePage {
     generateCarsButton.addEventListener('click', create100Cars);
 
     raceButton.addEventListener('click', raceAllCars);
+    resetButton.addEventListener('click', resetRace);
 
     return [raceButton, resetButton, generateCarsButton];
   }

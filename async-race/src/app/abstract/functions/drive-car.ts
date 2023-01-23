@@ -7,10 +7,8 @@ import ServerPath from '../enums/server-path-enum';
 import movingCarParams from '../interfaces/drive-interface';
 import driveParamsInterface from '../interfaces/drive-params-interface';
 import finishedCarParams from '../interfaces/finished-car-params-interface';
-// import finishedCarParams from '../interfaces/finished-car-params-interface';
 import cancelAnimation from './cancel-animation';
 import getCarById from './get-car-by-id';
-// import getCarById from './get-car-by-id';
 import showWin from './show-win';
 
 const driveCar = async (params: movingCarParams) => {
@@ -66,6 +64,10 @@ const driveCar = async (params: movingCarParams) => {
     const goButtons = [...document.querySelectorAll(`.${ButtonClassNames.go}`)];
     if (goButtons.filter((button) => button.classList.contains(ButtonClassNames.moveDisabled)).length === 0) {
       (document.querySelector(`.${ButtonClassNames.race}`) as HTMLElement).classList.remove(ButtonClassNames.active);
+      (document.querySelector(`.${ButtonClassNames.winners}`) as HTMLElement).classList.remove(
+        ButtonClassNames.disabled
+      );
+      GaragePage.params.race = false;
     }
   });
 

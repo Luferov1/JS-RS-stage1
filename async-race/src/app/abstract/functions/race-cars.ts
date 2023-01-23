@@ -8,6 +8,7 @@ import setWinner from './set-winner';
 
 const raceAllCars = async (event: Event) => {
   const winnersPageButton = document.querySelector(`.${ButtonClassNames.winners}`) as HTMLElement;
+  const resetButton = document.querySelector(`.${ButtonClassNames.reset}`) as HTMLElement;
   winnersPageButton.classList.add(ButtonClassNames.disabled);
   const target = event.target as HTMLElement;
   target.classList.add(ButtonClassNames.active);
@@ -45,6 +46,7 @@ const raceAllCars = async (event: Event) => {
   await x;
   await setWinner(arr.sort((a, b) => a.time - b.time)[0]);
   winnersPageButton.classList.remove(ButtonClassNames.disabled);
+  resetButton.classList.remove(ButtonClassNames.disabled);
 };
 
 export default raceAllCars;

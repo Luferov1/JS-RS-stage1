@@ -6,10 +6,12 @@ import createPaginationButtons from './create-pagination-buttons';
 import createHeaders from './create-headers';
 import Car from '../../pages/garage/components/car';
 import carInterface from '../interfaces/car-interface';
+import ButtonClassNames from '../enums/button-classNames-enum';
 
 const createGarage = (carsNumber: carInterface[], cars: carInterface[], pageNumber: number) => {
   const div = elementCreator(TagNames.div, [GaragePageClassNames.container]);
   const headers = createHeaders(PageName.garage, carsNumber, pageNumber);
+  const raceButton = document.querySelector(`.${ButtonClassNames.race}`);
   headers.forEach((header) => div.append(header));
 
   div.append(createPaginationButtons(PageName.garage));
@@ -18,6 +20,10 @@ const createGarage = (carsNumber: carInterface[], cars: carInterface[], pageNumb
     const car = new Car(obj);
     div.append(car.render());
   });
+
+  if (raceButton) {
+    raceButton.classList.remove(ButtonClassNames.active);
+  }
 
   return div;
 };
