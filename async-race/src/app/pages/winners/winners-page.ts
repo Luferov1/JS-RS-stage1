@@ -16,12 +16,13 @@ class WinnersPage {
 
   private container: HTMLElement;
   private winners: winnerInterface[];
+  // private allCars: carInterface[];
   private cars: carInterface[];
 
-  constructor(cars: carInterface[], winners: winnerInterface[]) {
+  constructor(cars: carInterface[], winners: winnerInterface[], allWinners: winnerInterface[]) {
     this.container = elementCreator(TagNames.main, [GaragePageClassNames.main]);
     this.winners = winners;
-    this.cars = cars.filter((car) => winners.map((winner) => winner.id).includes(car.id));
+    this.cars = cars.filter((car) => allWinners.map((winner) => winner.id).includes(car.id));
   }
 
   private createTable() {

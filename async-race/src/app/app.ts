@@ -8,6 +8,7 @@ import getAllCars from './abstract/functions/get-all-cars';
 import getAllWinners from './abstract/functions/get-all-winners';
 import './app.scss';
 import getPageOfCars from './abstract/functions/get-page-of-cars';
+import getPageOfWinners from './abstract/functions/get-page-of-winners';
 
 class App {
   static params = {
@@ -55,8 +56,9 @@ class App {
         page = garagePage.render();
       } else {
         const carsNumber = await getAllCars();
-        const winners = await getAllWinners();
-        const winnersPage = new WinnersPage(carsNumber, winners);
+        const allWinners = await getAllWinners();
+        const winnersOnPage = await getPageOfWinners(WinnersPage.params.page);
+        const winnersPage = new WinnersPage(carsNumber, winnersOnPage, allWinners);
         page = await winnersPage.render();
       }
 

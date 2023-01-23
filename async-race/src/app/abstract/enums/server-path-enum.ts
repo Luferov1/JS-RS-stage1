@@ -6,6 +6,7 @@ enum ServerPath {
   winners = '/winners',
   engine = '/engine',
   limit = '_limit=7',
+  limitW = '_limit=10',
   page = '_page',
 }
 
