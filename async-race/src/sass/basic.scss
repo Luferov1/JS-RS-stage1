@@ -86,6 +86,10 @@ table {
     }
   }
 
+  th:nth-child(4), th:nth-child(5) {
+    cursor: pointer;
+  } 
+
   td {
     background-color:$white-color;
     color: $black-color;

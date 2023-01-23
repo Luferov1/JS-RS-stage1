@@ -2,8 +2,8 @@ enum TableHeaders {
   number = 'Number',
   car = 'Car',
   name = 'Name',
-  wins = 'Wins',
-  time = 'Best time (seconds)',
+  wins = 'Wins (click)',
+  time = 'Best time (seconds) (click)',
 }
 
 export default TableHeaders;

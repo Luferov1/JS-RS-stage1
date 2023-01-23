@@ -69,10 +69,6 @@ const driveCar = async (params: movingCarParams) => {
       );
       GaragePage.params.race = false;
     }
-    const selectButton = params.carContainer.querySelector(`.${ButtonClassNames.select}`) as HTMLElement;
-    const removeButton = params.carContainer.querySelector(`.${ButtonClassNames.remove}`) as HTMLElement;
-    selectButton.classList.remove(ButtonClassNames.disabled);
-    removeButton.classList.remove(ButtonClassNames.disabled);
   });
 
   try {
@@ -83,6 +79,10 @@ const driveCar = async (params: movingCarParams) => {
         signal: controller.signal,
       }
     );
+    const selectButton = params.carContainer.querySelector(`.${ButtonClassNames.select}`) as HTMLElement;
+    const removeButton = params.carContainer.querySelector(`.${ButtonClassNames.remove}`) as HTMLElement;
+    selectButton.classList.remove(ButtonClassNames.disabled);
+    removeButton.classList.remove(ButtonClassNames.disabled);
     if (driveResponse.status === 500) {
       cancelAnimation(animation);
       return null;
